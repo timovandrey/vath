@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "PolynomialSolver/1.0.0": {
+        "runtime": {
+          "PolynomialSolver.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PolynomialSolver/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
