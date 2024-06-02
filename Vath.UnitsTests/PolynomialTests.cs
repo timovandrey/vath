@@ -81,10 +81,7 @@ namespace Vath.UnitTests
         {
             List<bool> correctIndexing = new List<bool>();
 
-
-
-
-
+            // TODO!
 
             Assert.IsTrue(correctIndexing.All(x => x));
         }
@@ -164,7 +161,7 @@ namespace Vath.UnitTests
             Assert.Inconclusive();
         }
         [TestMethod]
-        public void EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultIsCorrect()
+        public void EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect()
         {
             const double errorMarginInPercent = 0.001f;
             Polynomial polynomial = new Polynomial(new CoefficientList() { -0.05f, -0.075f, 0.1f, 2.00f });
@@ -277,7 +274,7 @@ namespace Vath.UnitTests
             Assert.IsTrue(correctZeros.SequenceEqual(calculatedZeros));
         }
         [TestMethod]
-        public void FindZeros_PolynomialIsGiven_ResultIsCorrect()
+        public void FindZeros_PolynomialIsGiven_ResultsAreCorrect()
         {
             List<Polynomial> testPolynomials = new List<Polynomial>()
             {
@@ -304,7 +301,7 @@ namespace Vath.UnitTests
             Assert.IsTrue(equalsVector.All(x => x));
         }
         [TestMethod]
-        public void EvaluateComplexAt_RealAndComplexValuesAreGiven_ResultIsCorrect()
+        public void EvaluateComplexAt_RealAndComplexValuesAreGiven_ResultsAreCorrect()
         {
             Polynomial function = new Polynomial(new CoefficientList() { 3, 4, 5, 1, 0.5 });
 
@@ -346,7 +343,7 @@ namespace Vath.UnitTests
                                                                     });
             Polynomial z = x * MULTIPLICATION_CONSTANT;
             Assert.IsTrue(y == z);
-        }        
+        }
         [TestMethod]
         public void Operator_DivisionByConstant_ResultIsCorrect()
         {
@@ -377,6 +374,109 @@ namespace Vath.UnitTests
         {
             Polynomial x = new Polynomial();
             Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void Operator_PolynomialDivisionSeveralDivisions_ResultsAreCorrect()
+        {
+            List<bool> resultsCorrect = new List<bool>();
+            List<Polynomial> numerators = new List<Polynomial>()
+            {
+                new Polynomial(new CoefficientList(){ 1, -1, -12, -4, +16 }),
+                new Polynomial(new CoefficientList(){ -6, -28, -16, 0 }),
+                new Polynomial(new CoefficientList(){ -3, +9, 0, 0, 0 }),
+                new Polynomial(new CoefficientList(){ -7, -18, -8, 0, 0 }),
+                new Polynomial(new CoefficientList(){ 3, -4, -15, -4, 12 }),
+                new Polynomial(new CoefficientList(){ 7, -21, -6, 16, 6 }),
+                new Polynomial(new CoefficientList(){ 3, 12, 0 }),
+                new Polynomial(new CoefficientList(){ -7, -37, -10, 0, 0 }),
+                new Polynomial(new CoefficientList(){ 1, -4, -5, 6, -30 }),
+                new Polynomial(new CoefficientList(){ -6, -6, 1, -5, -6 }),
+                new Polynomial(new CoefficientList(){ -2, 12, -18 }),
+                new Polynomial(new CoefficientList(){ 4, 2, -1, 1 }),
+                new Polynomial(new CoefficientList(){ 1, 5, -3, 1 }),
+                new Polynomial(new CoefficientList(){ 2, -3, 4, 5 }),
+                new Polynomial(new CoefficientList(){ 2, 3, 0, 0, -1 }),
+                new Polynomial(new CoefficientList(){ 1, 0, 2, 0, 0, -4 }),
+                new Polynomial(new CoefficientList(){ 3, 0, -2, 0, 0, 1, 0, 0}),
+            };                                        
+            List<Polynomial> denominators = new List<Polynomial>()
+            {
+                new Polynomial(new CoefficientList(){ 1, -1 }),
+                new Polynomial(new CoefficientList(){ 1, 4 }),
+                new Polynomial(new CoefficientList(){ 1, -3 }),
+                new Polynomial(new CoefficientList(){ 1, 2 }),
+                new Polynomial(new CoefficientList(){ 1, -3 }),
+                new Polynomial(new CoefficientList(){ 1, -3 }),
+                new Polynomial(new CoefficientList(){ 1, 4 }),
+                new Polynomial(new CoefficientList(){ 1, 5 }),
+                new Polynomial(new CoefficientList(){ 1, -5 }),
+                new Polynomial(new CoefficientList(){ 1, 1 }),
+                new Polynomial(new CoefficientList(){ 1, -3 }),
+                new Polynomial(new CoefficientList(){ 2, -2, 1 }),
+                new Polynomial(new CoefficientList(){ 2, 1, -3 }),
+                new Polynomial(new CoefficientList(){ 1, 2 }),
+                new Polynomial(new CoefficientList(){ 1, 2, -1, 1 }),
+                new Polynomial(new CoefficientList(){ 1, 0, 1, 0, 1 }),
+                new Polynomial(new CoefficientList(){ 1, 1, -2, 1 }),
+            };                                        
+            List<Polynomial> correctResults = new List<Polynomial>()
+            {
+                new Polynomial(new CoefficientList(){ 1, 0, -12, -16 }),
+                new Polynomial(new CoefficientList(){ -6, -4, 0 }),
+                new Polynomial(new CoefficientList(){ -3, 0, 0, 0 }),
+                new Polynomial(new CoefficientList(){ -7, -4, 0, 0 }),
+                new Polynomial(new CoefficientList(){ 3, 5, 0, -4 }),
+                new Polynomial(new CoefficientList(){ 7, 0, -6, -2 }),
+                new Polynomial(new CoefficientList(){ 3, 0 }),
+                new Polynomial(new CoefficientList(){ -7, -2, 0, 0 }),
+                new Polynomial(new CoefficientList(){ 1, 1, 0, 6 }),
+                new Polynomial(new CoefficientList(){ -6, 0, 1, -6 }),
+                new Polynomial(new CoefficientList(){ -2, 6 }),
+                new Polynomial(new CoefficientList(){ 2, 3 }),
+                new Polynomial(new CoefficientList(){ (1.0f/2.0f), (9.0f/4.0f) }),
+                new Polynomial(new CoefficientList(){ 2, -7, 18 }),
+                new Polynomial(new CoefficientList(){ 2, -1 }),
+                new Polynomial(new CoefficientList(){ 1, 0 }),
+                new Polynomial(new CoefficientList(){ 3, -3, 7, -16, 33 }),
+            };                                        
+            List<Polynomial> calculatedResults = new List<Polynomial>();
+
+            // Special case for polynomials with residuals
+            correctResults[11].Rest = new Terms() { new Term(3, 1), new Term(-2, 0) };
+            correctResults[12].Rest = new Terms() { new Term((-15.0f / 4.0f), 1), new Term((31.0f / 4.0f), 0) };
+            correctResults[13].Rest = new Terms() { new Term(-31, 0) };
+            correctResults[14].Rest = new Terms() { new Term(4, 2), new Term(-3, 1) };
+            correctResults[15].Rest = new Terms() { new Term(1, 3), new Term(-1, 1), new Term(-4, 0) };
+            correctResults[16].Rest = new Terms() { new Term(-71, 2), new Term(82, 1), new Term(-33, 0) };
+
+            for (int i = 0; i < correctResults.Count(); i++)
+            {
+                calculatedResults.Add(numerators[i] / denominators[i]);
+                resultsCorrect.Add(
+                                    calculatedResults[calculatedResults.Count() - 1] ==
+                                    correctResults[i]
+                                    );
+
+                // Check the rest
+                if(correctResults[i].Rest == null)
+                {
+                    resultsCorrect.Add(calculatedResults[calculatedResults.Count() - 1].Rest == null);
+                }
+                else
+                {
+                    resultsCorrect.Add(calculatedResults[calculatedResults.Count() - 1].Rest.SequenceEqual(correctResults[i].Rest));
+                }
+            }
+
+
+            resultsCorrect.Add(calculatedResults[11].Rest.SequenceEqual(correctResults[11].Rest));
+            resultsCorrect.Add(calculatedResults[12].Rest.SequenceEqual(correctResults[12].Rest));
+            resultsCorrect.Add(calculatedResults[13].Rest.SequenceEqual(correctResults[13].Rest));
+            resultsCorrect.Add(calculatedResults[14].Rest.SequenceEqual(correctResults[14].Rest));
+
+
+            Assert.IsTrue(resultsCorrect.All(x => x));
         }
     }
 }

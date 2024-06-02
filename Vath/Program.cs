@@ -11,15 +11,10 @@ namespace Vath.Program
         {
             Console.WriteLine("Started program ...");
 
-            //Polynomial A = new Term(3, 3) + new Term(3, 2) + new Term(3, 1) + new Term(3, 1);
-            //Console.WriteLine(A);
+            Polynomial A = new Polynomial();
+            A.Rest = new Terms() { new Term(1, 1), new Term(2, 2), new Term(3, 3), new Term(4, 4) };
 
-            Polynomial B = new Polynomial(new CoefficientList() { 0, 0, 3, 2, 1, 0});
-            Console.WriteLine(B);
-            
-
-            Console.WriteLine("... done program.");
-            Console.ReadLine();
+            Console.WriteLine("... done Progam.");
         }
     }
 }

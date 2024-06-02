@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5Mgfya7BA+w82E0nafu5aSggOa7A2c3XiaPlQHCA3ngwmxOnqBZQkbOP6tkjOCzytvF9bxu3WIK16zWHV55Wog==",
-  "success": false,
-  "projectFilePath": "C:\\Users\\accou\\source\\repos\\Vath\\Vath.UnitsTests\\Vath.UnitsTests.csproj",
+  "dgSpecHash": "1KcbbMVoBGWS8DZdmsaDTueZw4eFptt18kib9h1rAPKUvV/B8yibfTnsRE4+GYNQq/rqUCKV6NkLhG5eBYfBGw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.UnitsTests\\Vath.UnitsTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\accou\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\accou\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
@@ -15,15 +15,5 @@
     "C:\\Users\\accou\\.nuget\\packages\\nuget.frameworks\\6.5.0\\nuget.frameworks.6.5.0.nupkg.sha512",
     "C:\\Users\\accou\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\accou\\source\\repos\\Vath\\PolynomialSolver\\Vath.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\accou\\source\\repos\\Vath\\PolynomialSolver\\Vath.csproj",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

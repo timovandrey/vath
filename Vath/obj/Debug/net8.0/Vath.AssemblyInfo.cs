@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vath")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+680f15a6b86ded282a0a10b8a9de170a934dc333")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vath")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vath")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

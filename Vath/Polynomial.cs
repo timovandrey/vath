@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Collections;
 using System.Numerics;
-using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Vath.Components
 {
-    using TermList = List<Term>;
-    using Terms = List<Term>;
     using CoefficientList = List<double>;
+    using Terms = List<Term>;
 
     /// <summary>
     /// TODO
@@ -56,7 +47,7 @@ namespace Vath.Components
             Term nullTerm = new Term(0.0f, 0);
             Terms emptyTerms = new Terms() { nullTerm };
             this._terms = emptyTerms;
-            this._order = Polynomial.getHighestOrderOfPolynomialTerms(this.Terms);
+            this._order = Polynomial.GetHighestOrderOfPolynomialTerms(this.Terms);
         }
 
         /// <summary>
@@ -77,7 +68,7 @@ namespace Vath.Components
                 terms.Add(new Term(coefficientList[(coefficientList.Count - 1) - i], i));
             }
             this.Terms = terms;
-            this._order = Polynomial.getHighestOrderOfPolynomialTerms(this.Terms);
+            this._order = Polynomial.GetHighestOrderOfPolynomialTerms(this.Terms);
         }
 
         /// <summary>
@@ -91,7 +82,7 @@ namespace Vath.Components
             {
                 this.Terms = new Terms();
             }
-            this._order = Polynomial.getHighestOrderOfPolynomialTerms(this.Terms);
+            this._order = Polynomial.GetHighestOrderOfPolynomialTerms(this.Terms);
         }
 
         /// <summary>
@@ -125,59 +116,72 @@ namespace Vath.Components
                 if (termList is null)
                 {
                     termList = new Terms { new Term(0, 0) };
-                    return;
                 }
-
-                {
-                    //Terms termsCombined = new Terms();
-
-                    //for(int termIdx = 0; termIdx < termList.Count; termIdx++ ) 
-                    //{ 
-                    //    int currentExponent = termList[termIdx].Exponent;
-                    //    Term? alreadyInListTerm = termsCombined.Find(item => item.Exponent == currentExponent);
-
-                    //    if (alreadyInListTerm is null)
-                    //    {
-                    //        Term accumulatorTerm = new Term(termList[termIdx]);
-
-                    //        for (int testTermIdx = 0; testTermIdx < termList.Count; testTermIdx++)
-                    //        {
-                    //            if(termIdx == testTermIdx)
-                    //            {
-                    //                continue;
-                    //            }
-
-                    //            if (termList[testTermIdx].Exponent == currentExponent)
-                    //            {
-                    //                accumulatorTerm.Coefficient = accumulatorTerm.Coefficient + termList[testTermIdx].Coefficient;
-                    //            }
-                    //        }
-
-                    //        termsCombined.Add(accumulatorTerm);
-                    //    }
-                    //}
-                    //termsCombined = termsCombined.OrderByDescending(term => term.Exponent).ToList();
-                    //this._terms = termsCombined;
-                }
-
                 this._terms = Polynomial.CombineTerms(termList);
+                this.Order = Polynomial.GetHighestOrderOfPolynomialTerms(termList);
             }
         }
         private Terms _terms;
+
+
+        /// <summary>
+        /// The residual of the polynomial when doing polynomial division.
+        /// </summary>
+        /// <remarks>
+        /// This is just a temporary implementation. The whole polynomial concept shall be continued in another fashion later on.
+        /// </remarks>
+        public Terms? Rest
+        {
+            get { return this._rest; }
+            // Sorts and combines terms 
+            set
+            {
+                Terms? termList = value;
+                if (termList is null)
+                {
+                    this._rest = null;
+                    this._restDegree = null;
+                }
+                else
+                {
+                    this._rest = Polynomial.CombineTerms(termList);
+                    this.RestDegree = Polynomial.GetHighestOrderOfPolynomialTerms(termList);
+                }
+            }
+        }
+        private Terms? _rest;
 
         /// <summary>
         /// Contains the order of the polynomial.
         /// </summary>
         public int Order
-        { get
+        { 
+            get
             {
                 return this._order;
             }
-            set
+            private set
             {
+                this._order = value;
             }
         }
         private int _order;
+
+        /// <summary>
+        /// Contains the order of the polynomial.
+        /// </summary>
+        public int? RestDegree
+        {
+            get
+            {
+                return this._restDegree;
+            }
+            private set
+            {
+                this._restDegree = value;
+            }
+        }
+        private int? _restDegree;
 
         #endregion
         #region Overriden operators
@@ -185,7 +189,6 @@ namespace Vath.Components
         {
             return (right + left);
         }
-
         public static Polynomial operator -(Term left, Polynomial right)
         {
             Terms? newTerms = Term.Clone(right.Terms);
@@ -204,7 +207,6 @@ namespace Vath.Components
 
             return (new Polynomial(newTerms) + left);
         }
-
         public static Polynomial operator +(Polynomial left, Term right)
         {
             Terms? newTerms = left.Terms;
@@ -218,7 +220,6 @@ namespace Vath.Components
             }
             return new Polynomial(newTerms);
         }
-
         public static Polynomial operator -(Polynomial left, Term right)
         {
             Terms? newTerms = Term.Clone(left.Terms);
@@ -233,7 +234,6 @@ namespace Vath.Components
 
             return new Polynomial(newTerms);
         }
-
         public static Polynomial operator +(Polynomial? left, Polynomial? right)
         {
             Terms newTerms = new Terms();
@@ -252,7 +252,6 @@ namespace Vath.Components
 
             return new Polynomial(newTerms);
         }
-
         public static Polynomial operator -(Polynomial left, in Polynomial right)
         {
             Terms newRightTerms = new Terms();
@@ -269,7 +268,6 @@ namespace Vath.Components
 
             return (left + new Polynomial(newRightTerms));
         }
-
         public static bool operator ==(Polynomial left, Polynomial right)
         {
             if(left is null)
@@ -282,7 +280,6 @@ namespace Vath.Components
             }
             return left.Equals(right);
         }
-
         public static bool operator !=(Polynomial left, Polynomial right)
         {
             if (left is null)
@@ -295,11 +292,10 @@ namespace Vath.Components
             }
             return !left.Equals(right);
         }
-
         public static Polynomial operator *(Polynomial left, Polynomial right)
         {
-            Polynomial inLeft = Polynomial.Clone(left);
-            Polynomial inRight = Polynomial.Clone(right);
+            Polynomial inLeft = new Polynomial(left);
+            Polynomial inRight = new Polynomial(right);
             Terms terms = new Terms() { new Term(0, 0) };
 
             foreach (Term leftTerm in inLeft.Terms)
@@ -311,7 +307,6 @@ namespace Vath.Components
             }
             return new Polynomial(terms);
         }
-
         public static Polynomial operator *(Polynomial left, double constantRight)
         {
             Polynomial input = new Polynomial(left);
@@ -322,7 +317,6 @@ namespace Vath.Components
             }
             return output;
         }
-
         public static Polynomial operator /(Polynomial numerator, Polynomial denominator)
         {
             if (denominator == new Polynomial() /* Nullpolynomial */)
@@ -330,7 +324,110 @@ namespace Vath.Components
                 throw new DivideByZeroException("You cant divide a coefficient by zero!");
             }
 
-            return new Polynomial();
+            if(numerator.Count() < denominator.Count())
+            {
+                throw new Exception("Division of the two terms yields an irrational polynomial.");
+            }
+
+            bool foundPolynomial = false;
+            Terms workingNumerator = numerator.Terms;
+            Terms result = new Terms();
+            Terms interMediateAfterMultiplication = new Terms();
+            Terms interMediateAfterSubtraction = new Terms();
+            Polynomial endResult = new Polynomial();
+            while(!foundPolynomial)
+            {
+
+                // Divide with the highest term from divisor/denominator
+                result.Add(workingNumerator[0] / denominator[0]);
+                if(Polynomial.GetHighestOrderOfPolynomialTerms(result) == 0)
+                {
+                    foundPolynomial = true;
+                }
+
+                for(int i = 0;  i < denominator.Count(); i++) 
+                {
+                    interMediateAfterMultiplication.Add(result[result.Count() - 1] * denominator[i]);
+                }
+
+                // B
+                if (workingNumerator.Count() > interMediateAfterMultiplication.Count())
+                {
+                    // Pad with zeros so we can take the next term from the numerator
+                    interMediateAfterMultiplication.Add(new Term(0, 0));
+                }
+
+                // A
+                // If we the polynom below the working polynom (numerator) after multiplication is longer than the working polynomial (numerator), 
+                // we have a problem and need to pull down the next coefficient(s) of the original numerator polynom
+                if( Polynomial.GetLowestOrderOfPolynomialTerms(workingNumerator) > 
+                    Polynomial.GetLowestOrderOfPolynomialTerms(interMediateAfterMultiplication))
+                {
+                    foreach(Term term in numerator)
+                    {
+                        if(term.Exponent == workingNumerator[workingNumerator.Count()-1].Exponent - 1)
+                        {
+                            workingNumerator.Add(term);
+                            break;
+                        }
+                    }
+                }
+                
+                // Go through terms and subtract from another
+                for (int i = 0; i < interMediateAfterMultiplication.Count(); i++)
+                {
+                    Term subtracted = new Term(
+                        workingNumerator[i].Coefficient - interMediateAfterMultiplication[i].Coefficient,
+                        workingNumerator[i].Exponent
+                        );
+                    interMediateAfterSubtraction.Add(subtracted);
+                }
+                workingNumerator = new Terms(interMediateAfterSubtraction);
+                workingNumerator.RemoveAt(0);
+
+                // If the result of the subtraction is 0, we need to take the next term of the input numerator ("pull down")
+                if( workingNumerator.Count()        == 1    && 
+                    workingNumerator[0].Exponent    != 0    && 
+                    workingNumerator[0].Coefficient == 0
+                   )
+                {
+                    foreach(Term term in numerator)
+                    {
+                        if(term.Exponent == workingNumerator[workingNumerator.Count()-1].Exponent-1)
+                        {
+                            workingNumerator.Add(term);
+                            break;
+                        }
+                    }
+                }
+
+                if (workingNumerator[0].Coefficient == 0 && workingNumerator[0].Exponent == 0)
+                {
+                    foundPolynomial = true;
+                }
+
+                // Here we found a polynomial, but there is a residual
+                if( Polynomial.GetHighestOrderOfPolynomialTerms(workingNumerator) < 
+                    Polynomial.GetHighestOrderOfPolynomialTerms(denominator))
+                {
+                    foundPolynomial = true;
+                    if (workingNumerator[0].Coefficient == 0 && workingNumerator[0].Exponent == 0)
+                    {
+                        endResult.Rest = null;
+                    }
+                    else
+                    {
+                        endResult.Rest = workingNumerator;
+                    }
+                }
+
+                interMediateAfterMultiplication = new Terms();
+                interMediateAfterSubtraction = new Terms();
+
+                endResult.Terms = result;
+            }
+
+            return endResult;
         }
         public static Polynomial operator /(Polynomial left, double constantRight)
         {
@@ -447,7 +544,7 @@ namespace Vath.Components
         /// </summary>
         /// <param name="polynomial">The polynomial from where to get the highest order term.</param>
         /// <returns>The order of the polynomial.</returns>
-        static public int getHighestOrderOfPolynomialTerms(Polynomial polynomial)
+        static public int GetHighestOrderOfPolynomialTerms(Polynomial polynomial)
         {
             return polynomial.Terms.Max(term => term.Exponent);
         }
@@ -457,7 +554,7 @@ namespace Vath.Components
         /// </summary>
         /// <param name="terms">The list of terms from where to get the highest order term.</param>
         /// <returns>The order of the polynomial.</returns>
-        static public int getHighestOrderOfPolynomialTerms(Terms terms)
+        static public int GetHighestOrderOfPolynomialTerms(Terms terms)
         {
             return terms.Max(term => term.Exponent);
         }
@@ -467,7 +564,7 @@ namespace Vath.Components
         /// </summary>
         /// <param name="polynomial">The polynomial from where to get the lowest order term.</param>
         /// <returns>The order of the lowest exponential in the polynomial.</returns>
-        static public int getLowestOrderOfPolynomialTerms(Polynomial polynomial)
+        static public int GetLowestOrderOfPolynomialTerms(Polynomial polynomial)
         {
             return polynomial.Terms.Min(term => term.Exponent);
         }
@@ -477,7 +574,7 @@ namespace Vath.Components
         /// </summary>
         /// <param name="terms">The list of terms from where to get the lowest order term.</param>
         /// <returns>The order of the lowest exponential in the list of terms.</returns>
-        static public int getLowestOrderOfPolynomialTerms(Terms terms)
+        static public int GetLowestOrderOfPolynomialTerms(Terms terms)
         {
             return terms.Min(term => term.Exponent);
         }
@@ -632,7 +729,7 @@ namespace Vath.Components
         /// <returns></returns>
         public static List<double> FindZeros(Polynomial function)
         {
-            Polynomial wfunc = Polynomial.Clone(function);
+            Polynomial wfunc = new Polynomial(function);
             List<double> zeros = new List<double>();
 
             // 1. Go through function with coarse values, check for change in signedness
@@ -805,7 +902,6 @@ namespace Vath.Components
             }
             return ((linearPolynomial[1].Coefficient / linearPolynomial[0].Coefficient) * (-1));
         }
-        #endregion
 
         /// <summary>
         /// Approximates a zero from a starting point (supposedZero) by utilizing the Halleys Method (third order Newton method).
@@ -849,6 +945,7 @@ namespace Vath.Components
             }
             return currentFuncVal;
         }
+        #endregion
 
     }
 

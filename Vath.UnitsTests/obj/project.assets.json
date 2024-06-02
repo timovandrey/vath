@@ -1005,7 +1005,6 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "C:\\Users\\accou\\source\\repos\\Vath\\PolynomialSolver\\Vath.csproj",
       "MSTest.TestAdapter >= 3.1.1",
       "MSTest.TestFramework >= 3.1.1",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
@@ -1020,11 +1019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\accou\\source\\repos\\Vath\\Vath.UnitsTests\\Vath.UnitsTests.csproj",
+      "projectUniqueName": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.UnitsTests\\Vath.UnitsTests.csproj",
       "projectName": "Vath.UnitsTests",
-      "projectPath": "C:\\Users\\accou\\source\\repos\\Vath\\Vath.UnitsTests\\Vath.UnitsTests.csproj",
+      "projectPath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.UnitsTests\\Vath.UnitsTests.csproj",
       "packagesPath": "C:\\Users\\accou\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\accou\\source\\repos\\Vath\\Vath.UnitsTests\\obj\\",
+      "outputPath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.UnitsTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1045,11 +1044,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\accou\\source\\repos\\Vath\\PolynomialSolver\\Vath.csproj": {
-              "projectPath": "C:\\Users\\accou\\source\\repos\\Vath\\PolynomialSolver\\Vath.csproj"
-            },
-            "C:\\Users\\accou\\source\\repos\\Vath\\Vath\\Vath.csproj": {
-              "projectPath": "C:\\Users\\accou\\source\\repos\\Vath\\Vath\\Vath.csproj"
+            "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath\\Vath.csproj": {
+              "projectPath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath\\Vath.csproj"
             }
           }
         }
@@ -1105,16 +1101,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\accou\\source\\repos\\Vath\\PolynomialSolver\\Vath.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\accou\\source\\repos\\Vath\\PolynomialSolver\\Vath.csproj",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }
