@@ -138,3 +138,23 @@ https://de.wikipedia.org/wiki/Weierstra%C3%9F-(Durand-Kerner)-Verfahren
 --------------------------------------------------------------------------------
 Besser als Taylor-Series: https://en.wikipedia.org/wiki/Pad%C3%A9_approximant
 --------------------------------------------------------------------------------
+
+
+
+Kurvendiskuteur:
+https://www.youtube.com/watch?v=0F0CeyAbpmA
+https://www.youtube.com/watch?v=UzjNEhpSNqA
+
+--------------------------------------------------------------------------------
+
+Fahrplan:
+1.	[x]	Quotientenregel (Differentiation) implementieren
+1.a.[ ] Implementiere Vereinfachung bei PolynomialFractions
+2.	[ ]	Komplexe Typen integrieren 
+		-> Alle Funktionen auf Komplex anpassen
+		-> Neues System für Polynomzusammenfassung, Monomoperationen, etc. entwickeln
+		-> Polynomdivision, mucho importante!
+3.	[ ]	Nullstellen findbar machen!
+4.	[ ]	Kurvendiskussion 
+		-> Kleines Applet mit Plottern?
+5.	[ ]	Filterdesign -> Start!

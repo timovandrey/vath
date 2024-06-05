@@ -2,7 +2,7 @@
 
 namespace Vath.Program
 {
-    using Terms = List<Term>;
+    using Terms = List<Monomial>;
     using CoefficientList = List<double>;
 
     internal class Program
@@ -11,8 +11,16 @@ namespace Vath.Program
         {
             Console.WriteLine("Started program ...");
 
-            Polynomial A = new Polynomial();
-            A.Rest = new Terms() { new Term(1, 1), new Term(2, 2), new Term(3, 3), new Term(4, 4) };
+            //Polynomial A = new Polynomial(new CoefficientList() { 1, -3, 6 });
+            //Polynomial B = new Polynomial(Snew CoefficientList() { 1, -1 });
+            //Polynomial Result = A / B;
+            //Polynomial New = A * new Polynomial(Result.Rest);
+
+            Polynomial A = new Polynomial(new CoefficientList() { 1, 12, 54, 108, 81 });
+            Polynomial B = new Polynomial(new CoefficientList() { 1, 3 });
+
+            Polynomial C = A / B;
+
 
             Console.WriteLine("... done Progam.");
         }

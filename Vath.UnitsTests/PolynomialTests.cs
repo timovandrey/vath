@@ -4,7 +4,7 @@ using Vath.Components;
 namespace Vath.UnitTests
 {
     using CoefficientList = List<double>;
-    using Terms = List<Term>;
+    using Terms = List<Monomial>;
 
     [TestClass]
     public class PolynomialTests
@@ -72,8 +72,8 @@ namespace Vath.UnitTests
         {
             Polynomial original = new Polynomial(new CoefficientList() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 200 });
             int index = 4;
-            Term termByClassIndexing = original[index];
-            Term termByMemberIndexing = original.Terms[index];
+            Monomial termByClassIndexing = original[index];
+            Monomial termByMemberIndexing = original.Terms[index];
             Assert.IsTrue(termByClassIndexing == termByMemberIndexing);
         }
         [TestMethod]
@@ -90,8 +90,8 @@ namespace Vath.UnitTests
         public void TermSetter_TermsAreBeingInterpolated_ReturnsTrue()
         {
             Polynomial polynomial = new Polynomial(new CoefficientList() { 3, 0, 4, 0 });
-            Term term0 = new Term(3, 3);
-            Term term1 = new Term(4, 1);
+            Monomial term0 = new Monomial(3, 3);
+            Monomial term1 = new Monomial(4, 1);
             Polynomial testPolynomial = term0 + term1;
             Assert.IsTrue(polynomial == testPolynomial);
         }
@@ -107,12 +107,12 @@ namespace Vath.UnitTests
             Polynomial polynomial3 = new Polynomial(new CoefficientList() { 4, 0, -2, -2, 0, 0 });
             Polynomial result2 = new Polynomial(new Terms()
             {
-                new Term(16, 9),
-                new Term(36, 6),
-                new Term(28, 5),
-                new Term(-26, 4),
-                new Term(-38, 3),
-                new Term(-16, 2)
+                new Monomial(16, 9),
+                new Monomial(36, 6),
+                new Monomial(28, 5),
+                new Monomial(-26, 4),
+                new Monomial(-38, 3),
+                new Monomial(-16, 2)
             });
             Assert.IsTrue(result2 == (polynomial2 * polynomial3));
         }
@@ -121,10 +121,10 @@ namespace Vath.UnitTests
         {
             Polynomial original = new Polynomial(new CoefficientList() { -3, 3, 3, -3, 8 });
             Polynomial correctResult = new Polynomial(new Terms() {
-                new Term(-12, 3),
-                new Term(9, 2),
-                new Term(6, 1),
-                new Term(-3, 0)
+                new Monomial(-12, 3),
+                new Monomial(9, 2),
+                new Monomial(6, 1),
+                new Monomial(-3, 0)
             });
             Polynomial differentiated = Polynomial.Differentiate(original);
             Assert.IsTrue(differentiated == correctResult);
@@ -134,11 +134,11 @@ namespace Vath.UnitTests
         {
             Polynomial original = new Polynomial(new CoefficientList() { 5, -4, 3, -2, 8.5f });
             Polynomial correctResult = new Polynomial(new Terms() {
-                new Term(1, 5),
-                new Term(-1, 4),
-                new Term(1, 3),
-                new Term(-1, 2),
-                new Term(8.5f, 1)
+                new Monomial(1, 5),
+                new Monomial(-1, 4),
+                new Monomial(1, 3),
+                new Monomial(-1, 2),
+                new Monomial(8.5f, 1)
             });
             Polynomial integrated = Polynomial.Integrate(original);
             Assert.IsTrue(integrated == correctResult);
@@ -443,12 +443,12 @@ namespace Vath.UnitTests
             List<Polynomial> calculatedResults = new List<Polynomial>();
 
             // Special case for polynomials with residuals
-            correctResults[11].Rest = new Terms() { new Term(3, 1), new Term(-2, 0) };
-            correctResults[12].Rest = new Terms() { new Term((-15.0f / 4.0f), 1), new Term((31.0f / 4.0f), 0) };
-            correctResults[13].Rest = new Terms() { new Term(-31, 0) };
-            correctResults[14].Rest = new Terms() { new Term(4, 2), new Term(-3, 1) };
-            correctResults[15].Rest = new Terms() { new Term(1, 3), new Term(-1, 1), new Term(-4, 0) };
-            correctResults[16].Rest = new Terms() { new Term(-71, 2), new Term(82, 1), new Term(-33, 0) };
+            correctResults[11].Rest = new Terms() { new Monomial(3, 1), new Monomial(-2, 0) };
+            correctResults[12].Rest = new Terms() { new Monomial((-15.0f / 4.0f), 1), new Monomial((31.0f / 4.0f), 0) };
+            correctResults[13].Rest = new Terms() { new Monomial(-31, 0) };
+            correctResults[14].Rest = new Terms() { new Monomial(4, 2), new Monomial(-3, 1) };
+            correctResults[15].Rest = new Terms() { new Monomial(1, 3), new Monomial(-1, 1), new Monomial(-4, 0) };
+            correctResults[16].Rest = new Terms() { new Monomial(-71, 2), new Monomial(82, 1), new Monomial(-33, 0) };
 
             for (int i = 0; i < correctResults.Count(); i++)
             {
@@ -469,14 +469,74 @@ namespace Vath.UnitTests
                 }
             }
 
-
             resultsCorrect.Add(calculatedResults[11].Rest.SequenceEqual(correctResults[11].Rest));
             resultsCorrect.Add(calculatedResults[12].Rest.SequenceEqual(correctResults[12].Rest));
             resultsCorrect.Add(calculatedResults[13].Rest.SequenceEqual(correctResults[13].Rest));
             resultsCorrect.Add(calculatedResults[14].Rest.SequenceEqual(correctResults[14].Rest));
 
-
             Assert.IsTrue(resultsCorrect.All(x => x));
+        }
+        [TestMethod]
+        public void DifferentiateFraction_RationalFunctionsAreProvidedAndDifferentiated_ResultsAreCorrect()
+        {
+            // TODO: Do with several different rational functions
+            PolynomialFraction testFrac = new PolynomialFraction() with
+            {
+                numerator = new Polynomial(new CoefficientList() { 1, 2, 1 }),
+                denominator = new Polynomial(new CoefficientList() { 1, 3 }),
+            };
+            PolynomialFraction testFracCorrectPrime = new PolynomialFraction() with
+            {
+                numerator = new Polynomial(new CoefficientList() { 1, 6, 5 }),
+                denominator = new Polynomial(new CoefficientList() { 1, 6, 9 }),
+            };
+            PolynomialFraction testFracCorrectPrimePrime = new PolynomialFraction() with
+            {
+                numerator = new Polynomial(new CoefficientList() { 8 }),
+                denominator = new Polynomial(new CoefficientList() { 1, 9, 27, 27 }),
+            };
+
+            // Due to current limitation in the differentiation algorithm / simplifying algorithm, we have the following problem:
+            // The differentiation works fine, however, it cant annihilate poles/zeros which are the same, which
+            // results in bigger polynomials with possible simplifications not done. Thats why we multiply this 
+            // testFracCorrectPrimePrime with (x+3), since the algorithm works, but it cant cancel out the pole/zero
+            // which is (x+3) in both the numerator and the denominator.
+            Polynomial correctionTerm = new Polynomial(new CoefficientList() { 1, 3 });
+            testFracCorrectPrimePrime.numerator *= correctionTerm;
+            testFracCorrectPrimePrime.denominator *= correctionTerm;
+
+            PolynomialFraction testFracPrime = Polynomial.DifferentiateRationalPolynomial(testFrac);
+            PolynomialFraction testFracPrimePrime = Polynomial.DifferentiateRationalPolynomial(testFracPrime);
+
+            // https://www.wolframalpha.com/input?i=differentiate+%28x%5E2%2B6x%2B5%29%2F%28x%5E2%2B6x%2B9%29
+            // Vielleicht Faktorisieren durch herausfinden der Nullstellen und dann innere vs. äußere Ableitung
+
+            Assert.IsTrue(testFracCorrectPrime.numerator == testFracPrime.numerator &&
+                          testFracCorrectPrime.denominator == testFracPrime.denominator &&
+                          testFracCorrectPrimePrime.numerator == testFracPrimePrime.numerator &&
+                          testFracCorrectPrimePrime.denominator == testFracPrimePrime.denominator
+                          );
+
+        }
+        [TestMethod]
+        public void SimplifyFraction_RationalFunctionsAreProvidedAndSimplified_ResultsAreCorrect()
+        {
+            // TODO: Do with several different rational functions
+            PolynomialFraction testFrac = new PolynomialFraction() with
+            {
+                numerator = new Polynomial(new CoefficientList() { 8 }),
+                denominator = new Polynomial(new CoefficientList() { 1, 9, 27, 27 }),
+            };
+            Polynomial correctionTerm = new Polynomial(new CoefficientList() { 1, 3 });
+            testFrac.numerator *= correctionTerm;
+            testFrac.denominator *= correctionTerm;
+            PolynomialFraction testFracCorrect = new PolynomialFraction() with
+            {
+                numerator = new Polynomial(new CoefficientList() { 8 }),
+                denominator = new Polynomial(new CoefficientList() { 1, 9, 27, 27 }),
+            };
+            PolynomialFraction simplifiedFrac = Polynomial.Simplify(testFrac);
+            Assert.IsTrue(simplifiedFrac.numerator == testFracCorrect.numerator && simplifiedFrac.denominator == testFracCorrect.denominator);
         }
     }
 }

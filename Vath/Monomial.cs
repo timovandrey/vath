@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Vath.Components
 {
 
-    using TermList = List<Term>;
-    using Terms = List<Term>;
+    using TermList = List<Monomial>;
+    using Terms = List<Monomial>;
     using CoefficientList = List<double>;
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Vath.Components
     /// It is important to note that this doesnt capture different variables, such as x and y. It always assumes it is "x".
     /// Also, it is never a fraction, always only a coefficient-exponent term (exponent function).
     /// </remarks>
-    public class Term
+    public class Monomial
     {
 
         #region Constants
@@ -46,7 +46,7 @@ namespace Vath.Components
         /// </summary>
         /// <param name="coeff">The coefficient of the term.</param>
         /// <param name="exponent">The exponent of the term.</param>
-        public Term(double coeff, int exponent)
+        public Monomial(double coeff, int exponent)
         {
             this.Coefficient = coeff;
             this.Exponent = exponent;
@@ -56,7 +56,7 @@ namespace Vath.Components
         /// Copy constructor for terms.
         /// </summary>
         /// <param name="other">The term that needs to be copied.</param>
-        public Term(Term other)
+        public Monomial(Monomial other)
         {
             this.Coefficient = other.Coefficient;
             this.Exponent = other.Exponent;
@@ -72,11 +72,11 @@ namespace Vath.Components
         /// <param name="left">The left term of the operation.</param>
         /// <param name="right">The right term of the operations.</param>
         /// <returns>The resulting term.</returns>
-        public static Term operator *(Term left, Term right)
+        public static Monomial operator *(Monomial left, Monomial right)
         {
             double newCoeff = left.Coefficient * right.Coefficient;
             int newexponent = left.Exponent + right.Exponent;
-            return new Term(newCoeff, newexponent);
+            return new Monomial(newCoeff, newexponent);
         }
 
         /// <summary>
@@ -86,11 +86,11 @@ namespace Vath.Components
         /// <param name="numerator">The numerator of the division (left operand).</param>
         /// <param name="denominator">The denominator of the division (right operand).</param>
         /// <returns>The resulting term.</returns>
-        public static Term operator /(Term numerator, Term denominator)
+        public static Monomial operator /(Monomial numerator, Monomial denominator)
         {
             double newCoeff = numerator.Coefficient / denominator.Coefficient;
             int newExponent = numerator.Exponent - denominator.Exponent;
-            return new Term(newCoeff, newExponent);
+            return new Monomial(newCoeff, newExponent);
         }
 
         /// <summary>
@@ -102,18 +102,18 @@ namespace Vath.Components
         /// <param name="left">The term to the left of the plus (operator).</param>
         /// <param name="right">The term to the right of the plus (operator).</param>
         /// <returns>A polynomial with concatenated terms.</returns>
-        public static Polynomial operator +(Term left, Term right)
+        public static Polynomial operator +(Monomial left, Monomial right)
         {
             Polynomial result;
 
             if (left.Exponent == right.Exponent)
             {
-                Term combined = new Term(left.Coefficient + right.Coefficient, left.Exponent);
+                Monomial combined = new Monomial(left.Coefficient + right.Coefficient, left.Exponent);
                 result = new Polynomial(new Terms { combined });
             }
             else
             {
-                result = new Polynomial(new Terms() { new Term(left), new Term(right) });
+                result = new Polynomial(new Terms() { new Monomial(left), new Monomial(right) });
             }
 
             return result;
@@ -129,23 +129,23 @@ namespace Vath.Components
         /// <param name="left">The term to the left of the minus (operator).</param>
         /// <param name="right">The term to the right of the minus (operator).</param>
         /// <returns>A polynomial with concatenated terms. The right terms coefficient is negated.</returns>
-        public static Polynomial operator -(Term left, Term right)
+        public static Polynomial operator -(Monomial left, Monomial right)
         {
             Polynomial result;
 
             if (left.Exponent == right.Exponent)
             {
-                Term combined = new Term(left.Coefficient - right.Coefficient, left.Exponent);
+                Monomial combined = new Monomial(left.Coefficient - right.Coefficient, left.Exponent);
                 result = new Polynomial(new Terms { combined });
             }
             else
             {
-                result = new Polynomial(new Terms() { new Term(left), new Term(right.Coefficient * (-1), right.Exponent) });
+                result = new Polynomial(new Terms() { new Monomial(left), new Monomial(right.Coefficient * (-1), right.Exponent) });
             }
 
             return result;
         }
-        public static bool operator ==(Term? left, Term? right)
+        public static bool operator ==(Monomial? left, Monomial? right)
         {
             if (left is null)
             {
@@ -157,7 +157,7 @@ namespace Vath.Components
             }
             return left.Equals(right);
         }
-        public static bool operator !=(Term? left, Term? right)
+        public static bool operator !=(Monomial? left, Monomial? right)
         {
             if (left is null)
             {
@@ -169,13 +169,13 @@ namespace Vath.Components
             }
             return !left.Equals(right);
         }
-        public static Term operator *(Term left, double constantRight)
+        public static Monomial operator *(Monomial left, double constantRight)
         {
-            return new Term(left.Coefficient * constantRight, left.Exponent);
+            return new Monomial(left.Coefficient * constantRight, left.Exponent);
         }
-        public static Term operator /(Term left, double constantRight)
+        public static Monomial operator /(Monomial left, double constantRight)
         {
-            return new Term(left.Coefficient / constantRight, left.Exponent);
+            return new Monomial(left.Coefficient / constantRight, left.Exponent);
         }
 
         #endregion
@@ -193,12 +193,12 @@ namespace Vath.Components
                 return false;
             }
 
-            if (obj.GetType() != typeof(Term))
+            if (obj.GetType() != typeof(Monomial))
             {
                 return false;
             }
 
-            Term testTerm = (Term)obj;
+            Monomial testTerm = (Monomial)obj;
             return ((Math.Abs(this.Coefficient - testTerm.Coefficient) < DOUBLE_COMPARISON_PRECISION) && this.Exponent == testTerm.Exponent);
         }
         #endregion
@@ -207,9 +207,9 @@ namespace Vath.Components
         public static Terms Clone(Terms other)
         {
             Terms newTerms = new Terms();
-            foreach (Term term in other)
+            foreach (Monomial term in other)
             {
-                newTerms.Add(new Term(term));
+                newTerms.Add(new Monomial(term));
             }
             return newTerms;
         }
@@ -219,16 +219,16 @@ namespace Vath.Components
         /// </summary>
         /// <param name="term">The term to be differentiated.</param>
         /// <returns>The differentiated term.</returns>
-        public static Term Differentiate(Term term)
+        public static Monomial Differentiate(Monomial term)
         {
-            Term differentiated;
+            Monomial differentiated;
             if (term.Exponent == 0)
             {
-                differentiated = new Term(0, 0);
+                differentiated = new Monomial(0, 0);
             }
             else
             {
-                differentiated = new Term(term.Coefficient * term.Exponent, (term.Exponent - 1));
+                differentiated = new Monomial(term.Coefficient * term.Exponent, (term.Exponent - 1));
             }
             return differentiated;
         }
@@ -238,16 +238,16 @@ namespace Vath.Components
         /// </summary>
         /// <param name="term">The term to be integrated.</param>
         /// <returns>The integrated term.</returns>
-        public static Term Integrate(Term term)
+        public static Monomial Integrate(Monomial term)
         {
-            Term integrated;
+            Monomial integrated;
             if (false /* TODO: Do something about the constant ... */)
             {
                 // TODO: What about the constant?
             }
             else
             {
-                integrated = new Term(term.Coefficient / (term.Exponent + 1), term.Exponent + 1);
+                integrated = new Monomial(term.Coefficient / (term.Exponent + 1), term.Exponent + 1);
             }
             return integrated;
         }

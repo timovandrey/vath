@@ -5,8 +5,8 @@ using Vath.Components;
 
 namespace Vath.UnitTests
 {
-    using TermList = List<Term>;
-    using Terms = List<Term>;
+    using TermList = List<Monomial>;
+    using Terms = List<Monomial>;
     using CoefficientList = List<double>;
 
     [TestClass]
@@ -15,15 +15,15 @@ namespace Vath.UnitTests
         [TestMethod]
         public void Equals_ObjectIsNotOfSameType_ReturnsFalse()
         {
-            Term testTerm0 = new Term(0, 1);
+            Monomial testTerm0 = new Monomial(0, 1);
             int testTerm1 = 3;
             Assert.IsFalse(testTerm0.Equals(testTerm1));
         }
         [TestMethod]
         public void Equals_ObjectIsNull_ReturnsFalse()
         {
-            Term testTerm0 = new Term(0, 1);
-            Term? testTerm1 = null;
+            Monomial testTerm0 = new Monomial(0, 1);
+            Monomial? testTerm1 = null;
             Assert.IsFalse(testTerm0.Equals(testTerm1));
             Assert.IsFalse(testTerm0 == testTerm1);
             Assert.IsTrue(testTerm0 != testTerm1);
@@ -31,8 +31,8 @@ namespace Vath.UnitTests
         [TestMethod]
         public void Equals_TermCoefficientIsDifferent_ReturnsFalse()
         {
-            Term testTerm0 = new Term(1, 2);
-            Term testTerm1 = new Term(2, 2);
+            Monomial testTerm0 = new Monomial(1, 2);
+            Monomial testTerm1 = new Monomial(2, 2);
             Assert.IsFalse(testTerm0.Equals(testTerm1));
             Assert.IsFalse(testTerm0 == testTerm1);
             Assert.IsTrue(testTerm0 != testTerm1);
@@ -40,8 +40,8 @@ namespace Vath.UnitTests
         [TestMethod]
         public void Equals_TermExponentIsDifferent_ReturnsFalse()
         {
-            Term testTerm0 = new Term(1, 2);
-            Term testTerm1 = new Term(1, 3);
+            Monomial testTerm0 = new Monomial(1, 2);
+            Monomial testTerm1 = new Monomial(1, 3);
             Assert.IsFalse(testTerm0.Equals(testTerm1));
             Assert.IsFalse(testTerm0 == testTerm1);
             Assert.IsTrue(testTerm0 != testTerm1);
@@ -49,8 +49,8 @@ namespace Vath.UnitTests
         [TestMethod]
         public void Equals_TermExponentAndCoefficientIsSame_ReturnsTrue()
         {
-            Term testTerm0 = new Term(1, 2);
-            Term testTerm1 = new Term(1, 2);
+            Monomial testTerm0 = new Monomial(1, 2);
+            Monomial testTerm1 = new Monomial(1, 2);
             Assert.IsTrue(testTerm0.Equals(testTerm1));
             Assert.IsTrue(testTerm0 == testTerm1);
             Assert.IsFalse(testTerm0 != testTerm1);
@@ -58,65 +58,65 @@ namespace Vath.UnitTests
         [TestMethod]
         public void CopyConstructor_TermIsProvided_TermIsTheSame()
         {
-            Term original = new Term(99.9f, 101);
-            Term copy = new Term(original);
+            Monomial original = new Monomial(99.9f, 101);
+            Monomial copy = new Monomial(original);
             Assert.IsTrue(original == copy);
         }
         [TestMethod]
         public void Operator_SingleMultiplication_ResultIsCorrect()
         {
-            Term term0 = new Term(2, 2);
-            Term term1 = new Term(3, 4);
-            Term correctResult = new Term(6, 6);
+            Monomial term0 = new Monomial(2, 2);
+            Monomial term1 = new Monomial(3, 4);
+            Monomial correctResult = new Monomial(6, 6);
             Assert.IsTrue(correctResult == (term0 * term1));
         }
         [TestMethod]
         public void Operator_SingleDivision_ResultIsCorrect()
         {
-            Term term0 = new Term(2, 2);
-            Term term1 = new Term(3, 4);
-            Term correctResult = new Term(1.5f, 2);
+            Monomial term0 = new Monomial(2, 2);
+            Monomial term1 = new Monomial(3, 4);
+            Monomial correctResult = new Monomial(1.5f, 2);
             Assert.IsTrue(correctResult == (term1 / term0));
         }
         [TestMethod]
         public void Operator_SingleSummation_ResultIsCorrect()
         {
             Polynomial correctResult = new Polynomial(new CoefficientList() { 3, 0, 4, 0 });
-            Term term0 = new Term(3, 3);
-            Term term1 = new Term(4, 1);
+            Monomial term0 = new Monomial(3, 3);
+            Monomial term1 = new Monomial(4, 1);
             Polynomial result = term0 + term1;
             Assert.IsTrue(result == correctResult);
         }
         [TestMethod]
         public void Integrate_TermIsIntegrated_ResultIsCorrect()
         {
-            Term term = new Term(8, 3);
-            Term correctResult = new Term(2, 4);
-            Assert.IsTrue(Term.Integrate(term) == correctResult);
+            Monomial term = new Monomial(8, 3);
+            Monomial correctResult = new Monomial(2, 4);
+            Assert.IsTrue(Monomial.Integrate(term) == correctResult);
         }
         [TestMethod]
         public void Differentiate_TermIsDifferentiated_ResultIsCorrect()
         {
-            Term term = new Term(8, 3);
-            Term correctResult = new Term(24, 2);
-            Assert.IsTrue(Term.Differentiate(term) == correctResult);
+            Monomial term = new Monomial(8, 3);
+            Monomial correctResult = new Monomial(24, 2);
+            Assert.IsTrue(Monomial.Differentiate(term) == correctResult);
         }
         [TestMethod]
         public void Differentiate_TermIsDifferentiatedThenIntegrated_ResultIsCorrect()
         {
-            Term startTerm = new Term(5, 6);
-            Term intermediateTerm = Term.Integrate(Term.Differentiate(startTerm));
+            Monomial startTerm = new Monomial(5, 6);
+            Monomial intermediateTerm = Monomial.Integrate(Monomial.Differentiate(startTerm));
             Assert.IsTrue(startTerm == intermediateTerm);
         }
         [TestMethod]
         public void Integrate_TermIsIntegratedThenDifferentiated_ResultIsCorrect()
         {
-            Term startTerm = new Term(5.0f, 76);
+            Monomial startTerm = new Monomial(5.0f, 76);
 
-            Term integ = Term.Integrate(startTerm);
-            Term diff = Term.Differentiate(integ);
+            Monomial integ = Monomial.Integrate(startTerm);
+            Monomial diff = Monomial.Differentiate(integ);
 
-            Term intermediateTerm = Term.Differentiate(Term.Integrate(startTerm));
+            Monomial intermediateTerm = Monomial.Differentiate(Monomial.Integrate(startTerm));
             Assert.IsTrue(startTerm == intermediateTerm);
         }
         [TestMethod]
@@ -124,8 +124,8 @@ namespace Vath.UnitTests
         {
             double testConstant = 1233.35;
             double testConstantMultiplier = 3.4;
-            Term startTerm = new Term(testConstant, 5);
-            Term result = startTerm * testConstantMultiplier;
+            Monomial startTerm = new Monomial(testConstant, 5);
+            Monomial result = startTerm * testConstantMultiplier;
             Assert.IsTrue(result.Coefficient == (startTerm.Coefficient * testConstantMultiplier));
         }
         [TestMethod]
@@ -133,8 +133,8 @@ namespace Vath.UnitTests
         {
             double testConstant = 1233.35;
             double testConstantDivisor = 3.4;
-            Term startTerm = new Term(testConstant, 5);
-            Term result = startTerm / testConstantDivisor;
+            Monomial startTerm = new Monomial(testConstant, 5);
+            Monomial result = startTerm / testConstantDivisor;
             Assert.IsTrue(result.Coefficient == (startTerm.Coefficient / testConstantDivisor));
         }
     }

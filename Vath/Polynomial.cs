@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 namespace Vath.Components
 {
     using CoefficientList = List<double>;
-    using Terms = List<Term>;
+    using Terms = List<Monomial>;
 
     /// <summary>
     /// TODO
     /// </summary>
-    public class Polynomial : IEnumerable<Term>
+    public class Polynomial : IEnumerable<Monomial>
     {
         #region Constants
 
@@ -44,7 +44,7 @@ namespace Vath.Components
         /// </summary>
         public Polynomial()
         {
-            Term nullTerm = new Term(0.0f, 0);
+            Monomial nullTerm = new Monomial(0.0f, 0);
             Terms emptyTerms = new Terms() { nullTerm };
             this._terms = emptyTerms;
             this._order = Polynomial.GetHighestOrderOfPolynomialTerms(this.Terms);
@@ -65,7 +65,7 @@ namespace Vath.Components
             Terms terms = new Terms();
             for (int i = (coefficientList.Count - 1); i >= 0; i--)
             {
-                terms.Add(new Term(coefficientList[(coefficientList.Count - 1) - i], i));
+                terms.Add(new Monomial(coefficientList[(coefficientList.Count - 1) - i], i));
             }
             this.Terms = terms;
             this._order = Polynomial.GetHighestOrderOfPolynomialTerms(this.Terms);
@@ -89,7 +89,7 @@ namespace Vath.Components
         /// Copy constructor of polynomial. Takes in a polynomial and creates a copy of it with another reference.
         /// </summary>
         /// <param name="original">The polynomial to be copied.</param>
-        public Polynomial(Polynomial original) : this(Term.Clone(original.Terms)) { }
+        public Polynomial(Polynomial original) : this(Monomial.Clone(original.Terms)) { }
         #endregion
         #region Variables / Properties
 
@@ -115,7 +115,7 @@ namespace Vath.Components
                 Terms? termList = value;
                 if (termList is null)
                 {
-                    termList = new Terms { new Term(0, 0) };
+                    termList = new Terms { new Monomial(0, 0) };
                 }
                 this._terms = Polynomial.CombineTerms(termList);
                 this.Order = Polynomial.GetHighestOrderOfPolynomialTerms(termList);
@@ -185,13 +185,13 @@ namespace Vath.Components
 
         #endregion
         #region Overriden operators
-        public static Polynomial operator +(Term left, Polynomial right)
+        public static Polynomial operator +(Monomial left, Polynomial right)
         {
             return (right + left);
         }
-        public static Polynomial operator -(Term left, Polynomial right)
+        public static Polynomial operator -(Monomial left, Polynomial right)
         {
-            Terms? newTerms = Term.Clone(right.Terms);
+            Terms? newTerms = Monomial.Clone(right.Terms);
 
             if (newTerms is null)
             {
@@ -199,7 +199,7 @@ namespace Vath.Components
             }
             else
             {
-                foreach (Term term in newTerms)
+                foreach (Monomial term in newTerms)
                 {
                     term.Coefficient *= (-1);
                 }
@@ -207,28 +207,28 @@ namespace Vath.Components
 
             return (new Polynomial(newTerms) + left);
         }
-        public static Polynomial operator +(Polynomial left, Term right)
+        public static Polynomial operator +(Polynomial left, Monomial right)
         {
             Terms? newTerms = left.Terms;
             if (newTerms is null)
             {
-                newTerms = new Terms { new Term(right) };
+                newTerms = new Terms { new Monomial(right) };
             }
             else
             {
-                newTerms.Add(new Term(right));
+                newTerms.Add(new Monomial(right));
             }
             return new Polynomial(newTerms);
         }
-        public static Polynomial operator -(Polynomial left, Term right)
+        public static Polynomial operator -(Polynomial left, Monomial right)
         {
-            Terms? newTerms = Term.Clone(left.Terms);
+            Terms? newTerms = Monomial.Clone(left.Terms);
             if (newTerms is null)
             {
                 newTerms = new Terms();
             }
 
-            Term newRight = new Term(right);
+            Monomial newRight = new Monomial(right);
             newRight.Coefficient *= (-1);
             newTerms.Add(newRight);
 
@@ -239,15 +239,15 @@ namespace Vath.Components
             Terms newTerms = new Terms();
             if (left is not null && right is not null)
             {
-                newTerms = Term.Clone(left.Terms.Concat(right.Terms).ToList());
+                newTerms = Monomial.Clone(left.Terms.Concat(right.Terms).ToList());
             }
             else if (left is null && right is not null)
             {
-                newTerms = Term.Clone(right.Terms);
+                newTerms = Monomial.Clone(right.Terms);
             }
             else if (right is null && left is not null)
             {
-                newTerms = Term.Clone(left.Terms);
+                newTerms = Monomial.Clone(left.Terms);
             }
 
             return new Polynomial(newTerms);
@@ -258,9 +258,9 @@ namespace Vath.Components
             if (right is not null)
             {
                 //newRightTerms = right.terms.ToList();
-                newRightTerms = Term.Clone(right.Terms);
+                newRightTerms = Monomial.Clone(right.Terms);
 
-                foreach (Term term in newRightTerms)
+                foreach (Monomial term in newRightTerms)
                 {
                     term.Coefficient *= (-1);
                 }
@@ -296,11 +296,11 @@ namespace Vath.Components
         {
             Polynomial inLeft = new Polynomial(left);
             Polynomial inRight = new Polynomial(right);
-            Terms terms = new Terms() { new Term(0, 0) };
+            Terms terms = new Terms() { new Monomial(0, 0) };
 
-            foreach (Term leftTerm in inLeft.Terms)
+            foreach (Monomial leftTerm in inLeft.Terms)
             {
-                foreach (Term rightTerm in inRight.Terms)
+                foreach (Monomial rightTerm in inRight.Terms)
                 {
                     terms.Add(leftTerm * rightTerm);
                 }
@@ -311,9 +311,9 @@ namespace Vath.Components
         {
             Polynomial input = new Polynomial(left);
             Polynomial output = new Polynomial();
-            foreach(Term term in input)
+            foreach(Monomial term in input)
             {
-                output += (new Term(term.Coefficient * constantRight, term.Exponent));
+                output += (new Monomial(term.Coefficient * constantRight, term.Exponent));
             }
             return output;
         }
@@ -354,7 +354,7 @@ namespace Vath.Components
                 if (workingNumerator.Count() > interMediateAfterMultiplication.Count())
                 {
                     // Pad with zeros so we can take the next term from the numerator
-                    interMediateAfterMultiplication.Add(new Term(0, 0));
+                    interMediateAfterMultiplication.Add(new Monomial(0, 0));
                 }
 
                 // A
@@ -363,7 +363,7 @@ namespace Vath.Components
                 if( Polynomial.GetLowestOrderOfPolynomialTerms(workingNumerator) > 
                     Polynomial.GetLowestOrderOfPolynomialTerms(interMediateAfterMultiplication))
                 {
-                    foreach(Term term in numerator)
+                    foreach(Monomial term in numerator)
                     {
                         if(term.Exponent == workingNumerator[workingNumerator.Count()-1].Exponent - 1)
                         {
@@ -376,7 +376,7 @@ namespace Vath.Components
                 // Go through terms and subtract from another
                 for (int i = 0; i < interMediateAfterMultiplication.Count(); i++)
                 {
-                    Term subtracted = new Term(
+                    Monomial subtracted = new Monomial(
                         workingNumerator[i].Coefficient - interMediateAfterMultiplication[i].Coefficient,
                         workingNumerator[i].Exponent
                         );
@@ -391,7 +391,7 @@ namespace Vath.Components
                     workingNumerator[0].Coefficient == 0
                    )
                 {
-                    foreach(Term term in numerator)
+                    foreach(Monomial term in numerator)
                     {
                         if(term.Exponent == workingNumerator[workingNumerator.Count()-1].Exponent-1)
                         {
@@ -438,9 +438,9 @@ namespace Vath.Components
 
             Polynomial input = new Polynomial(left);
             Polynomial output = new Polynomial();
-            foreach (Term term in input)
+            foreach (Monomial term in input)
             {
-                output += (new Term(term.Coefficient / constantRight, term.Exponent));
+                output += (new Monomial(term.Coefficient / constantRight, term.Exponent));
             }
             return output;
         }
@@ -450,7 +450,7 @@ namespace Vath.Components
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public Term this[int index]
+        public Monomial this[int index]
         {
             get
             {
@@ -458,11 +458,11 @@ namespace Vath.Components
             }
             set
             {
-                this.Terms[index] = new Term(value);
+                this.Terms[index] = new Monomial(value);
             }
         }
 
-        public IEnumerator<Term> GetEnumerator()
+        public IEnumerator<Monomial> GetEnumerator()
         { 
             return Terms.GetEnumerator();
         }
@@ -476,7 +476,7 @@ namespace Vath.Components
         public override string ToString()
         {
             string? stringRepresentation = "";
-            foreach(Term term in this)
+            foreach(Monomial term in this)
             {
                 stringRepresentation += term.ToString();
             }
@@ -524,7 +524,33 @@ namespace Vath.Components
         // TODO: Override plus/minus, multiply, divide and use that to work with polynomials.
         #endregion
         #region Instance methods
-        /* TODO */
+        
+        public Polynomial Differentiate()
+        {
+            return Polynomial.Differentiate(this);
+        }
+        public Polynomial Integrate()
+        {
+            return Polynomial.Integrate(this);
+        }
+        public double EvaluateAt(double x)
+        {
+            return Polynomial.EvaluateAt(this, x);
+        }
+        public Complex EvaluateAt(Complex x)
+        {
+            return Polynomial.EvaluateAt(this, x);
+        }
+        public List<double> Zeros()
+        {
+            return Polynomial.FindZeros(this);
+        }
+        public List<double> Decompose()
+        {
+            return Polynomial.DecomposeToCoefficients(this);
+        }
+
+
         #endregion
         #region Class functions
 
@@ -535,7 +561,7 @@ namespace Vath.Components
         /// <returns>A clones polynomial object with different reference.</returns>
         public static Polynomial Clone(Polynomial other)
         {
-            Terms newTerms = Term.Clone(other.Terms);
+            Terms newTerms = Monomial.Clone(other.Terms);
             return new Polynomial(newTerms);
         }
 
@@ -586,17 +612,17 @@ namespace Vath.Components
         /// <returns>The sorted and simplified term list.</returns>
         private static Terms CombineTerms(Terms terms)
         {
-            Terms termList = Term.Clone(terms);
+            Terms termList = Monomial.Clone(terms);
             Terms termsCombined = new Terms();
 
             for (int termIdx = 0; termIdx < termList.Count; termIdx++)
             {
                 int currentExponent = termList[termIdx].Exponent;
-                Term? alreadyInListTerm = termsCombined.Find(item => item.Exponent == currentExponent);
+                Monomial? alreadyInListTerm = termsCombined.Find(item => item.Exponent == currentExponent);
 
                 if (alreadyInListTerm is null)
                 {
-                    Term accumulatorTerm = new Term(termList[termIdx]);
+                    Monomial accumulatorTerm = new Monomial(termList[termIdx]);
 
                     for (int testTermIdx = 0; testTermIdx < termList.Count; testTermIdx++)
                     {
@@ -629,12 +655,12 @@ namespace Vath.Components
         /// <returns>A term list with padded zeros-powers.</returns>
         private static Terms InterpolateTerms(Terms terms)
         {
-            Terms newTerms = Term.Clone(terms);
+            Terms newTerms = Monomial.Clone(terms);
             int highestOrder = terms.Max(term => term.Exponent);
             for (int order = highestOrder; order >= 0; order--)
             {
                 bool powerFound = false;
-                foreach (Term term in newTerms)
+                foreach (Monomial term in newTerms)
                 {
                     if (term.Exponent == order)
                     {
@@ -645,7 +671,7 @@ namespace Vath.Components
 
                 if (!powerFound)
                 {
-                    newTerms.Add(new Term(0, order));
+                    newTerms.Add(new Monomial(0, order));
                 }
             }
             newTerms = newTerms.OrderByDescending(term => term.Exponent).ToList();
@@ -665,15 +691,90 @@ namespace Vath.Components
         /// <returns>The derivative of the input polynomial as polynomial.</returns>
         public static Polynomial Differentiate(Polynomial polynomial)
         {
-            Terms newTerms = Term.Clone(polynomial.Terms);
+            Terms newTerms = Monomial.Clone(polynomial.Terms);
             Terms outTerms = new Terms();
-            foreach (Term term in newTerms)
+            foreach (Monomial term in newTerms)
             {
-                outTerms.Add(Term.Differentiate(term));
+                outTerms.Add(Monomial.Differentiate(term));
             }
             return new Polynomial(outTerms);
         }
-       
+
+        /// <summary>
+        /// Differentiates a polynomial fraction (rational function) by utilizing the quotient rule.
+        /// </summary>
+        /// <param name="rationalFunction">A struct with numerator and denominator polynomials.</param>
+        /// <returns>The differentiated rational function.</returns>
+        /// <remarks>
+        /// https://de.wikipedia.org/wiki/Quotientenregel
+        /// </remarks>
+        public static PolynomialFraction DifferentiateRationalPolynomial(PolynomialFraction rationalFunction)
+        {
+            Polynomial u = rationalFunction.numerator;
+            Polynomial v = rationalFunction.denominator;
+            Polynomial vPrime = v.Differentiate();
+            Polynomial uPrime = u.Differentiate();
+            Polynomial left = uPrime * v;
+            Polynomial right = vPrime * u;
+            // TODO: Possibly implement simplification method, like search for poles and zeros which are the same 
+            // and then do polynomial division on both numerator and denominator?
+            return new PolynomialFraction() with
+            {
+                numerator = left - right,
+                denominator = v*v
+            };
+        }
+
+        /// <summary>
+        /// Simplifies rational function by searching for poles and zeros which are the same and then dividing the terms, 
+        /// so that an easier variant is returned.
+        /// </summary>
+        /// <param name="rationalFunction">The rational function to be simplified.</param>
+        /// <returns>A simplified rational function.</returns>
+        public static PolynomialFraction Simplify(PolynomialFraction rationalFunction)
+        {
+            PolynomialFraction outFrac = rationalFunction;
+            List<double> zeros = rationalFunction.numerator.Zeros();
+            List<double> poles = rationalFunction.numerator.Zeros();
+
+            double? possibleMatch = null;
+            do
+            {
+                possibleMatch = null;
+                foreach (double zero in zeros)
+                {
+                    // TODO: Do I also have to check the other way around? like zeros.Contains(poles)? 
+                    if(poles.Contains(zero))
+                    {
+                        possibleMatch = zero;
+                        break;
+                    }
+                }
+                if(possibleMatch is not null)
+                {
+                    Polynomial commonTerm = new Polynomial(new CoefficientList() { 1, (-1 * (double)possibleMatch) });
+                    outFrac.numerator /= commonTerm;
+                    outFrac.denominator /= commonTerm;
+
+                    // Remove common factor from found zeros/poles
+                    int index = poles.IndexOf((double)possibleMatch);
+                    if(index == -1)
+                    {
+                        throw new IndexOutOfRangeException("Somehow I found a common factor but now I wont find it anymore. Strange...");
+                    }
+                    poles.RemoveAt(index);
+                    index = zeros.IndexOf((double)possibleMatch);
+                    if (index == -1)
+                    {
+                        throw new IndexOutOfRangeException("Somehow I found a common factor but now I wont find it anymore. Strange...");
+                    }
+                    zeros.RemoveAt(index);
+                }
+
+            } while (possibleMatch != null);
+            return outFrac;
+        }
+
         /// <summary>
         /// Integrates a polynomial.
         /// </summary>
@@ -681,11 +782,11 @@ namespace Vath.Components
         /// <returns>The integrated polynomial of the input polynomial.</returns>
         public static Polynomial Integrate(Polynomial polynomial)
         {
-            Terms newTerms = Term.Clone(polynomial.Terms);
+            Terms newTerms = Monomial.Clone(polynomial.Terms);
             Terms outTerms = new Terms();
-            foreach (Term term in newTerms)
+            foreach (Monomial term in newTerms)
             {
-                outTerms.Add(Term.Integrate(term));
+                outTerms.Add(Monomial.Integrate(term));
             }
             return new Polynomial(outTerms);
         }
@@ -698,7 +799,7 @@ namespace Vath.Components
         public static double EvaluateAt(Polynomial function, double x)
         {
             double below = 0, middle = 0;
-            foreach (Term term in function)
+            foreach (Monomial term in function)
             {
                 below = term.Coefficient + middle;
                 middle = below * x;
@@ -714,7 +815,7 @@ namespace Vath.Components
         public static Complex EvaluateAt(Polynomial function, Complex x)
         {
             Complex below = 0, middle = 0;
-            foreach (Term term in function)
+            foreach (Monomial term in function)
             {
                 below = term.Coefficient + middle;
                 middle = below * x;
@@ -802,7 +903,7 @@ namespace Vath.Components
                 double supposedZero = currentFuncVal;
                 double below = 0, middle = 0;
                 CoefficientList belowRow = new CoefficientList();
-                foreach (Term term in wfunc)
+                foreach (Monomial term in wfunc)
                 {
                     belowRow.Add(below);
                     below = term.Coefficient + middle;
@@ -945,8 +1046,32 @@ namespace Vath.Components
             }
             return currentFuncVal;
         }
-        #endregion
 
+        /// <summary>
+        /// Decomposes the Polynomial into a list of the coefficients.
+        /// </summary>
+        /// <param name="function">The polynomial to be decomposed.</param>
+        /// <returns>A list of all coefficients like a CoefficientList.</returns>        
+        private static List<double> DecomposeToCoefficients(Polynomial function)
+        {
+            List<double> coefficientList = new List<double>();
+            foreach(Monomial m in function)
+            {
+                coefficientList.Add(m.Exponent);
+            }
+            return coefficientList;
+        }
+
+        #endregion
+        
     }
+
+    #region Structs
+    public struct PolynomialFraction
+    {
+        public Polynomial numerator;
+        public Polynomial denominator;
+    }
+    #endregion
 
 }
