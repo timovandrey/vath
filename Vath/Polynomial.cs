@@ -550,6 +550,17 @@ namespace Vath.Components
             return Polynomial.DecomposeToCoefficients(this);
         }
 
+        public double GetArea(double lowerLimit, double upperLimit)
+        {
+            Polynomial integral = this.Integrate();
+            return (integral.EvaluateAt(upperLimit) - integral.EvaluateAt(lowerLimit));
+        }
+
+        public double GetAreaNumerically(double lowerLimit, double upperLimit)
+        {
+            throw new NotImplementedException();
+            return 0;
+        }
 
         #endregion
         #region Class functions
@@ -1070,7 +1081,7 @@ namespace Vath.Components
     public struct PolynomialFraction
     {
         public Polynomial numerator;
-        public Polynomial denominator;
+        public Polynomial? denominator;
     }
     #endregion
 

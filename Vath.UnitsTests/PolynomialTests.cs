@@ -399,7 +399,7 @@ namespace Vath.UnitTests
                 new Polynomial(new CoefficientList(){ 2, 3, 0, 0, -1 }),
                 new Polynomial(new CoefficientList(){ 1, 0, 2, 0, 0, -4 }),
                 new Polynomial(new CoefficientList(){ 3, 0, -2, 0, 0, 1, 0, 0}),
-            };                                        
+            };
             List<Polynomial> denominators = new List<Polynomial>()
             {
                 new Polynomial(new CoefficientList(){ 1, -1 }),
@@ -419,7 +419,7 @@ namespace Vath.UnitTests
                 new Polynomial(new CoefficientList(){ 1, 2, -1, 1 }),
                 new Polynomial(new CoefficientList(){ 1, 0, 1, 0, 1 }),
                 new Polynomial(new CoefficientList(){ 1, 1, -2, 1 }),
-            };                                        
+            };
             List<Polynomial> correctResults = new List<Polynomial>()
             {
                 new Polynomial(new CoefficientList(){ 1, 0, -12, -16 }),
@@ -439,7 +439,7 @@ namespace Vath.UnitTests
                 new Polynomial(new CoefficientList(){ 2, -1 }),
                 new Polynomial(new CoefficientList(){ 1, 0 }),
                 new Polynomial(new CoefficientList(){ 3, -3, 7, -16, 33 }),
-            };                                        
+            };
             List<Polynomial> calculatedResults = new List<Polynomial>();
 
             // Special case for polynomials with residuals
@@ -459,7 +459,7 @@ namespace Vath.UnitTests
                                     );
 
                 // Check the rest
-                if(correctResults[i].Rest == null)
+                if (correctResults[i].Rest == null)
                 {
                     resultsCorrect.Add(calculatedResults[calculatedResults.Count() - 1].Rest == null);
                 }
@@ -537,6 +537,68 @@ namespace Vath.UnitTests
             };
             PolynomialFraction simplifiedFrac = Polynomial.Simplify(testFrac);
             Assert.IsTrue(simplifiedFrac.numerator == testFracCorrect.numerator && simplifiedFrac.denominator == testFracCorrect.denominator);
+        }
+        [TestMethod]
+        public void GetArea_ProvidePolynomial_ResultsAreCorrect()
+        {
+            // https://uebungsaufgaben.eu/bestimmte_integrale/?seed=802929
+            // https://uebungsaufgaben.eu/bestimmte_integrale/?seed=3
+            List<bool> resultsCorrect = new List<bool>();
+            List<Polynomial> functions = new List<Polynomial>()
+            {
+                new Polynomial(new CoefficientList(){ 5, 1, 0, -1 }),
+                new Polynomial(new CoefficientList(){ -2.0f / 3.0f, 0, 0 }),
+                //new Polynomial(new CoefficientList(){ 4.0f/5.0f, 7, 0 }),
+                //new Polynomial(new CoefficientList(){ -1.0f/5.0f }),
+                //new Polynomial(new CoefficientList(){ -5 }),
+                //new Polynomial(new CoefficientList(){ 3, 6, 0 }),
+                //new Polynomial(new CoefficientList(){ 4, 5.0f/2.0f, 0, 1 }),
+                //new Polynomial(new CoefficientList(){ 5, 0, -3.0f/5.0f, 1 }),
+                //new Polynomial(new CoefficientList(){ -5, 1.0f/2.0f, 5 }),
+                //new Polynomial(new Terms(){new Monomial(0.125, 12), new Monomial(4.23, 4), new Monomial(-0.38947, 3) }),
+                //new Polynomial(new Terms(){new Monomial(0.125, 12), new Monomial(4.23, 4), new Monomial(-0.38947, 3) }),
+                //new Polynomial(new Terms(){new Monomial(0.000333225, 11), new Monomial(0.123, 7), new Monomial(-0.38947, 3)}),
+                //new Polynomial(new Terms(){new Monomial(0.025, 5), new Monomial(-3, 3), new Monomial(12, 1)}),
+            };
+            List<Tuple<double, double>> limits = new List<Tuple<double, double>>()
+            {
+                new Tuple<double,double>(0, 6),
+                new Tuple<double,double>(-1, 2),
+                //new Tuple<double,double>(-4, 1),
+                //new Tuple<double,double>(1, 6),
+                //new Tuple<double,double>(-3, -2),
+                //new Tuple<double,double>(-1, 4),
+                //new Tuple<double,double>(2, 3),
+                //new Tuple<double,double>(-4, 1),
+                //new Tuple<double,double>(1, 5),
+                //new Tuple<double,double>(12.5, 234),
+                //new Tuple<double,double>(-12.1256666, 2.230598),
+                //new Tuple<double,double>(-6.690009, 2.235807),
+                //new Tuple<double,double>(-0.0012, 0.000015),
+            };
+            List<double> correctResults = new List<double>()
+            {
+                1686,
+                -2,
+                //-211/6,
+                //-1,
+                //-5,
+                //110,
+                //503/6,
+                //-1237/4,
+                //-542/3,
+                //7059647013527665664,
+                //2240544,
+                //-284680,
+                //-8.71064E-6
+            };
+
+            for(int i = 0; i < functions.Count; i++)
+            {
+                double calculatedResult = functions[i].GetArea(limits[i].Item1, limits[i].Item2);
+                resultsCorrect.Add(calculatedResult == correctResults[i]);
+            }
+            Assert.IsTrue(resultsCorrect.All(x => x));
         }
     }
 }
