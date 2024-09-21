@@ -1,6 +1,5 @@
 # Vath
-<<<<<<< HEAD
-A math library which shall evolve into a new, big application
+This is a library which houses different mathematical concepts and methods. It shall be the bases and later evolve into a full fletched open source program which can be used to simulate, design and use digital (and maybe analog?) filters, called FOSSFilter
 
 # Licensing
 This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/) and can be found in the file "[VATH_LICENSE](./VATH_LICENSE)" in the root directory.
@@ -19,6 +18,3 @@ All contributors of this project shall be listed here:
 
 # Disclaimer 
 The disclaimer in [Disclaimer (Draft)](./DISCLAIMER_DRAFT.md) applies.
-=======
-This is a library which houses different mathematical concepts and methods. It shall be the bases and later evolve into a full fletched open source program which can be used to simulate, design and use digital (and maybe analog?) filters, called FOSSFilter.
->>>>>>> 6ae271f7beec8456b607ee67d564c28a99ca07ec
