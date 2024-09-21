@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Projekte/vath/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\Vath.dir\\application\\sources\\firsttest.cpp.obj -c C:\\Projekte\\vath\\application\\sources\\firsttest.cpp",
+  "file": "C:/Projekte/vath/application/sources/firsttest.cpp",
+  "output": "CMakeFiles/Vath.dir/application/sources/firsttest.cpp.obj"
+},
+{
+  "directory": "C:/Projekte/vath/build/googletest/googlemock",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gmock.dir/includes_CXX.rsp -g -std=c++23 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj -c C:\\Projekte\\vath\\googletest\\googlemock\\src\\gmock-all.cc",
+  "file": "C:/Projekte/vath/googletest/googlemock/src/gmock-all.cc",
+  "output": "googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
+},
+{
+  "directory": "C:/Projekte/vath/build/googletest/googlemock",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gmock_main.dir/includes_CXX.rsp -g -std=c++23 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj -c C:\\Projekte\\vath\\googletest\\googlemock\\src\\gmock_main.cc",
+  "file": "C:/Projekte/vath/googletest/googlemock/src/gmock_main.cc",
+  "output": "googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj"
+},
+{
+  "directory": "C:/Projekte/vath/build/googletest/googletest",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gtest.dir/includes_CXX.rsp -g -std=c++23 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj -c C:\\Projekte\\vath\\googletest\\googletest\\src\\gtest-all.cc",
+  "file": "C:/Projekte/vath/googletest/googletest/src/gtest-all.cc",
+  "output": "googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj"
+},
+{
+  "directory": "C:/Projekte/vath/build/googletest/googletest",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gtest_main.dir/includes_CXX.rsp -g -std=c++23 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj -c C:\\Projekte\\vath\\googletest\\googletest\\src\\gtest_main.cc",
+  "file": "C:/Projekte/vath/googletest/googletest/src/gtest_main.cc",
+  "output": "googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj"
+},
+{
+  "directory": "C:/Projekte/vath/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VathTests.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\VathTests.dir\\VathTests.cpp.obj -c C:\\Projekte\\vath\\tests\\VathTests.cpp",
+  "file": "C:/Projekte/vath/tests/VathTests.cpp",
+  "output": "tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj"
+}
+]

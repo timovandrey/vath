@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kNmxL+J2DrbzDcMphKa/PthaS8R6CFNXheURGoRTjIeLsgyyFHGYhwwQKWO5Wwb6XIF8Qsms+g9qKBnbtb0l7g==",
+  "dgSpecHash": "oE83DJIaG9ehre7N+zgcNUEQZ0lfC5cOjQts18Fy+3XbalO3k/AY3xeWQ7qgN+U05+MgbcXhEVlwXC2R3D7OEA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.Kurvendiskuteur\\Vath.KurvendiskussionsApplet.csproj",
+  "projectFilePath": "C:\\Projekte\\vath\\old\\C#\\Vath.Kurvendiskuteur\\Vath.KurvendiskussionsApplet.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\accou\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
     "C:\\Users\\accou\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

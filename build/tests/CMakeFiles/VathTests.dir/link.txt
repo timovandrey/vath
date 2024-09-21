@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\VathTests.dir/objects.a
+C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\VathTests.dir/objects.a @CMakeFiles\VathTests.dir\objects1.rsp
+C:\msys64\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\VathTests.dir/objects.a -Wl,--no-whole-archive -o VathTests.exe -Wl,--out-implib,libVathTests.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\VathTests.dir\linkLibs.rsp

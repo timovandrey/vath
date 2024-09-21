@@ -1019,11 +1019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.UnitsTests\\Vath.UnitTests.csproj",
+      "projectUniqueName": "C:\\Projekte\\vath\\old\\C#\\Vath.UnitsTests\\Vath.UnitTests.csproj",
       "projectName": "Vath.UnitTests",
-      "projectPath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.UnitsTests\\Vath.UnitTests.csproj",
+      "projectPath": "C:\\Projekte\\vath\\old\\C#\\Vath.UnitsTests\\Vath.UnitTests.csproj",
       "packagesPath": "C:\\Users\\accou\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath.UnitsTests\\obj\\",
+      "outputPath": "C:\\Projekte\\vath\\old\\C#\\Vath.UnitsTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1044,8 +1044,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath\\Vath.csproj": {
-              "projectPath": "C:\\Users\\accou\\source\\repos\\Vath\\vath\\Vath\\Vath.csproj"
+            "C:\\Projekte\\vath\\old\\C#\\Vath\\Vath.csproj": {
+              "projectPath": "C:\\Projekte\\vath\\old\\C#\\Vath\\Vath.csproj"
             }
           }
         }

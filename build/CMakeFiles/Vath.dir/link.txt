@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc libVath.a CMakeFiles/Vath.dir/application/sources/firsttest.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe libVath.a
