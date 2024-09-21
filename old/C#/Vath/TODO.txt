@@ -1,0 +1,178 @@
+﻿- Make it so that you can divide/multiply Polynomials/Terms by a constant so that the coefficients are just divided/multiplied by that.
+
+
+
+
+
+It’s great that you’ve been using Newton’s method for approximating zeros of polynomials! However, the loss of precision you’re experiencing after many iterations is a common challenge. Let’s explore some strategies to improve computational precision:
+
+Adjusting the Initial Guess (Starting Point):
+->>>>>>>>>> THIS >>>>>>>>> The choice of the initial guess ((x_0)) can significantly impact the convergence of Newton’s method.
+If your initial guess is too far from the actual zero, it might lead to divergence or slow convergence.
+Consider refining your initial guess based on prior knowledge about the polynomial or the problem domain.
+You can also use other methods (e.g., bisection) to find an initial interval containing the zero and then use Newton’s method within that interval.
+Increasing Precision of Arithmetic Operations:
+Ensure that you’re using high-precision arithmetic (e.g., arbitrary-precision libraries) to perform calculations.
+Standard floating-point arithmetic (e.g., double precision) can accumulate rounding errors over many iterations.
+Libraries like mpmath in Python allow you to work with arbitrary precision numbers.
+Stopping Criteria:
+Instead of using a fixed number of iterations, consider using a stopping criterion based on the difference between successive approximations.
+For example, stop when (|x_n - x_{n-1}| < \epsilon), where (\epsilon) is a small tolerance.
+This ensures that you stop iterating once the approximation is sufficiently close to the true zero.
+Higher-Order Methods:
+Newton’s method is a first-order method (linear convergence).
+Consider using higher-order methods like Halley’s method or Householder’s method.
+These methods use additional derivatives (second or third) to improve convergence speed.
+Avoiding Multiple Roots:
+If your polynomial has multiple roots (repeated zeros), Newton’s method can behave unpredictably.
+Detect and handle multiple roots separately (e.g., by factoring the polynomial).
+For repeated roots, the convergence rate may be slower, so you might need more iterations.
+Refining the Polynomial:
+If you’re dealing with a polynomial with coefficients that are not exact (due to floating-point representation), consider refining the polynomial.
+Use high-precision coefficients during the computation and only round to lower precision when necessary (e.g., for display).
+Checking for Convergence Issues:
+Monitor the behavior of the method during iterations.
+If the derivative becomes too small (close to zero), the method might stall.
+If the derivative oscillates or diverges, investigate the behavior around the zero.
+Remember that achieving high precision in numerical computations often involves a combination of algorithmic improvements, careful implementation, and appropriate mathematical techniques. Experiment with the suggestions above and adapt them to your specific problem. 🌟
+
+If you’d like, you can share more details about the specific polynomial you’re working with, and I can provide further insights tailored to your case! 😊
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+Certainly! Let’s dive into your questions and explore Halley’s method and Householder’s method in more detail:
+
+Why Does a Close Initial Guess Improve Convergence?
+When using iterative root-finding methods like Newton’s method or Halley’s method, the choice of the initial guess significantly affects the convergence behavior.
+If your initial guess is close to the actual zero (root), the iterations tend to converge more quickly.
+Intuitively, this happens because the tangent line (or higher-order approximations) at the initial guess provides a better local approximation to the function near the root.
+When the initial guess is far from the root, the iterations may diverge or converge very slowly.
+Therefore, starting with a good initial guess improves the chances of finding the true zero efficiently.
+Sweeping Through a Wide Range of Possible Zeros:
+If you want to explore a wide range of possible zeros (roots) on the x-axis, consider using methods that are robust and do not rely heavily on initial guesses.
+Bisection method is a good choice for this purpose:
+It works by repeatedly dividing an interval containing the root into smaller subintervals.
+The method guarantees convergence to a root within the interval.
+However, it converges linearly (slowly) and requires the function to change sign within the interval.
+Bisection is reliable but not very efficient for fine-grained exploration.
+Stopping Criteria Based on Function Value:
+Your stopping criterion of checking if the function value evaluated at the guessed zero is close to zero (e.g., < 1E-20) is reasonable.
+This ensures that you stop iterating once the approximation is sufficiently accurate.
+You can combine this with other criteria (e.g., maximum number of iterations) for robustness.
+Halley’s Method:
+Halley’s method is a second-order root-finding algorithm (cubic convergence).
+It improves upon Newton’s method by using the second derivative (curvature) in addition to the first derivative.
+The iteration formula for Halley’s method is: [x_{n+1} = x_n - \frac{2f(x_n)f’(x_n)}{2[f’(x_n)]^2 - f(x_n)f’'(x_n)}]
+Halley’s method converges faster than Newton’s method when the second derivative is non-zero.
+It’s particularly useful for functions with multiple roots or when the first derivative is close to zero.
+Householder’s Method:
+Householder’s methods are a class of root-finding algorithms.
+They are used for functions of one real variable with continuous derivatives up to some order (d + 1).
+The order of the method is denoted by (d).
+Householder’s method has a rate of convergence of (d + 1).
+The iteration formula is similar to Newton’s method but involves higher derivatives.
+It is characterized by the number (d), which determines the order of convergence.
+Despite their high order of convergence, Householder’s methods are not widely used due to the effort required for large (d).
+Comparison:
+Halley’s method (second order) and Householder’s method (higher order) both improve convergence speed.
+However, the gain in precision is not always commensurate with the computational effort for large (d).
+For polynomials, Halley’s method (with (d = 2)) is often optimal in terms of precision vs. effort.
+Remember that the choice of method depends on the specific problem, the characteristics of the function, and the trade-off between precision and computational cost. Feel free to experiment with these methods and adapt them to your needs! 🌟
+
+If you’d like further details or have more questions, feel free to ask! 😊
+
+--------------------------------------------------------------------------------
+
+Certainly! When it comes to finding complex roots of functions, there are several algorithms you can consider. Let’s explore a few of them:
+
+Newton’s Method (Iterative Method):
+Newton’s method is a powerful iterative technique for finding both real and complex roots.
+It uses the derivative of the function to iteratively refine an initial guess.
+For complex roots, the iteration formula becomes: [z_{n+1} = z_n - \frac{f(z_n)}{f’(z_n)}]
+Here, (z_n) represents the complex approximation at the (n)th iteration.
+Newton’s method converges rapidly near the root if the initial guess is close enough.
+Aberth Method:
+The Aberth method is specifically designed for finding all complex roots of a polynomial.
+It combines algebraic properties of polynomials with numerical techniques.
+The method provides both real and complex roots.
+However, it may require arbitrary-precision arithmetic due to numerical instability of polynomials.
+GRPF (Global Complex Roots and Poles Finding) Algorithm:
+The GRPF algorithm is flexible and effective for finding complex roots and poles.
+It works for a wide class of analytic functions and allows considering arbitrarily shaped search regions.
+The method is simple and intuitive, making it a useful choice for complex roots.
+Eigenvalue-Based Methods:
+For polynomial equations, you can use eigenvalue-based methods.
+These methods exploit the relationship between the roots of a polynomial and the eigenvalues of its companion matrix.
+By computing the eigenvalues, you can find both real and complex roots.
+Roots of Unity:
+If you’re interested in finding the (n)th roots of unity (complex numbers that satisfy (z^n = 1)), you can use polar coordinates.
+Express the complex number (z) in polar form: (z = re^{i\theta}).
+The (n)th roots of unity are given by: [z_k = e^{i(2\pi k/n)}] where (k = 0, 1, 2, \ldots, n-1).
+Remember that the choice of method depends on the specific problem, the characteristics of the function, and the desired precision. Each method has its strengths and limitations, so consider the context when selecting an algorithm. If you have a specific function or problem in mind, feel free to share more details, and I can provide further insights! 🌟
+
+For more information, you can refer to the Wikipedia article on root-finding algorithms.1 If you’d like additional details on any specific method, let me know!
+
+https://en.wikipedia.org/wiki/Root-finding_algorithms
+https://en.wikipedia.org/wiki/Householder%27s_method
+https://en.wikipedia.org/wiki/Halley%27s_method
+https://en.wikipedia.org/wiki/Ridders%27_method
+https://en.wikipedia.org/wiki/Graeffe%27s_method	-> https://www.youtube.com/watch?v=92oh5gYUP7Y
+https://en.wikipedia.org/wiki/System_of_polynomial_equations
+
+Also good:
+https://en.wikipedia.org/wiki/Bairstow%27s_method
+https://en.wikipedia.org/wiki/Aberth_method
+https://de.wikipedia.org/wiki/Weierstra%C3%9F-(Durand-Kerner)-Verfahren
+
+
+
+--------------------------------------------------------------------------------
+// https://www.youtube.com/watch?v=XDwCnw3yavY&t=3s
+// Terry Davis says: "Runge-Kutter is better than Newton"
+// -> This is just information, as Runge-Kutter is used for differential equations.
+// But just keep that in mind.
+--------------------------------------------------------------------------------
+Besser als Taylor-Series: https://en.wikipedia.org/wiki/Pad%C3%A9_approximant
+--------------------------------------------------------------------------------
+
+
+
+Kurvendiskuteur:
+https://www.youtube.com/watch?v=0F0CeyAbpmA
+https://www.youtube.com/watch?v=UzjNEhpSNqA
+
+--------------------------------------------------------------------------------
+
+Fahrplan:
+1.	[x]	Quotientenregel (Differentiation) implementieren
+1.a.[x] Implementiere Vereinfachung bei PolynomialFractions
+4.	[ ]	Kurvendiskussion 
+		-> Kleines Applet mit Plottern?
+2.	[ ]	Komplexe Typen integrieren 
+		-> Alle Funktionen auf Komplex anpassen
+		-> Neues System für Polynomzusammenfassung, Monomoperationen, etc. entwickeln
+		-> Polynomdivision, mucho importante!
+3.	[ ]	Nullstellen findbar machen!
+5.	[ ]	Filterdesign -> Start!
+
+
+-------------------------------------------------------
+
+upper
+0.4332794276682255234152905
+-9.597284293161200144733946
+-2.433051296687699120855947
+
+= -11.5970561621806737421746
+
+
+
+lower
+-223191.0394625561426355738
+61671.92203893013719954327
+195.0387151605768186988902
+

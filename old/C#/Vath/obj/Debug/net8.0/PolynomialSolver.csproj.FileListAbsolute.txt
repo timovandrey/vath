@@ -1,0 +1,14 @@
+C:\Users\accou\source\repos\PolynomialSolver\bin\Debug\net8.0\PolynomialSolver.exe
+C:\Users\accou\source\repos\PolynomialSolver\bin\Debug\net8.0\PolynomialSolver.deps.json
+C:\Users\accou\source\repos\PolynomialSolver\bin\Debug\net8.0\PolynomialSolver.runtimeconfig.json
+C:\Users\accou\source\repos\PolynomialSolver\bin\Debug\net8.0\PolynomialSolver.dll
+C:\Users\accou\source\repos\PolynomialSolver\bin\Debug\net8.0\PolynomialSolver.pdb
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\PolynomialSolver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\PolynomialSolver.AssemblyInfoInputs.cache
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\PolynomialSolver.AssemblyInfo.cs
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\PolynomialSolver.csproj.CoreCompileInputs.cache
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\PolynomialSolver.dll
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\refint\PolynomialSolver.dll
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\PolynomialSolver.pdb
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\PolynomialSolver.genruntimeconfig.cache
+C:\Users\accou\source\repos\PolynomialSolver\obj\Debug\net8.0\ref\PolynomialSolver.dll
