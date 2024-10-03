@@ -1,0 +1,29 @@
+Start testing: Oct 03 17:41 ?????????
+----------------------------------------------------------
+1/1 Testing: VathTests
+1/1 Test: VathTests
+Command: "C:/Projekte/vath/build/tests/VathTests.exe"
+Directory: C:/Projekte/vath/build/tests
+"VathTests" start time: Oct 03 17:41 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MonomialTests
+[ RUN      ] MonomialTests.Method_IsEqual
+[       OK ] MonomialTests.Method_IsEqual (0 ms)
+[----------] 1 test from MonomialTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"VathTests" end time: Oct 03 17:41 ?????????
+"VathTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 03 17:41 ?????????

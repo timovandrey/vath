@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241003-1226-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.30.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="Timo-PC"
+	OSRelease=" Personal"
+	OSVersion=" (Build 22631)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="16145"
+	TotalPhysicalMemory="14210"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2295"
+	>
+	<Testing>
+		<StartDateTime>Oct 03 17:41 ?????????</StartDateTime>
+		<StartTestTime>1727970072</StartTestTime>
+		<TestList>
+			<Test>./tests/VathTests</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>VathTests</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/VathTests</FullName>
+			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.133446</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Projekte\vath\build\tests\VathTests.exe</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNkMFOwzAQRO/+ij02h1hwReJQQYUQKlRpe0qiyqRLarB3qb0pv0+Cq6pBQnROI+/z2LNFR2SpBW8sTTJ4C+zh7qZaBH7HD8HqYGRXtcytQ8Eo5zaGpmoHtxku66ZR5e1JNRTH5GsYmJR89LGzglqV+Uk1PDh+NS7NkQ42MHmknkXJu89f8HnmnIm9NW7Vn0RVQrF+hh/V45Geo+x4u3mMs31nXE8mvTz9Q8LkCnzMLvxBokFYjMvUZR0FTci3/EXjDf61OQiG9PidvsxiulzO7ofaidXqG2bWmQU=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Oct 03 17:41 ?????????</EndDateTime>
+		<EndTestTime>1727970072</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

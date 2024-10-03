@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/VathTests.dir/VathTests.cpp.obj"
-  "CMakeFiles/VathTests.dir/VathTests.cpp.obj.d"
+  "CMakeFiles/VathTests.dir/MonomialTests.cpp.obj"
+  "CMakeFiles/VathTests.dir/MonomialTests.cpp.obj.d"
   "VathTests.exe"
   "VathTests.exe.manifest"
   "VathTests.pdb"

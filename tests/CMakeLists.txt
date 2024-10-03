@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.8)
 set(This VathTests)
 
 set(TestSources
-    VathTests.cpp
+    MonomialTests.cpp
 )
 
 add_executable(${This} ${TestSources})

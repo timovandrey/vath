@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Projekte/vath/tests/VathTests.cpp" "tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj" "gcc" "tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj.d"
+  "C:/Projekte/vath/tests/MonomialTests.cpp" "tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj" "gcc" "tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

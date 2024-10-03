@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vath.KurvendiskussionsApplet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ae271f7beec8456b607ee67d564c28a99ca07ec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e32a5e9ce060663716d436f6f93a3748700bd09")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vath.KurvendiskussionsApplet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vath.KurvendiskussionsApplet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,11 +13,12 @@ enable_testing()
 add_subdirectory(googletest)
 
 set(Headers
-    ./application/headers/firsttest.hpp
+    ./application/headers/monomial.hpp
 )
 
 set(Sources
-    ./application/Sources/firsttest.cpp
+    ./application/sources/main.cpp    
+    ./application/sources/monomial.cpp
 )
 
 add_library(${This} STATIC ${Sources} ${Headers})

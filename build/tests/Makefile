@@ -184,29 +184,29 @@ VathTests/fast:
 	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/build
 .PHONY : VathTests/fast
 
-VathTests.obj: VathTests.cpp.obj
-.PHONY : VathTests.obj
+MonomialTests.obj: MonomialTests.cpp.obj
+.PHONY : MonomialTests.obj
 
 # target to build an object file
-VathTests.cpp.obj:
-	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj
-.PHONY : VathTests.cpp.obj
+MonomialTests.cpp.obj:
+	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj
+.PHONY : MonomialTests.cpp.obj
 
-VathTests.i: VathTests.cpp.i
-.PHONY : VathTests.i
+MonomialTests.i: MonomialTests.cpp.i
+.PHONY : MonomialTests.i
 
 # target to preprocess a source file
-VathTests.cpp.i:
-	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/VathTests.cpp.i
-.PHONY : VathTests.cpp.i
+MonomialTests.cpp.i:
+	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.i
+.PHONY : MonomialTests.cpp.i
 
-VathTests.s: VathTests.cpp.s
-.PHONY : VathTests.s
+MonomialTests.s: MonomialTests.cpp.s
+.PHONY : MonomialTests.s
 
 # target to generate assembly for a file
-VathTests.cpp.s:
-	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/VathTests.cpp.s
-.PHONY : VathTests.cpp.s
+MonomialTests.cpp.s:
+	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.s
+.PHONY : MonomialTests.cpp.s
 
 # Help Target
 help:
@@ -222,9 +222,9 @@ help:
 	@echo ... rebuild_cache
 	@echo ... test
 	@echo ... VathTests
-	@echo ... VathTests.obj
-	@echo ... VathTests.i
-	@echo ... VathTests.s
+	@echo ... MonomialTests.obj
+	@echo ... MonomialTests.i
+	@echo ... MonomialTests.s
 .PHONY : help
 
 

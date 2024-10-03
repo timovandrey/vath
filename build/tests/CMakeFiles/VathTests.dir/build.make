@@ -68,29 +68,29 @@ include tests/CMakeFiles/VathTests.dir/progress.make
 # Include the compile flags for this target's objects.
 include tests/CMakeFiles/VathTests.dir/flags.make
 
-tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj: tests/CMakeFiles/VathTests.dir/flags.make
-tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj: tests/CMakeFiles/VathTests.dir/includes_CXX.rsp
-tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj: C:/Projekte/vath/tests/VathTests.cpp
-tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj: tests/CMakeFiles/VathTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Projekte\vath\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj"
-	cd /d C:\Projekte\vath\build\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj -MF CMakeFiles\VathTests.dir\VathTests.cpp.obj.d -o CMakeFiles\VathTests.dir\VathTests.cpp.obj -c C:\Projekte\vath\tests\VathTests.cpp
+tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj: tests/CMakeFiles/VathTests.dir/flags.make
+tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj: tests/CMakeFiles/VathTests.dir/includes_CXX.rsp
+tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj: C:/Projekte/vath/tests/MonomialTests.cpp
+tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj: tests/CMakeFiles/VathTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Projekte\vath\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj"
+	cd /d C:\Projekte\vath\build\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj -MF CMakeFiles\VathTests.dir\MonomialTests.cpp.obj.d -o CMakeFiles\VathTests.dir\MonomialTests.cpp.obj -c C:\Projekte\vath\tests\MonomialTests.cpp
 
-tests/CMakeFiles/VathTests.dir/VathTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/VathTests.dir/VathTests.cpp.i"
-	cd /d C:\Projekte\vath\build\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Projekte\vath\tests\VathTests.cpp > CMakeFiles\VathTests.dir\VathTests.cpp.i
+tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/VathTests.dir/MonomialTests.cpp.i"
+	cd /d C:\Projekte\vath\build\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Projekte\vath\tests\MonomialTests.cpp > CMakeFiles\VathTests.dir\MonomialTests.cpp.i
 
-tests/CMakeFiles/VathTests.dir/VathTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/VathTests.dir/VathTests.cpp.s"
-	cd /d C:\Projekte\vath\build\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Projekte\vath\tests\VathTests.cpp -o CMakeFiles\VathTests.dir\VathTests.cpp.s
+tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/VathTests.dir/MonomialTests.cpp.s"
+	cd /d C:\Projekte\vath\build\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Projekte\vath\tests\MonomialTests.cpp -o CMakeFiles\VathTests.dir\MonomialTests.cpp.s
 
 # Object files for target VathTests
 VathTests_OBJECTS = \
-"CMakeFiles/VathTests.dir/VathTests.cpp.obj"
+"CMakeFiles/VathTests.dir/MonomialTests.cpp.obj"
 
 # External object files for target VathTests
 VathTests_EXTERNAL_OBJECTS =
 
-tests/VathTests.exe: tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj
+tests/VathTests.exe: tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj
 tests/VathTests.exe: tests/CMakeFiles/VathTests.dir/build.make
 tests/VathTests.exe: lib/libgtest_main.a
 tests/VathTests.exe: libVath.a

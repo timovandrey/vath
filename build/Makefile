@@ -248,29 +248,53 @@ VathTests/fast:
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/build
 .PHONY : VathTests/fast
 
-application/sources/firsttest.obj: application/sources/firsttest.cpp.obj
-.PHONY : application/sources/firsttest.obj
+application/sources/main.obj: application/sources/main.cpp.obj
+.PHONY : application/sources/main.obj
 
 # target to build an object file
-application/sources/firsttest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/firsttest.cpp.obj
-.PHONY : application/sources/firsttest.cpp.obj
+application/sources/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/main.cpp.obj
+.PHONY : application/sources/main.cpp.obj
 
-application/sources/firsttest.i: application/sources/firsttest.cpp.i
-.PHONY : application/sources/firsttest.i
+application/sources/main.i: application/sources/main.cpp.i
+.PHONY : application/sources/main.i
 
 # target to preprocess a source file
-application/sources/firsttest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/firsttest.cpp.i
-.PHONY : application/sources/firsttest.cpp.i
+application/sources/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/main.cpp.i
+.PHONY : application/sources/main.cpp.i
 
-application/sources/firsttest.s: application/sources/firsttest.cpp.s
-.PHONY : application/sources/firsttest.s
+application/sources/main.s: application/sources/main.cpp.s
+.PHONY : application/sources/main.s
 
 # target to generate assembly for a file
-application/sources/firsttest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/firsttest.cpp.s
-.PHONY : application/sources/firsttest.cpp.s
+application/sources/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/main.cpp.s
+.PHONY : application/sources/main.cpp.s
+
+application/sources/monomial.obj: application/sources/monomial.cpp.obj
+.PHONY : application/sources/monomial.obj
+
+# target to build an object file
+application/sources/monomial.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj
+.PHONY : application/sources/monomial.cpp.obj
+
+application/sources/monomial.i: application/sources/monomial.cpp.i
+.PHONY : application/sources/monomial.i
+
+# target to preprocess a source file
+application/sources/monomial.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/monomial.cpp.i
+.PHONY : application/sources/monomial.cpp.i
+
+application/sources/monomial.s: application/sources/monomial.cpp.s
+.PHONY : application/sources/monomial.s
+
+# target to generate assembly for a file
+application/sources/monomial.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/monomial.cpp.s
+.PHONY : application/sources/monomial.cpp.s
 
 # Help Target
 help:
@@ -291,9 +315,12 @@ help:
 	@echo ... gmock_main
 	@echo ... gtest
 	@echo ... gtest_main
-	@echo ... application/sources/firsttest.obj
-	@echo ... application/sources/firsttest.i
-	@echo ... application/sources/firsttest.s
+	@echo ... application/sources/main.obj
+	@echo ... application/sources/main.i
+	@echo ... application/sources/main.s
+	@echo ... application/sources/monomial.obj
+	@echo ... application/sources/monomial.i
+	@echo ... application/sources/monomial.s
 .PHONY : help
 
 

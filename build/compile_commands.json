@@ -1,9 +1,15 @@
 [
 {
   "directory": "C:/Projekte/vath/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\Vath.dir\\application\\sources\\firsttest.cpp.obj -c C:\\Projekte\\vath\\application\\sources\\firsttest.cpp",
-  "file": "C:/Projekte/vath/application/sources/firsttest.cpp",
-  "output": "CMakeFiles/Vath.dir/application/sources/firsttest.cpp.obj"
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\Vath.dir\\application\\sources\\main.cpp.obj -c C:\\Projekte\\vath\\application\\sources\\main.cpp",
+  "file": "C:/Projekte/vath/application/sources/main.cpp",
+  "output": "CMakeFiles/Vath.dir/application/sources/main.cpp.obj"
+},
+{
+  "directory": "C:/Projekte/vath/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\Vath.dir\\application\\sources\\monomial.cpp.obj -c C:\\Projekte\\vath\\application\\sources\\monomial.cpp",
+  "file": "C:/Projekte/vath/application/sources/monomial.cpp",
+  "output": "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj"
 },
 {
   "directory": "C:/Projekte/vath/build/googletest/googlemock",
@@ -31,8 +37,8 @@
 },
 {
   "directory": "C:/Projekte/vath/build/tests",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VathTests.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\VathTests.dir\\VathTests.cpp.obj -c C:\\Projekte\\vath\\tests\\VathTests.cpp",
-  "file": "C:/Projekte/vath/tests/VathTests.cpp",
-  "output": "tests/CMakeFiles/VathTests.dir/VathTests.cpp.obj"
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VathTests.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\VathTests.dir\\MonomialTests.cpp.obj -c C:\\Projekte\\vath\\tests\\MonomialTests.cpp",
+  "file": "C:/Projekte/vath/tests/MonomialTests.cpp",
+  "output": "tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj"
 }
 ]

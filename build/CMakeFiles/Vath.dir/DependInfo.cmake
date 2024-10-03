@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Projekte/vath/application/sources/firsttest.cpp" "CMakeFiles/Vath.dir/application/sources/firsttest.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/firsttest.cpp.obj.d"
+  "C:/Projekte/vath/application/sources/main.cpp" "CMakeFiles/Vath.dir/application/sources/main.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/main.cpp.obj.d"
+  "C:/Projekte/vath/application/sources/monomial.cpp" "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
