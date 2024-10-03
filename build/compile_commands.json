@@ -12,6 +12,12 @@
   "output": "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj"
 },
 {
+  "directory": "C:/Projekte/vath/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\Vath.dir\\application\\sources\\polynomial.cpp.obj -c C:\\Projekte\\vath\\application\\sources\\polynomial.cpp",
+  "file": "C:/Projekte/vath/application/sources/polynomial.cpp",
+  "output": "CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj"
+},
+{
   "directory": "C:/Projekte/vath/build/googletest/googlemock",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gmock.dir/includes_CXX.rsp -g -std=c++23 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj -c C:\\Projekte\\vath\\googletest\\googlemock\\src\\gmock-all.cc",
   "file": "C:/Projekte/vath/googletest/googlemock/src/gmock-all.cc",
@@ -40,5 +46,11 @@
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VathTests.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\VathTests.dir\\MonomialTests.cpp.obj -c C:\\Projekte\\vath\\tests\\MonomialTests.cpp",
   "file": "C:/Projekte/vath/tests/MonomialTests.cpp",
   "output": "tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.obj"
+},
+{
+  "directory": "C:/Projekte/vath/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VathTests.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\VathTests.dir\\PolynomialTests.cpp.obj -c C:\\Projekte\\vath\\tests\\PolynomialTests.cpp",
+  "file": "C:/Projekte/vath/tests/PolynomialTests.cpp",
+  "output": "tests/CMakeFiles/VathTests.dir/PolynomialTests.cpp.obj"
 }
 ]

@@ -24,6 +24,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake"
   "C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU.cmake"
   "C:/Program Files/CMake/share/cmake-3.30/Modules/GNUInstallDirs.cmake"
+  "C:/Program Files/CMake/share/cmake-3.30/Modules/GoogleTest.cmake"
   "C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake"
   "C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake"
   "C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake"

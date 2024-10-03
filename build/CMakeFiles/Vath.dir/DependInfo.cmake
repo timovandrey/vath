@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Projekte/vath/application/sources/main.cpp" "CMakeFiles/Vath.dir/application/sources/main.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/main.cpp.obj.d"
   "C:/Projekte/vath/application/sources/monomial.cpp" "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj.d"
+  "C:/Projekte/vath/application/sources/polynomial.cpp" "CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

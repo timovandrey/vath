@@ -61,16 +61,6 @@ Monomial Monomial::operator /(const Monomial& other) const
     return Monomial(newCoeff, newExp);
 }
 
-// TODO
-// Polynomial Monomial::operator +(const Monomial& other) const
-// {
-// }
-
-// TODO
-// Polynomial Monomial::operator -(const Monomial& other) const
-// {
-// }
-
 // Methods
 
 void Monomial::Integrate()
@@ -126,13 +116,5 @@ bool Monomial::IsEqual(const Monomial& other) const
             (this->Exponent == other.Exponent)
             );
 }
-
-
-
-
-
-
-
-
 
 }

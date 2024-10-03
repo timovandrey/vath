@@ -1,29 +1,52 @@
-Start testing: Oct 03 17:41 ?????????
+Start testing: Oct 03 23:24 ?????????
 ----------------------------------------------------------
-1/1 Testing: VathTests
-1/1 Test: VathTests
+12/12 Testing: VathTests
+12/12 Test: VathTests
 Command: "C:/Projekte/vath/build/tests/VathTests.exe"
 Directory: C:/Projekte/vath/build/tests
-"VathTests" start time: Oct 03 17:41 ?????????
+"VathTests" start time: Oct 03 23:24 ?????????
 Output:
 ----------------------------------------------------------
 Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
-[==========] Running 1 test from 1 test suite.
+[==========] Running 11 tests from 2 test suites.
 [----------] Global test environment set-up.
-[----------] 1 test from MonomialTests
-[ RUN      ] MonomialTests.Method_IsEqual
-[       OK ] MonomialTests.Method_IsEqual (0 ms)
-[----------] 1 test from MonomialTests (0 ms total)
+[----------] 2 tests from PolynomialTests
+[ RUN      ] PolynomialTests.Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks
+[       OK ] PolynomialTests.Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks (0 ms)
+[ RUN      ] PolynomialTests.Constructor_ConstructorTakesCoefficientList_ConstructorWorks
+[       OK ] PolynomialTests.Constructor_ConstructorTakesCoefficientList_ConstructorWorks (0 ms)
+[----------] 2 tests from PolynomialTests (0 ms total)
+
+[----------] 9 tests from MonomialTests
+[ RUN      ] MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue
+[       OK ] MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_MonomialValuesAreNotTheSame_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_MonomialValuesAreNotTheSame_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_TermCoefficientIsDifferent_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_TermCoefficientIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_TermExponentIsDifferent_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_TermExponentIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.CopyConstructor_TermIsProvided_TermIsTheSame
+[       OK ] MonomialTests.CopyConstructor_TermIsProvided_TermIsTheSame (0 ms)
+[ RUN      ] MonomialTests.Operator_SingleMultiplication_ResultIsCorrect
+[       OK ] MonomialTests.Operator_SingleMultiplication_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_SingleDivision_ResultIsCorrect
+[       OK ] MonomialTests.Operator_SingleDivision_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Method_Integrate_TermIsIntegrated_ResultIsCorrect
+[       OK ] MonomialTests.Method_Integrate_TermIsIntegrated_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Method_Differentiate_TermIsDifferentiated_ResultIsCorrect
+[       OK ] MonomialTests.Method_Differentiate_TermIsDifferentiated_ResultIsCorrect (0 ms)
+[----------] 9 tests from MonomialTests (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
+[==========] 11 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 11 tests.
 <end of output>
-Test time =   0.13 sec
+Test time =   0.07 sec
 ----------------------------------------------------------
 Test Passed.
-"VathTests" end time: Oct 03 17:41 ?????????
+"VathTests" end time: Oct 03 23:24 ?????????
 "VathTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 03 17:41 ?????????
+End testing: Oct 03 23:24 ?????????

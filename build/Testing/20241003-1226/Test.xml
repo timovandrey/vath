@@ -18,14 +18,14 @@
 	ProcessorCacheSize="96"
 	NumberOfLogicalCPU="8"
 	NumberOfPhysicalCPU="4"
-	TotalVirtualMemory="16145"
+	TotalVirtualMemory="15106"
 	TotalPhysicalMemory="14210"
 	LogicalProcessorsPerPhysical="2"
 	ProcessorClockFrequency="2295"
 	>
 	<Testing>
-		<StartDateTime>Oct 03 17:41 ?????????</StartDateTime>
-		<StartTestTime>1727970072</StartTestTime>
+		<StartDateTime>Oct 03 23:24 ?????????</StartDateTime>
+		<StartTestTime>1727990688</StartTestTime>
 		<TestList>
 			<Test>./tests/VathTests</Test>
 		</TestList>
@@ -36,7 +36,7 @@
 			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe</FullCommandLine>
 			<Results>
 				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.133446</Value>
+					<Value>0.0709771</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Processors">
 					<Value>1</Value>
@@ -51,12 +51,12 @@
 					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
 				</NamedMeasurement>
 				<Measurement>
-					<Value encoding="base64" compression="gzip">eJyNkMFOwzAQRO/+ij02h1hwReJQQYUQKlRpe0qiyqRLarB3qb0pv0+Cq6pBQnROI+/z2LNFR2SpBW8sTTJ4C+zh7qZaBH7HD8HqYGRXtcytQ8Eo5zaGpmoHtxku66ZR5e1JNRTH5GsYmJR89LGzglqV+Uk1PDh+NS7NkQ42MHmknkXJu89f8HnmnIm9NW7Vn0RVQrF+hh/V45Geo+x4u3mMs31nXE8mvTz9Q8LkCnzMLvxBokFYjMvUZR0FTci3/EXjDf61OQiG9PidvsxiulzO7ofaidXqG2bWmQU=</Value>
+					<Value encoding="base64" compression="gzip">eJytk01PwkAQhu/9FXOUg40QL5p4MPgRoqLBqgcgzdpO6cp2B3dmUf+9LVVSCCT4MZfO7rzvk+lOZuCt1XYChdJ2rwWZowK6x6M7Ry84FRzNleSjCdHEoCBLM2WXjCZVFlfmMEmC4ckyxjD4IrfbUIm4ZncWB2Cvy28YDPeXMYZLQ8/K1AK0c+3IFmhLMcq+n62JO03qHZkPS4VWJqougyEMHvqwiPF6MeySZXE+EXLxGWbKG2lc9bhn5zTFdEPtidy0gtdxe/X/cNg7gIJbu/9AI4/UFLlLmGU60eW7XetyNL/v/qfkZeu7Tqk2gJAo0wpWfUdN3w1tne1KKbxBySmNe3z+6pWJv4uPynjkU4dRjveqwHiA4p3lyHlcfY8/4zbO72fUPska+EIZ/lOjW5BVs2FY7lWUa4aZcgKUgeRYryB5mXmBN8XgsKA5psDaJgi6XM/3BDHlWpw75JxMWrnbB51DeP6olnscfAJdTYmM====</Value>
 				</Measurement>
 			</Results>
 		</Test>
-		<EndDateTime>Oct 03 17:41 ?????????</EndDateTime>
-		<EndTestTime>1727970072</EndTestTime>
+		<EndDateTime>Oct 03 23:24 ?????????</EndDateTime>
+		<EndTestTime>1727990689</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

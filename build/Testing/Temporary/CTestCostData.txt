@@ -1,2 +1,12 @@
-VathTests 2 0.127268
+MonomialTests.Operator_SingleDivision_ResultIsCorrect 11 0.0702005
+MonomialTests.Method_IsEqual_TermCoefficientIsDifferent_ReturnsFalse 2 0.0809264
+MonomialTests.Method_Integrate_TermIsIntegrated_ResultIsCorrect 3 0.0639424
+MonomialTests.Method_IsEqual_TermExponentIsDifferent_ReturnsFalse 2 0.0759287
+MonomialTests.Method_Differentiate_TermIsDifferentiated_ResultIsCorrect 3 0.0651602
+MonomialTests.CopyConstructor_TermIsProvided_TermIsTheSame 2 0.0744722
+VathTests 3 0.0669947
+MonomialTests.Operator_SingleMultiplication_ResultIsCorrect 2 0.058536
+PolynomialTests.Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks 1 0.0867176
+MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue 1 0.0931912
+MonomialTests.Method_IsEqual_MonomialValuesAreNotTheSame_ReturnsFalse 1 0.0982085
 ---

@@ -1,0 +1,5 @@
+if(EXISTS "C:/Projekte/vath/build/tests/VathTests[1]_tests.cmake")
+  include("C:/Projekte/vath/build/tests/VathTests[1]_tests.cmake")
+else()
+  add_test(VathTests_NOT_BUILT VathTests_NOT_BUILT)
+endif()

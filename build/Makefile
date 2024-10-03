@@ -296,6 +296,30 @@ application/sources/monomial.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/monomial.cpp.s
 .PHONY : application/sources/monomial.cpp.s
 
+application/sources/polynomial.obj: application/sources/polynomial.cpp.obj
+.PHONY : application/sources/polynomial.obj
+
+# target to build an object file
+application/sources/polynomial.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj
+.PHONY : application/sources/polynomial.cpp.obj
+
+application/sources/polynomial.i: application/sources/polynomial.cpp.i
+.PHONY : application/sources/polynomial.i
+
+# target to preprocess a source file
+application/sources/polynomial.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/polynomial.cpp.i
+.PHONY : application/sources/polynomial.cpp.i
+
+application/sources/polynomial.s: application/sources/polynomial.cpp.s
+.PHONY : application/sources/polynomial.s
+
+# target to generate assembly for a file
+application/sources/polynomial.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/polynomial.cpp.s
+.PHONY : application/sources/polynomial.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -321,6 +345,9 @@ help:
 	@echo ... application/sources/monomial.obj
 	@echo ... application/sources/monomial.i
 	@echo ... application/sources/monomial.s
+	@echo ... application/sources/polynomial.obj
+	@echo ... application/sources/polynomial.i
+	@echo ... application/sources/polynomial.s
 .PHONY : help
 
 

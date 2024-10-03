@@ -14,13 +14,16 @@ add_subdirectory(googletest)
 
 set(Headers
     ./application/headers/monomial.hpp
+    ./application/headers/polynomial.hpp
 )
 
 set(Sources
     ./application/sources/main.cpp    
     ./application/sources/monomial.cpp
+    ./application/sources/polynomial.cpp
 )
 
 add_library(${This} STATIC ${Sources} ${Headers})
 
 add_subdirectory(tests)
+

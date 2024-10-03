@@ -96,19 +96,35 @@ CMakeFiles/Vath.dir/application/sources/monomial.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Vath.dir/application/sources/monomial.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Projekte\vath\application\sources\monomial.cpp -o CMakeFiles\Vath.dir\application\sources\monomial.cpp.s
 
+CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj: CMakeFiles/Vath.dir/flags.make
+CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj: C:/Projekte/vath/application/sources/polynomial.cpp
+CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj: CMakeFiles/Vath.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Projekte\vath\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj -MF CMakeFiles\Vath.dir\application\sources\polynomial.cpp.obj.d -o CMakeFiles\Vath.dir\application\sources\polynomial.cpp.obj -c C:\Projekte\vath\application\sources\polynomial.cpp
+
+CMakeFiles/Vath.dir/application/sources/polynomial.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Vath.dir/application/sources/polynomial.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Projekte\vath\application\sources\polynomial.cpp > CMakeFiles\Vath.dir\application\sources\polynomial.cpp.i
+
+CMakeFiles/Vath.dir/application/sources/polynomial.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Vath.dir/application/sources/polynomial.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Projekte\vath\application\sources\polynomial.cpp -o CMakeFiles\Vath.dir\application\sources\polynomial.cpp.s
+
 # Object files for target Vath
 Vath_OBJECTS = \
 "CMakeFiles/Vath.dir/application/sources/main.cpp.obj" \
-"CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj"
+"CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj" \
+"CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj"
 
 # External object files for target Vath
 Vath_EXTERNAL_OBJECTS =
 
 libVath.a: CMakeFiles/Vath.dir/application/sources/main.cpp.obj
 libVath.a: CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj
+libVath.a: CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj
 libVath.a: CMakeFiles/Vath.dir/build.make
 libVath.a: CMakeFiles/Vath.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Projekte\vath\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libVath.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Projekte\vath\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libVath.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\Vath.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Vath.dir\link.txt --verbose=$(VERBOSE)
 

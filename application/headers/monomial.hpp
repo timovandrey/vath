@@ -15,6 +15,10 @@ namespace Vath
 {
 
 class Polynomial;
+class Monomial;
+
+using Terms = std::vector<Monomial>;
+using CoefficientList = std::vector<double>;
 
 /**
  * \brief This represents a term or rather a coefficient-exponent-pair. It thus represents something like 3x^4, where 3 is the coefficient and 4 is the exponent.
@@ -23,9 +27,6 @@ class Polynomial;
  */
 class Monomial
 {
-
-using Terms = std::vector<Monomial>;
-using CoefficientList = std::vector<double>;
 
 public: 
 /* Public constants **********************************************************/

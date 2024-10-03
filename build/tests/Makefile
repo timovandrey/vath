@@ -208,6 +208,30 @@ MonomialTests.cpp.s:
 	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/MonomialTests.cpp.s
 .PHONY : MonomialTests.cpp.s
 
+PolynomialTests.obj: PolynomialTests.cpp.obj
+.PHONY : PolynomialTests.obj
+
+# target to build an object file
+PolynomialTests.cpp.obj:
+	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/PolynomialTests.cpp.obj
+.PHONY : PolynomialTests.cpp.obj
+
+PolynomialTests.i: PolynomialTests.cpp.i
+.PHONY : PolynomialTests.i
+
+# target to preprocess a source file
+PolynomialTests.cpp.i:
+	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/PolynomialTests.cpp.i
+.PHONY : PolynomialTests.cpp.i
+
+PolynomialTests.s: PolynomialTests.cpp.s
+.PHONY : PolynomialTests.s
+
+# target to generate assembly for a file
+PolynomialTests.cpp.s:
+	cd /d C:\Projekte\vath\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/PolynomialTests.cpp.s
+.PHONY : PolynomialTests.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -225,6 +249,9 @@ help:
 	@echo ... MonomialTests.obj
 	@echo ... MonomialTests.i
 	@echo ... MonomialTests.s
+	@echo ... PolynomialTests.obj
+	@echo ... PolynomialTests.i
+	@echo ... PolynomialTests.s
 .PHONY : help
 
 
