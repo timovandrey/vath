@@ -178,4 +178,7 @@ CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj: \
  C:/msys64/mingw64/include/c++/13.2.0/bits/codecvt.h \
  C:/msys64/mingw64/include/c++/13.2.0/bits/locale_facets_nonio.tcc \
  C:/msys64/mingw64/include/c++/13.2.0/bits/locale_conv.h \
- C:/msys64/mingw64/include/c++/13.2.0/bits/quoted_string.h
+ C:/msys64/mingw64/include/c++/13.2.0/bits/quoted_string.h \
+ C:/msys64/mingw64/include/c++/13.2.0/deque \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/stl_deque.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/deque.tcc

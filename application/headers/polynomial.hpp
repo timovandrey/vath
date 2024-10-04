@@ -10,14 +10,17 @@
 #include <sstream>
 #include <iomanip>
 #include <optional>
+#include <algorithm>
+#include <limits>
+#include <deque>
 
 namespace Vath
 {
 
 class Monomial; 
 
-using Terms = std::vector<Monomial>;
-using CoefficientList = std::vector<double>;
+using Terms = std::deque<Monomial>;
+using CoefficientList = std::deque<double>;
 
 /**
  * \brief 
@@ -109,8 +112,25 @@ static int GetHighestOrderOfPolynomialTerms(const Polynomial& polynomial);
 static int GetHighestOrderOfPolynomialTerms(Terms monomials);
 static int GetLowestOrderOfPolynomialTerms(const Polynomial& polynomial);
 static int GetLowestOrderOfPolynomialTerms(Terms monomials);
-static Terms CombineTerms(Terms terms);
-static Terms InterpolateTerms(Terms terms);
+
+/**
+ * \brief Takes in a list of terms, combines terms with the same exponent and sorts them by exponent.
+ * 
+ * \param terms A list of terms that should be combined and sorted.
+ * \return Terms The sorted and simplified term list.
+ */
+static Terms CombineTerms(const Terms terms);
+
+/**
+ * \brief This function takes a list of terms and then interpolates the terms by padding the missing powers between the highest order and 0th order.
+          Also, removes and preceeding zeros of the polynomial.
+ * 
+ * \param terms The list of terms to be modified.
+ * \return Terms A term list with padded zeros-powers.
+ */
+static Terms InterpolateTerms(const Terms terms);
+static Terms CoefficientList2Terms(const CoefficientList coefficients);
+static CoefficientList Terms2CoefficientList(const Terms terms);
 
 // Overloaded standard methods
 std::string to_string() const;

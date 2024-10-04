@@ -635,8 +635,7 @@ namespace Vath.Components
                 {
                     Monomial accumulatorTerm = new Monomial(termList[termIdx]);
 
-                    for (int testTermIdx = 0; testTermIdx < termList.Count; testTermIdx++)
-                    {
+                    
                         if (termIdx == testTermIdx)
                         {
                             continue;

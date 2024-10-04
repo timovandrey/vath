@@ -279,4 +279,10 @@ tests/CMakeFiles/VathTests.dir/PolynomialTests.cpp.obj: \
  C:/msys64/mingw64/include/c++/13.2.0/tr1/riemann_zeta.tcc \
  C:/msys64/mingw64/include/c++/13.2.0/iomanip \
  C:/msys64/mingw64/include/c++/13.2.0/bits/quoted_string.h \
+ C:/msys64/mingw64/include/c++/13.2.0/algorithm \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/ranges_algo.h \
+ C:/msys64/mingw64/include/c++/13.2.0/pstl/glue_algorithm_defs.h \
+ C:/msys64/mingw64/include/c++/13.2.0/deque \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/stl_deque.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/deque.tcc \
  C:/Projekte/vath/application/headers/monomial.hpp

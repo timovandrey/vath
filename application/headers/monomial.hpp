@@ -9,7 +9,7 @@
 #include <vector>
 #include <sstream>
 #include <iomanip>
-
+#include <deque>
 
 namespace Vath
 {
@@ -17,8 +17,8 @@ namespace Vath
 class Polynomial;
 class Monomial;
 
-using Terms = std::vector<Monomial>;
-using CoefficientList = std::vector<double>;
+using Terms = std::deque<Monomial>;
+using CoefficientList = std::deque<double>;
 
 /**
  * \brief This represents a term or rather a coefficient-exponent-pair. It thus represents something like 3x^4, where 3 is the coefficient and 4 is the exponent.
