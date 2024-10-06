@@ -81,10 +81,27 @@ Polynomial operator -(const Monomial& other) const;
  * \brief Integrates this monomial.
  */
 void Integrate();       
+
+/**
+ * \brief Integrates a monomial and returns the integrated monomial as value.
+ * 
+ * \param m The monomial to be integrated.
+ * \return Monomial The integrated monomial.
+ */
+static Monomial Integrate(const Monomial& m);
+
 /**
  * \brief Differentiates this monomial.
  */
 void Differentiate();
+
+/**
+ * \brief Differentiates a monomial and returns the differentiated monomial as value.
+ * 
+ * \param m The monomial to be differentiated.
+ * \return Monomial The differentiated monomial.
+ */
+static Monomial Differentiate(const Monomial& m);
 
 // Overloaded standard methods
 std::string to_string() const;

@@ -95,13 +95,79 @@ TEST(PolynomialTests, Method_IsEqual_OrderOrNumberOfTermsIsTheSame_ReturnsTrue)
     EXPECT_TRUE(result);
 }
 
+TEST(PolynomialTests, Method_Differentiate_PolynomialIsDifferentiated_ReturnsTrue)
+{
+    Polynomial original(CoefficientList{-3,3,3,-3,8});
+    Polynomial correctResult(Terms{
+        Monomial(-12,3),
+        Monomial(9,2),
+        Monomial(6,1),
+        Monomial(-3,0)
+    });
+
+    Polynomial differentiated(original);
+    differentiated.Differentiate();
+    EXPECT_TRUE(differentiated == correctResult);
+}
+
+TEST(PolynomialTests, Method_DifferentiateStatic_PolynomialIsDifferentiated_ReturnsTrue)
+{
+    Polynomial original(CoefficientList{-3,3,3,-3,8});
+    Polynomial correctResult(Terms{
+        Monomial(-12,3),
+        Monomial(9,2),
+        Monomial(6,1),
+        Monomial(-3,0)
+    });
+
+    Polynomial differentiated = Polynomial::Differentiate(original);
+    EXPECT_TRUE(differentiated == correctResult);
+}
+
+TEST(PolynomialTests, Method_Integrate_PolynomialIsIntegrated_ReturnsTrue)
+{
+    Polynomial original(CoefficientList{5,-4,3,-2,8.5});
+    Polynomial correctResult(Terms{
+        Monomial(1, 5),
+        Monomial(-1, 4),
+        Monomial(1, 3),
+        Monomial(-1, 2),
+        Monomial(8.5, 1)
+    });
+
+    Polynomial integrated(original);
+    integrated.Integrate();
+    EXPECT_TRUE(integrated == correctResult);
+}
+
+TEST(PolynomialTests, Method_IntegrateStatic_PolynomialIsIntegrated_ReturnsTrue)
+{
+    Polynomial original(CoefficientList{5,-4,3,-2,8.5});
+    Polynomial correctResult(Terms{
+        Monomial(1, 5),
+        Monomial(-1, 4),
+        Monomial(1, 3),
+        Monomial(-1, 2),
+        Monomial(8.5, 1)
+    });
+
+    Polynomial integrated = Polynomial::Integrate(original);
+    EXPECT_TRUE(integrated == correctResult);
+}
+
 TEST(PolynomialTests, Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks)
 {
     Polynomial p;
 
-    EXPECT_TRUE(p.Monomials.size() == 1);
-    EXPECT_TRUE(p.Monomials[0].Coefficient == 0);
-    EXPECT_TRUE(p.Monomials[0].Exponent == 0);
+    EXPECT_TRUE(p.GetOrder() == 0);
+    EXPECT_TRUE(p[0].Coefficient == 0);
+    EXPECT_TRUE(p[0].Exponent == 0);
+
+    Monomial nullTerm(0,0);
+    int restOrder = p.GetRestOrder();
+    EXPECT_EQ(restOrder, 0);
+    EXPECT_EQ(p.GetRest().size(), 1);
+    EXPECT_TRUE(nullTerm == p.GetRest()[0]);
 }
 
 TEST(PolynomialTests, Constructor_ConstructorTakesCoefficientList_ConstructorWorks)
@@ -109,19 +175,28 @@ TEST(PolynomialTests, Constructor_ConstructorTakesCoefficientList_ConstructorWor
     CoefficientList cl{1,2,3,4};
 
     Polynomial p(cl); // Create polynomial
-    EXPECT_TRUE(p.Monomials.size() == 4);
-    EXPECT_TRUE(p.Monomials[0].Coefficient == 1);
-    EXPECT_TRUE(p.Monomials[0].Exponent == 3);
-    EXPECT_TRUE(p.Monomials[1].Coefficient == 2);
-    EXPECT_TRUE(p.Monomials[1].Exponent == 2);
-    EXPECT_TRUE(p.Monomials[2].Coefficient == 3);
-    EXPECT_TRUE(p.Monomials[2].Exponent == 1);
-    EXPECT_TRUE(p.Monomials[3].Coefficient == 4);
-    EXPECT_TRUE(p.Monomials[3].Exponent == 0);
+    EXPECT_TRUE(p.GetOrder() == 3);
+    EXPECT_TRUE(p[0].Coefficient == 4);
+    EXPECT_TRUE(p[0].Exponent == 0);
+    EXPECT_TRUE(p[1].Coefficient == 3);
+    EXPECT_TRUE(p[1].Exponent == 1);
+    EXPECT_TRUE(p[2].Coefficient == 2);
+    EXPECT_TRUE(p[2].Exponent == 2);
+    EXPECT_TRUE(p[3].Coefficient == 1);
+    EXPECT_TRUE(p[3].Exponent == 3);
+        
+    Monomial nullTerm(0,0);
+    int restOrder = p.GetRestOrder();
+    EXPECT_EQ(restOrder, 0);
+    EXPECT_EQ(p.GetRest().size(), 1);
+    EXPECT_TRUE(nullTerm == p.GetRest()[0]);
+
 }
 
-TEST(PolynomialTests, Constructor_ConstructorTakesMonimialList_ConstructorWorks)
+TEST(PolynomialTests, Constructor_ConstructorTakesMonomialList_ConstructorWorks)
 {
+    Monomial nullTerm(0,0);
+
     Terms terms {
         Monomial(1,2),
         Monomial(3,4),
@@ -129,16 +204,41 @@ TEST(PolynomialTests, Constructor_ConstructorTakesMonimialList_ConstructorWorks)
         Monomial(7,8)
     };
 
-    Polynomial p(terms); // Create polynomial
-    EXPECT_TRUE(p.Monomials.size() == 4);
-    EXPECT_TRUE(p.Monomials[0].Coefficient == 1);
-    EXPECT_TRUE(p.Monomials[0].Exponent == 2);
-    EXPECT_TRUE(p.Monomials[1].Coefficient == 3);
-    EXPECT_TRUE(p.Monomials[1].Exponent == 4);
-    EXPECT_TRUE(p.Monomials[2].Coefficient == 5);
-    EXPECT_TRUE(p.Monomials[2].Exponent == 6);
-    EXPECT_TRUE(p.Monomials[3].Coefficient == 7);
-    EXPECT_TRUE(p.Monomials[3].Exponent == 8);
+    Polynomial p(terms);
+    int order = p.GetOrder();
+    int restOrder = p.GetRestOrder();
+    EXPECT_EQ(order, 8);
+    
+    EXPECT_EQ(restOrder, 0);
+    EXPECT_EQ(p.GetRest().size(), 1);
+    EXPECT_TRUE(nullTerm == p.GetRest()[0]);
+
+    EXPECT_EQ(p[0].Exponent, 0);
+    EXPECT_EQ(p[0].Coefficient, 0);
+
+    EXPECT_EQ(p[1].Exponent, 1);
+    EXPECT_EQ(p[1].Coefficient, 0);
+
+    EXPECT_EQ(p[2].Exponent, 2);
+    EXPECT_EQ(p[2].Coefficient, 1);
+
+    EXPECT_EQ(p[3].Exponent, 3);
+    EXPECT_EQ(p[3].Coefficient, 0);
+
+    EXPECT_EQ(p[4].Exponent, 4);
+    EXPECT_EQ(p[4].Coefficient, 3);
+
+    EXPECT_EQ(p[5].Exponent, 5);
+    EXPECT_EQ(p[5].Coefficient, 0);
+
+    EXPECT_EQ(p[6].Exponent, 6);
+    EXPECT_EQ(p[6].Coefficient, 5);
+
+    EXPECT_EQ(p[7].Exponent, 7);
+    EXPECT_EQ(p[7].Coefficient, 0);
+
+    EXPECT_EQ(p[8].Exponent, 8);
+    EXPECT_EQ(p[8].Coefficient, 7);
 }
 
 TEST(PolynomialTests, CopyConstructor_ConstructorIsInvoked_ConstructorWorks)
@@ -149,10 +249,10 @@ TEST(PolynomialTests, CopyConstructor_ConstructorIsInvoked_ConstructorWorks)
     };
 
     Polynomial p(terms); // Create polynomial
-    EXPECT_TRUE(p.Monomials.size() == 2);
+    EXPECT_TRUE(p.GetOrder() == 4);
 
     Polynomial copy(p);
-    EXPECT_TRUE(copy.Monomials.size() == 2);
+    EXPECT_TRUE(copy.GetOrder() == 4);
     EXPECT_TRUE(p == copy);
 }
 

@@ -76,6 +76,23 @@ void Monomial::Integrate()
     }
 }
 
+Monomial Monomial::Integrate(const Monomial& m)
+{
+    Monomial out(m);
+
+    if(false /* TODO: Do something about the constant ... */)
+    {
+        // TODO: What about the constant?
+    }
+    else
+    {
+        out.Exponent++;
+        out.Coefficient = (out.Coefficient / out.Exponent);
+    }
+
+    return out;
+}
+
 void Monomial::Differentiate()
 {
     if(this->Exponent == 0)
@@ -88,6 +105,24 @@ void Monomial::Differentiate()
         this->Coefficient = (this->Coefficient * this->Exponent);
         this->Exponent--;
     }
+}
+
+Monomial Monomial::Differentiate(const Monomial& m)
+{
+    Monomial out(m);
+
+    if(out.Exponent == 0)
+    {
+        out.Coefficient = 0;
+        out.Exponent = 0;
+    }
+    else
+    {
+        out.Coefficient = (out.Coefficient * out.Exponent);
+        out.Exponent--;
+    }
+
+    return out;
 }
 
 // Overriden methods

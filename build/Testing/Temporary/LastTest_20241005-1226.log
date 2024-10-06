@@ -1,0 +1,105 @@
+Start testing: Oct 05 16:51 ?????????
+----------------------------------------------------------
+22/22 Testing: VathTests
+22/22 Test: VathTests
+Command: "C:/Projekte/vath/build/tests/VathTests.exe"
+Directory: C:/Projekte/vath/build/tests
+"VathTests" start time: Oct 05 16:51 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+[==========] Running 21 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 12 tests from PolynomialTests
+[ RUN      ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsDifferent_ReturnsFalse
+[       OK ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] PolynomialTests.Method_CoefficientList2Terms_CoefficientsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_CoefficientList2Terms_CoefficientsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_Terms2CoefficientList_TermsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_Terms2CoefficientList_TermsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_PolynomialIsProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_PolynomialIsProvided_ReturnsTrue (1 ms)
+[ RUN      ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_TermsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_TermsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms
+[       OK ] PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms (0 ms)
+[ RUN      ] PolynomialTests.Method_CombineTerms_TermsAreProvided_ReturnsCorrectCombinationOfTerms
+[       OK ] PolynomialTests.Method_CombineTerms_TermsAreProvided_ReturnsCorrectCombinationOfTerms (0 ms)
+[ RUN      ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsTheSame_ReturnsTrue
+[       OK ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsTheSame_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks
+[       OK ] PolynomialTests.Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks (0 ms)
+[ RUN      ] PolynomialTests.Constructor_ConstructorTakesCoefficientList_ConstructorWorks
+C:\Projekte\vath\tests\PolynomialTests.cpp:112: Failure
+Value of: p.GetOrder() == 3
+  Actual: false
+Expected: true
+
+[  FAILED  ] PolynomialTests.Constructor_ConstructorTakesCoefficientList_ConstructorWorks (1 ms)
+[ RUN      ] PolynomialTests.Constructor_ConstructorTakesMonomialList_ConstructorWorks
+C:\Projekte\vath\tests\PolynomialTests.cpp:134: Failure
+Expected equality of these values:
+  order
+    Which is: 0
+  8
+
+C:\Projekte\vath\tests\PolynomialTests.cpp:140: Failure
+Expected equality of these values:
+  p[2].Coefficient
+    Which is: 1
+  0
+
+[  FAILED  ] PolynomialTests.Constructor_ConstructorTakesMonomialList_ConstructorWorks (1 ms)
+[ RUN      ] PolynomialTests.CopyConstructor_ConstructorIsInvoked_ConstructorWorks
+C:\Projekte\vath\tests\PolynomialTests.cpp:172: Failure
+Value of: p.GetOrder() == 4
+  Actual: false
+Expected: true
+
+C:\Projekte\vath\tests\PolynomialTests.cpp:175: Failure
+Value of: copy.GetOrder() == 4
+  Actual: false
+Expected: true
+
+[  FAILED  ] PolynomialTests.CopyConstructor_ConstructorIsInvoked_ConstructorWorks (0 ms)
+[----------] 12 tests from PolynomialTests (6 ms total)
+
+[----------] 9 tests from MonomialTests
+[ RUN      ] MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue
+[       OK ] MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_MonomialValuesAreNotTheSame_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_MonomialValuesAreNotTheSame_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_TermCoefficientIsDifferent_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_TermCoefficientIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_TermExponentIsDifferent_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_TermExponentIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.CopyConstructor_TermIsProvided_TermIsTheSame
+[       OK ] MonomialTests.CopyConstructor_TermIsProvided_TermIsTheSame (0 ms)
+[ RUN      ] MonomialTests.Operator_SingleMultiplication_ResultIsCorrect
+[       OK ] MonomialTests.Operator_SingleMultiplication_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_SingleDivision_ResultIsCorrect
+[       OK ] MonomialTests.Operator_SingleDivision_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Method_Integrate_TermIsIntegrated_ResultIsCorrect
+[       OK ] MonomialTests.Method_Integrate_TermIsIntegrated_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Method_Differentiate_TermIsDifferentiated_ResultIsCorrect
+[       OK ] MonomialTests.Method_Differentiate_TermIsDifferentiated_ResultIsCorrect (0 ms)
+[----------] 9 tests from MonomialTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 21 tests from 2 test suites ran. (7 ms total)
+[  PASSED  ] 18 tests.
+[  FAILED  ] 3 tests, listed below:
+[  FAILED  ] PolynomialTests.Constructor_ConstructorTakesCoefficientList_ConstructorWorks
+[  FAILED  ] PolynomialTests.Constructor_ConstructorTakesMonomialList_ConstructorWorks
+[  FAILED  ] PolynomialTests.CopyConstructor_ConstructorIsInvoked_ConstructorWorks
+
+ 3 FAILED TESTS
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"VathTests" end time: Oct 05 16:51 ?????????
+"VathTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 16:51 ?????????

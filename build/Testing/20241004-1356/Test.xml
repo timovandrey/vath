@@ -24,39 +24,11 @@
 	ProcessorClockFrequency="2295"
 	>
 	<Testing>
-		<StartDateTime>Oct 04 22:59 ?????????</StartDateTime>
-		<StartTestTime>1728075553</StartTestTime>
-		<TestList>
-			<Test>./tests/VathTests</Test>
-		</TestList>
-		<Test Status="passed">
-			<Name>VathTests</Name>
-			<Path>./tests</Path>
-			<FullName>./tests/VathTests</FullName>
-			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe</FullCommandLine>
-			<Results>
-				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.0507575</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="numeric/double" name="Processors">
-					<Value>1</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Completion Status">
-					<Value>Completed</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Command Line">
-					<Value>C:\Projekte\vath\build\tests\VathTests.exe</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Environment">
-					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
-				</NamedMeasurement>
-				<Measurement>
-					<Value encoding="base64" compression="gzip">eJytk8FOwzAMhu99Ch+3w6qt4oTEAQ0YE7BNVTltVdW1ThtokxEnhb09aQuj2mnd8CWJ8/uznci+EYKLDMqYi8EQmJIlTK83KyXf8F3jpop1vsmkzArUSLq7JZVssnoX1cFukjjrm4OF4P+QvQnUImrZXnMAMtyurrMeHSyEWSG3cdEKUFRcSVGisGLUI7M7Ek+8LnYli72QJY+LoHY6a/BfF9BYeHzpvqDOZRrN6f7DxEW0VCmqpVqYcmtXFqAqaU53nDFUNn3kozZK0ENcEFpwa8un/wXDYAwlDU8qfCqRMZ5wy3jmpL0G3PXSrUL7gxVPMf3NEihzWvVn0/u00EC9o1St95La+2P7FD1D/ciz3Lran2VdXf1If+c5nd3DxVl6teS6dq6CnBPsYqVBMtA5tiMojd4ZDZ8xgcJSVpgCcZEgcDueXwliSq04V0i5LNI6ejL2rmC7r4c7dL4B/GyMqg==</Value>
-				</Measurement>
-			</Results>
-		</Test>
-		<EndDateTime>Oct 04 22:59 ?????????</EndDateTime>
-		<EndTestTime>1728075553</EndTestTime>
+		<StartDateTime>Oct 05 00:54 ?????????</StartDateTime>
+		<StartTestTime>1728082440</StartTestTime>
+		<TestList/>
+		<EndDateTime>Oct 05 00:54 ?????????</EndDateTime>
+		<EndTestTime>1728082440</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

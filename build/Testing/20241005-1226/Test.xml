@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241005-1226-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.30.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="Timo-PC"
+	OSRelease=" Personal"
+	OSVersion=" (Build 22631)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="15106"
+	TotalPhysicalMemory="14210"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2295"
+	>
+	<Testing>
+		<StartDateTime>Oct 05 16:51 ?????????</StartDateTime>
+		<StartTestTime>1728139895</StartTestTime>
+		<TestList>
+			<Test>./tests/VathTests</Test>
+		</TestList>
+		<Test Status="failed">
+			<Name>VathTests</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/VathTests</FullName>
+			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0541786</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Projekte\vath\build\tests\VathTests.exe</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJy1WEtz2jAQvvtX6EhmGgZI2qSeyYEBkjJNQgZocwCGEfYaVGTJlWTS/PvKNg/j8LAw8cWWvPr2211pd+1uyBhhU+RjwkoXyBPcRw17+CL4H5grGC6wmg2nnE8pKJAq/SiFM5xGT+NocdlxrMHd+hqh7hK5VkWRkEywa/EAyZDoe9kaXK6vEXqgfIJpIgBsQQRnPjAtDOoyDDLC1Voa9oXTd8Z9gmk/mrQGqPvrGcXXKPuy/ARqxt1xW7b+hpiOO8IF0RHPoT/Rd68Pwpdt2SSeB0KrH3dBhYLJe0wlaODk6vw8LzAqVZAvL3IRb3DwPOIQjfFIpKrFwOlZWRegI7ggLrgrLX0R5mN/MrqJCTFoLaMqmS3C3RzWhPQDqB9kOtNTSWS9tFzkpM24LU+2obAWVKqez6TCISmkwSQ6baZABJxiBYeBG1wIcFRK3o1F853tolrMDro/ISyfokQWK8LZMtXkPO1FVBjF52BW7M+gh30w3l7GqLkoNziTSoSO4mLcBA+HVKWm2rLNFnyu/fPx3SsX8yOeLwhubEDquY/nILPp8QP7D/U/LrTDrA4nCOxqtWaje0xoKMD6jan2L/dsFJT1sY9DonuKuzt0ZSFUd5QOlI28uI62/gV6R4FrIxWFOvLYfb392Gqe25pc2fCQgieeSBb31dX1xlcr+xFE25eod+03pHSaBLSI3Cht7TIeedCKKL/OiDNDRNqoose3lpHe64qh3mBQG5VTjs1QqOpxpUDIDno0Z7yC9z0aNuenUKxucu3r66P72kjn1106HW2rsdojsTnBe+u0k7sJR6VvegVSXGF6YW0v/J5et9oPO1r3rVfZnL96GfsqqltHi0hhuJ3J1wz1masM8I4vi7NAmpONymbq3Of7CjoH4mlU9a7n7Hw8j8HlIJk9WhFsqktPhstYHWJngpODVicAgSOcnv4ip/Ck2woSUOLEvZy2UeqJ9qrNO8TLCMicWJMsiCxGaR+EwQ7TLftUQ8LSzeuxa0LLGCw/wfXuJBvcrblTiJqD7qwI+xN7Ir67HOz786MAi0uXv7HtX0sHfikhgVkZlW5SqrTtL/VeL6mF1dtkaXm7RF4ls18Q1T2J7o4mQPmb/Xld6Sc1T59Q9y1LO2eJ2W/1+j3rP6DQKlQ=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Oct 05 16:51 ?????????</EndDateTime>
+		<EndTestTime>1728139895</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

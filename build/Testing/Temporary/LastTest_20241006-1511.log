@@ -1,0 +1,30 @@
+Start testing: Oct 06 18:35 ?????????
+----------------------------------------------------------
+6/28 Testing: PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms
+6/28 Test: PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms
+Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms" "--gtest_also_run_disabled_tests"
+Directory: C:/Projekte/vath/build/tests
+"PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms" start time: Oct 06 18:35 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+Note: Google Test filter = PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTests
+[ RUN      ] PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms
+[       OK ] PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms (0 ms)
+[----------] 1 test from PolynomialTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms" end time: Oct 06 18:35 ?????????
+"PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 18:35 ?????????

@@ -10,54 +10,78 @@ Polynomial::Polynomial() :
     Monomials(Terms{Monomial(0,0)}),
     Order(0),
     Rest(Terms{Monomial(0,0)}),
-    RestDegree(0)
-{
-    // Monomial nullTerm(0, 0);
-    // Terms emptyTerms{ nullTerm };
-
-    // this->Monomials = emptyTerms;
-    // this->Order = 0;
-    // this->Rest = emptyTerms;
-    // this->RestDegree = 0;
-}
+    RestOrder(0)
+    {
+        this->SetMonomials(Terms{Monomial(0,0)});
+        this->SetRest(Terms{Monomial(0,0)});
+    }  
 
 Polynomial::Polynomial(CoefficientList coefficientList) :
     Monomials(Polynomial::CoefficientList2Terms(coefficientList)),
     Rest(Terms{Monomial(0,0)}),
     Order(Polynomial::GetHighestOrderOfPolynomialTerms(this->Monomials)),
-    RestDegree(0)
-{
-    // Monomial nullTerm(0, 0);
-    // Terms emptyTerms{ nullTerm };   
-
-    // Terms terms;
-    // for(int i = (coefficientList.size() - 1); i >= 0; i--)
-    // {
-    //     terms.push_back(Monomial(coefficientList[(coefficientList.size()-1)-i], i));
-    // }
-    // this->Monomials = terms;
-    // this->Order = Polynomial::GetHighestOrderOfPolynomialTerms(this->Monomials);
-    // this->Rest = emptyTerms;
-    // this->RestDegree = 0;
-}
+    RestOrder(0)
+    {
+        this->SetMonomials(Polynomial::CoefficientList2Terms(coefficientList));
+        this->SetRest(Terms{Monomial(0,0)});
+    }
 
 Polynomial::Polynomial(Terms terms) : 
     Monomials(terms),
     Order(Polynomial::GetHighestOrderOfPolynomialTerms(this->Monomials)),
     Rest(Terms{Monomial(0,0)}),
-    RestDegree(0)
+    RestOrder(0)
 {
     if(this->Monomials.size() <= 0)
     {
-        this->Monomials = Terms{Monomial(0,0)};
+        this->SetMonomials(Terms{Monomial(0,0)});
     }
+    else
+    {
+        this->SetMonomials(terms);
+    }
+    this->SetRest(Terms{Monomial(0,0)});
 }
 
-Polynomial::Polynomial(const Polynomial& original) : Polynomial(original.Monomials)
+Polynomial::Polynomial(const Polynomial& original) : 
+    Polynomial(original.Monomials)
 {
     // Just take the terms of the original and put it into another ctor.
-    this->Rest = Terms{Monomial(0,0)};
-    this->RestDegree = 0;
+    this->SetRest(Terms{Monomial(0,0)});
+}
+
+/* Accessors/Mutators ********************************************************/
+
+void Polynomial::SetMonomials(Terms monomials)
+{
+    this->Monomials = Polynomial::CombineTerms(monomials);
+    this->Order = Polynomial::GetHighestOrderOfPolynomialTerms(this->Monomials);
+}
+
+Terms Polynomial::GetMonomials() const
+{
+    return this->Monomials;
+}
+
+void Polynomial::SetRest(Terms rest)
+{
+    this->Rest = Polynomial::CombineTerms(rest);
+    this->RestOrder = Polynomial::GetHighestOrderOfPolynomialTerms(this->Rest);
+}
+
+Terms Polynomial::GetRest() const
+{
+    return this->Rest;
+}
+
+int Polynomial::GetOrder() const
+{
+    return this->Order;
+}
+
+int Polynomial::GetRestOrder() const
+{
+    return this->RestOrder;
 }
 
 /* Public Methods ************************************************************/
@@ -76,14 +100,19 @@ bool Polynomial::operator !=(const Polynomial& other) const
 
 // Methods
 
-int Polynomial::GetHighestOrderOfPolynomialTerms(Terms monomials)
+int Polynomial::GetHighestOrderOfPolynomialCoefficients(const CoefficientList coefficients)
+{
+    return (coefficients.size() <= 0 ? 0 : coefficients.size()-1);
+}
+
+int Polynomial::GetHighestOrderOfPolynomialTerms(const Terms monomials)
 {
     // Abritrary value. Just needs to be smaller than the smallest possible polynomial order.
     int maxVal = std::numeric_limits<int>::min(); 
 
     for(int i = 0; i < monomials.size(); i++)
     {
-        if(monomials[i].Exponent > maxVal);
+        if((monomials[i].Exponent) > maxVal)
         {
             maxVal = monomials[i].Exponent;
         }
@@ -94,7 +123,7 @@ int Polynomial::GetHighestOrderOfPolynomialTerms(Terms monomials)
 
 int Polynomial::GetHighestOrderOfPolynomialTerms(const Polynomial& polynomial)
 {
-    return Polynomial::GetHighestOrderOfPolynomialTerms(polynomial.Monomials);
+    return Polynomial::GetHighestOrderOfPolynomialTerms(polynomial.GetMonomials());
 }
 
 Terms Polynomial::CoefficientList2Terms(const CoefficientList coefficients)
@@ -117,9 +146,9 @@ CoefficientList Polynomial::Terms2CoefficientList(const Terms terms)
     return coefficients;
 }
 
-Terms Polynomial::InterpolateTerms(const Terms terms)
+Terms Polynomial::InterpolateTerms(const Terms& terms)
 {
-    Terms newTerms(terms);
+    Terms newTerms = terms;
     int highestOrder = Polynomial::GetHighestOrderOfPolynomialTerms(newTerms);
 
     for(int order = highestOrder; order >= 0; order--)
@@ -153,14 +182,13 @@ Terms Polynomial::InterpolateTerms(const Terms terms)
 
 }
 
-Terms Polynomial::CombineTerms(const Terms terms)
+Terms Polynomial::CombineTerms(const Terms& terms)
 {
-    Terms termList = Terms(terms);
     Terms termsCombined;                
 
-    for(int termIdx = 0; termIdx < termList.size(); termIdx++)
+    for(int termIdx = 0; termIdx < terms.size(); termIdx++)
     {
-        Monomial& currentMonomial = termList[termIdx];
+        Monomial currentMonomial = terms[termIdx];
         int currentExponent = currentMonomial.Exponent;
         auto exponentServingLambda = [currentMonomial](Monomial x)
                                     {
@@ -174,16 +202,16 @@ Terms Polynomial::CombineTerms(const Terms terms)
         {
             Monomial accumulatorTerm(currentMonomial);
 
-            for (int testTermIdx = 0; testTermIdx < termList.size(); testTermIdx++)
+            for (int testTermIdx = 0; testTermIdx < terms.size(); testTermIdx++)
             {   
                 if(termIdx == testTermIdx)
                 {
                     continue;
                 }
 
-                if(termList[testTermIdx].Exponent == currentExponent)
+                if(terms[testTermIdx].Exponent == currentExponent)
                 {
-                    accumulatorTerm.Coefficient += termList[testTermIdx].Coefficient;
+                    accumulatorTerm.Coefficient += terms[testTermIdx].Coefficient;
                 }
             }
 
@@ -198,6 +226,62 @@ Terms Polynomial::CombineTerms(const Terms terms)
     std::sort(termsCombined.begin(), termsCombined.end(), compareFn);
 
     return termsCombined;
+}
+
+void Polynomial::Differentiate()
+{
+    Terms newTerms(this->GetMonomials());
+    Terms outTerms;
+
+    for(Monomial m : newTerms)
+    {
+        Monomial diff(m);
+        diff.Differentiate();
+        outTerms.push_back(diff);
+    }
+
+    this->SetMonomials(outTerms);
+}
+
+Polynomial Polynomial::Differentiate(const Polynomial& p)
+{
+    Terms newTerms(p.GetMonomials());
+    Terms outTerms;
+
+    for(Monomial m : newTerms)
+    {
+        outTerms.push_back(Monomial::Differentiate(m));
+    }
+
+    return Polynomial(outTerms);
+}
+
+void Polynomial::Integrate()
+{
+    Terms newTerms(this->GetMonomials());
+    Terms outTerms;
+
+    for(Monomial m : newTerms)
+    {
+        Monomial diff(m);
+        diff.Integrate();
+        outTerms.push_back(diff);
+    }
+
+    this->SetMonomials(outTerms);
+}
+
+Polynomial Polynomial::Integrate(const Polynomial& p)
+{
+    Terms newTerms(p.GetMonomials());
+    Terms outTerms;
+
+    for(Monomial m : newTerms)
+    {
+        outTerms.push_back(Monomial::Integrate(m));
+    }
+
+    return Polynomial(outTerms);
 }
 
 // Overriden methods
@@ -223,7 +307,7 @@ bool Polynomial::IsEqual(const Polynomial& other) const
         return false;
     }
 
-    equals = (this->RestDegree == other.RestDegree);
+    equals = (this->RestOrder == other.RestOrder);
     if(!equals)
     {
         return false;

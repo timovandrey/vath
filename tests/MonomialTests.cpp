@@ -88,6 +88,14 @@ TEST(MonomialTests, Method_Integrate_TermIsIntegrated_ResultIsCorrect)
     EXPECT_TRUE(correctResult == test);
 }
 
+TEST(MonomialTests, Method_IntegrateStatic_TermIsIntegrated_ResultIsCorrect)
+{
+    Monomial test(8, 3);
+    Monomial correctResult(2, 4);
+    test = Monomial::Integrate(test);
+    EXPECT_TRUE(correctResult == test);
+}
+
 TEST(MonomialTests, Method_Differentiate_TermIsDifferentiated_ResultIsCorrect)
 {
     Monomial term(8, 3);
@@ -96,3 +104,10 @@ TEST(MonomialTests, Method_Differentiate_TermIsDifferentiated_ResultIsCorrect)
     EXPECT_TRUE(correctResult == term);
 }
 
+TEST(MonomialTests, Method_DifferentiateStatic_TermIsDifferentiated_ResultIsCorrect)
+{
+    Monomial term(8, 3);
+    Monomial correctResult(24, 2);
+    term = Monomial::Differentiate(term);
+    EXPECT_TRUE(correctResult == term);
+}
