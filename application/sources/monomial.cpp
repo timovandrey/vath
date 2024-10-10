@@ -37,24 +37,24 @@ bool Monomial::operator !=(const Monomial& other) const
     return !this->IsEqual(other);
 }
 
-Monomial Monomial::operator *(const double constant) const
+Monomial Monomial::operator *(const double constant) 
 {
     return Monomial((this->Coefficient * constant), this->Coefficient);
 }
 
-Monomial Monomial::operator /(const double constant) const
+Monomial Monomial::operator /(const double constant) 
 {
     return Monomial((this->Coefficient / constant), this->Coefficient);
 }
 
-Monomial Monomial::operator *(const Monomial& other) const
+Monomial Monomial::operator *(const Monomial& other)
 {
     double newCoeff = this->Coefficient * other.Coefficient;
     int newExp = this->Exponent + other.Exponent;    
     return Monomial(newCoeff, newExp);
 }
 
-Monomial Monomial::operator /(const Monomial& other) const
+Monomial Monomial::operator /(const Monomial& other)
 {
     double newCoeff = this->Coefficient / other.Coefficient;
     int newExp = this->Exponent - other.Exponent;    

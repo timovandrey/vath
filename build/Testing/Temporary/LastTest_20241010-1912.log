@@ -1,0 +1,30 @@
+Start testing: Oct 10 23:01 ?????????
+----------------------------------------------------------
+23/37 Testing: PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue
+23/37 Test: PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue
+Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue" "--gtest_also_run_disabled_tests"
+Directory: C:/Projekte/vath/build/tests
+"PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue" start time: Oct 10 23:01 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+Note: Google Test filter = PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolymonalTests
+[ RUN      ] PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue (0 ms)
+[----------] 1 test from PolymonalTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue" end time: Oct 10 23:01 ?????????
+"PolymonalTests.Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 10 23:01 ?????????

@@ -324,6 +324,48 @@ bool Polynomial::IsEqual(const Polynomial& other) const
     return true;
 }
 
+// Operators for the class
 
+Polynomial operator +(const Polynomial& left, const Monomial& right)
+{
+    Terms terms = left.GetMonomials();
+    terms.push_back(right);
+    Polynomial newPoly(left);
+    newPoly.SetMonomials(terms);
+    return newPoly;
+}
+
+Polynomial operator +(const Polynomial& left, const double right)
+{
+    Terms terms = left.GetMonomials();
+    Monomial constant(right, 0);
+    terms.push_back(constant);
+    Polynomial newPoly(left);
+    newPoly.SetMonomials(terms);
+    return newPoly;
+}
+
+Polynomial operator +(const Polynomial& left, const Polynomial& right)
+{
+    Terms terms = left.GetMonomials();
+    Terms otherTerms = right.GetMonomials();
+    for(Monomial m : otherTerms)
+    {
+        terms.push_back(m);
+    }
+    Polynomial newPoly(left);
+    newPoly.SetMonomials(terms);
+    return newPoly;
+}
+
+Polynomial operator +(const Monomial& left, const Polynomial& right)
+{
+    return (right + left);
+}
+
+Polynomial operator +(const double left, const Polynomial& right)
+{
+    return (right + left);
+}
 
 }

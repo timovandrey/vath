@@ -121,19 +121,6 @@ auto end() const { return this->Monomials.end(); }
 bool operator ==(const Polynomial& other) const;
 bool operator !=(const Polynomial& other) const;
 
-Polynomial operator +(const Monomial& other) const;
-Polynomial operator -(const Monomial& other) const;
-Polynomial operator +(const Polynomial& other) const;
-Polynomial operator -(const Polynomial& other) const;
-
-Polynomial operator *(double constant) const;
-// Polynomial operator *(const Monomial& other) const;
-Polynomial operator *(const Polynomial& other) const;
-
-Polynomial operator /(double constant) const;
-// Polynomial operator /(const Monomial& other) const;
-Polynomial operator /(const Polynomial& other) const;
-
 // Methods
 
 /**
@@ -230,6 +217,33 @@ struct PolynomialFraction
     Polynomial numerator;
     std::optional<Polynomial> denominator;
 };
+
+// Operators for this class
+
+Polynomial operator +(const Polynomial& left, const Monomial& right);
+Polynomial operator +(const Polynomial& left, const double right);
+Polynomial operator +(const Polynomial& left, const Polynomial& right);
+Polynomial operator +(const Monomial& left, const Polynomial& right);
+Polynomial operator +(const double left, const Polynomial& right);
+
+Polynomial operator -(const Polynomial& left, const Monomial& right);
+Polynomial operator -(const Polynomial& left, const double right);
+Polynomial operator -(const Polynomial& left, const Polynomial& right);
+Polynomial operator -(const Monomial& left, const Polynomial& right);
+Polynomial operator -(const double left, const Polynomial& right);
+
+Polynomial operator *(const Polynomial& left, const Monomial& right);
+Polynomial operator *(const Polynomial& left, const double right);
+Polynomial operator *(const Polynomial& left, const Polynomial& right);
+Polynomial operator *(const Monomial& left, const Polynomial& right);
+Polynomial operator *(const double left, const Polynomial& right);
+
+Polynomial operator /(const Polynomial& left, const Monomial& right);
+Polynomial operator /(const Polynomial& left, const double right);
+Polynomial operator /(const Polynomial& left, const Polynomial& right);
+Polynomial operator /(const Monomial& left, const Polynomial& right);
+Polynomial operator /(const double left, const Polynomial& right);
+
 
 } // namespace vath
 

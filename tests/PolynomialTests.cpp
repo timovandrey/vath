@@ -256,3 +256,78 @@ TEST(PolynomialTests, CopyConstructor_ConstructorIsInvoked_ConstructorWorks)
     EXPECT_TRUE(p == copy);
 }
 
+TEST(PolynomialTests, Operator_Equals_SamePolynomialsAreProvided_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{1,2.3,236,34.3453,1});
+    Polynomial p1(CoefficientList{1,2.3,236,34.3453,1});
+    EXPECT_TRUE(p0 == p1);
+}
+
+TEST(PolynomialTests, Operator_Equals_DifferentPolynomialsAreProvided_ReturnsFalse)
+{
+    Polynomial p0(CoefficientList{1,2.3,236,34.3453,1});
+    Polynomial p1(CoefficientList{1,2.3,236,34.3455,2,4});
+    EXPECT_FALSE(p0 == p1);
+}
+
+TEST(PolynomialTests, Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue)
+{
+    // TODO: Do after you implemented polynomial division
+    EXPECT_TRUE(false);
+}
+
+TEST(PolynomialTests, Operator_Unequals_SamePolynomialsAreProvided_ReturnsFalse)
+{
+    Polynomial p0(CoefficientList{1,2.3,236,34.3453,1});
+    Polynomial p1(CoefficientList{1,2.3,236,34.3453,1});
+    EXPECT_FALSE(p0 != p1);
+}
+
+TEST(PolynomialTests, Operator_Unequals_DifferentPolynomialsAreProvided_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{1,2.3,236,34.3453,1});
+    Polynomial p1(CoefficientList{1,2.3,236,34.3455,2,4});
+    EXPECT_TRUE(p0 != p1);   
+}
+
+TEST(PolynomialTests, Operator_Unequals_OnePolynomialsRestIsDifferent_ReturnsTrue)
+{
+    // TODO: Do after you implemented polynomial division
+    EXPECT_TRUE(false);
+}
+
+TEST(PolymonalTests, Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    double constant = 5.5;
+    Polynomial correctPolynomial(CoefficientList{5,2,6.5});
+    auto result = p0 + constant;
+    auto result2 = constant + p0;
+
+    EXPECT_TRUE(result == correctPolynomial);
+    EXPECT_TRUE(result2 == correctPolynomial);
+}
+
+TEST(PolymonalTests, Operator_Plus_MononomialIsAddedToPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    Monomial m0(1.3,8);
+    Polynomial correctPolynomial(CoefficientList{1.3, 0, 0, 0, 0, 0, 5, 2, 1});
+    auto result = p0 + m0;
+    auto result2 = m0 + p0;
+
+    EXPECT_TRUE(result == correctPolynomial);
+    EXPECT_TRUE(result2 == correctPolynomial);
+}
+
+TEST(PolymonalTests, Operator_Plus_PolynomialIsAddedToPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{              5,  2,  1});
+    Polynomial p1(CoefficientList{  4.5,    0,  1,  2,  0});
+    Polynomial correctPolynomial(CoefficientList{4.5, 0, 6, 4,1});
+    auto result = p0 + p1;
+    auto result2 = p1 + p0;
+
+    EXPECT_TRUE(result == correctPolynomial);
+    EXPECT_TRUE(result2 == correctPolynomial);
+}

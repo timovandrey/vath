@@ -66,15 +66,15 @@ Monomial(const Monomial& other);
 bool operator ==(const Monomial& other) const;          
 bool operator !=(const Monomial& other) const;
 
-Monomial operator *(const double constant) const;
-Monomial operator /(const double constant) const;
+Monomial operator *(const double constant);
+Monomial operator /(const double constant);
 // Monomial operator +(const double constant) const; // We dont do these kinds of things here
 // Monomial operator -(const double constant) const;
 
-Monomial operator *(const Monomial& other) const;
-Monomial operator /(const Monomial& other) const;
-Polynomial operator +(const Monomial& other) const;
-Polynomial operator -(const Monomial& other) const;
+Monomial operator *(const Monomial& other);
+Monomial operator /(const Monomial& other);
+Polynomial operator +(const Monomial& other);
+Polynomial operator -(const Monomial& other);
 
 // Methods
 /**
