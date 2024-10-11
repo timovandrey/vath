@@ -181,4 +181,17 @@ CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj: \
  C:/msys64/mingw64/include/c++/13.2.0/bits/quoted_string.h \
  C:/msys64/mingw64/include/c++/13.2.0/deque \
  C:/msys64/mingw64/include/c++/13.2.0/bits/stl_deque.h \
- C:/msys64/mingw64/include/c++/13.2.0/bits/deque.tcc
+ C:/msys64/mingw64/include/c++/13.2.0/bits/deque.tcc \
+ C:/Projekte/vath/application/headers/polynomial.hpp \
+ C:/msys64/mingw64/include/c++/13.2.0/optional \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/enable_special_members.h \
+ C:/msys64/mingw64/include/c++/13.2.0/algorithm \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/stl_algo.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/algorithmfwd.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/stl_heap.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/uniform_int_dist.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/stl_tempbuf.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/ranges_algo.h \
+ C:/msys64/mingw64/include/c++/13.2.0/bits/ranges_algobase.h \
+ C:/msys64/mingw64/include/c++/13.2.0/pstl/glue_algorithm_defs.h \
+ C:/msys64/mingw64/include/c++/13.2.0/pstl/execution_defs.h

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241011-1936-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.30.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="Timo-PC"
+	OSRelease=" Personal"
+	OSVersion=" (Build 22631)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="15106"
+	TotalPhysicalMemory="14210"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2295"
+	>
+	<Testing>
+		<StartDateTime>Oct 11 23:32 ?????????</StartDateTime>
+		<StartTestTime>1728682375</StartTestTime>
+		<TestList>
+			<Test>./tests/PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue</FullName>
+			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue" "--gtest_also_run_disabled_tests"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0617428</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue" "--gtest_also_run_disabled_tests"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJy1Uctug0AMvPMVPoYDqL1GyqHqI6oqJQjSEyC0IQ7ddteOdk2q/n0hpGmoVCmXzMnyzHp27LQl0tSAVZomIWwdW7ifFonjd/wQLPZK3oqGuTEo6OW89K4umr6q+sdxXQcLFpzC/CCBVcfAVhtBBzNI2HxZJmX6to+XO3RK2FVZuxanatFMVa8htlqZZ//Tx81T96VfpkpRWkd+5VoM8tkJJaTHJLcgB+c+ybH2rRaMgzw6oYS54bUyA4+0147JInValKjd/RGfzxwnCXJIXxdwQHmllMN0WL5cyQEmN2B9eGnkQQ7CokwYXLZVQeWiDX/S+Gb/3Qqconjs020hucuyx4d+z4M2Dr4BG3/z6A==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Oct 11 23:32 ?????????</EndDateTime>
+		<EndTestTime>1728682375</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

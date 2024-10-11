@@ -1,4 +1,5 @@
 #include "../headers/monomial.hpp"
+#include "../headers/polynomial.hpp"
 
 namespace Vath 
 {
@@ -35,30 +36,6 @@ bool Monomial::operator ==(const Monomial& other) const
 bool Monomial::operator !=(const Monomial& other) const
 {
     return !this->IsEqual(other);
-}
-
-Monomial Monomial::operator *(const double constant) 
-{
-    return Monomial((this->Coefficient * constant), this->Coefficient);
-}
-
-Monomial Monomial::operator /(const double constant) 
-{
-    return Monomial((this->Coefficient / constant), this->Coefficient);
-}
-
-Monomial Monomial::operator *(const Monomial& other)
-{
-    double newCoeff = this->Coefficient * other.Coefficient;
-    int newExp = this->Exponent + other.Exponent;    
-    return Monomial(newCoeff, newExp);
-}
-
-Monomial Monomial::operator /(const Monomial& other)
-{
-    double newCoeff = this->Coefficient / other.Coefficient;
-    int newExp = this->Exponent - other.Exponent;    
-    return Monomial(newCoeff, newExp);
 }
 
 // Methods
@@ -151,5 +128,51 @@ bool Monomial::IsEqual(const Monomial& other) const
             (this->Exponent == other.Exponent)
             );
 }
+
+// Operators for the class
+
+Monomial operator *(const Monomial& left, const double right)
+{
+    return (Monomial(left.Coefficient * right, left.Exponent));
+}
+
+Monomial operator *(const Monomial& left, const Monomial& right)
+{
+    return (Monomial(left.Coefficient * right.Coefficient, left.Exponent + right.Exponent));
+}
+
+Monomial operator *(const double left, const Monomial& right)
+{
+    return right * left;
+}
+
+Monomial operator /(const Monomial& left, const double right)
+{
+    return (Monomial(left.Coefficient / right, left.Exponent));
+}
+
+Monomial operator /(const Monomial& left, const Monomial& right)
+{
+    return (Monomial(left.Coefficient / right.Coefficient, left.Exponent - right.Exponent));
+}
+
+Monomial operator /(const double left, const Monomial& right)
+{
+    Monomial m(left, 0);
+    return m / right;
+}
+
+Polynomial operator +(const Monomial& left, const Monomial& right)
+{
+    return (Polynomial(Terms{left, right}));
+}
+
+Polynomial operator -(const Monomial& left, const Monomial& right)
+{
+    Monomial r(right);
+    r.Coefficient *= (-1);
+    return (left + (r));
+}
+
 
 }

@@ -326,6 +326,65 @@ bool Polynomial::IsEqual(const Polynomial& other) const
 
 // Operators for the class
 
+Polynomial operator *(const Polynomial& left, const Monomial& right)
+{
+    Terms t = left.GetMonomials();
+    Terms out;
+    for(Monomial m : t)
+    {
+        out.push_back(m * right);
+    }
+    Polynomial p(left);
+    p.SetMonomials(out);
+    return p;
+}
+
+Polynomial operator *(const Polynomial& left, const double right)
+{
+    return (left * Monomial(right, 0));
+}
+
+Polynomial operator *(const Polynomial& left, const Polynomial& right)
+{
+    Terms out;
+    Terms rest;
+
+    for(int i = 0; i < (left.GetOrder()+1); i++)
+    {
+        for(int j = 0; j < (right.GetOrder()+1); j++)
+        {
+            out.push_back(left[i] * right[j]);
+        }
+    }
+
+    Terms leftRest, rightRest;
+    leftRest = left.GetRest();
+    rightRest = right.GetRest();
+
+    for(int i = 0; i < (left.GetRestOrder()+1); i++)
+    {
+        for(int j = 0; j < (right.GetRestOrder()+1); j++)
+        {
+            rest.push_back(leftRest[i] * rightRest[j]);
+        }
+    }
+
+    Polynomial p(left);
+    p.SetMonomials(out);
+    p.SetRest(rest);
+    return p;
+}
+
+Polynomial operator *(const Monomial& left, const Polynomial& right)
+{
+    return right * left;
+}
+
+Polynomial operator *(const double left, const Polynomial& right)
+{
+    return right * left;
+}
+
 Polynomial operator +(const Polynomial& left, const Monomial& right)
 {
     Terms terms = left.GetMonomials();
@@ -367,5 +426,34 @@ Polynomial operator +(const double left, const Polynomial& right)
 {
     return (right + left);
 }
+
+Polynomial operator -(const Polynomial& left, const Monomial& right)
+{
+    return left + (right * (-1));
+}
+
+Polynomial operator -(const Polynomial& left, const double right)
+{
+    return (left + (right * (-1)));
+}
+
+Polynomial operator -(const Polynomial& left, const Polynomial& right)
+{
+    return (left + (right * (-1)));
+}
+
+Polynomial operator -(const Monomial& left, const Polynomial& right)
+{
+    Polynomial p(right);
+    p = p * -1;
+    return right + left;
+}
+
+Polynomial operator -(const double left, const Polynomial& right)
+{
+    return (Monomial(left, 0) - right);
+}
+
+
 
 }

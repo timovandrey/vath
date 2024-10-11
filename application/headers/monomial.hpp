@@ -66,16 +66,6 @@ Monomial(const Monomial& other);
 bool operator ==(const Monomial& other) const;          
 bool operator !=(const Monomial& other) const;
 
-Monomial operator *(const double constant);
-Monomial operator /(const double constant);
-// Monomial operator +(const double constant) const; // We dont do these kinds of things here
-// Monomial operator -(const double constant) const;
-
-Monomial operator *(const Monomial& other);
-Monomial operator /(const Monomial& other);
-Polynomial operator +(const Monomial& other);
-Polynomial operator -(const Monomial& other);
-
 // Methods
 /**
  * \brief Integrates this monomial.
@@ -115,6 +105,24 @@ private:
 static constexpr double COMPARISON_PRECISION = 1e-15;
 
 };
+
+Monomial operator *(const Monomial& left, const double right);
+Monomial operator *(const Monomial& left, const Monomial& right);
+Monomial operator *(const double left, const Monomial& right);
+
+Monomial operator /(const Monomial& left, const double right);
+Monomial operator /(const Monomial& left, const Monomial& right);
+Monomial operator /(const double left, const Monomial& right);
+
+// Monomial operator +(const Monomial& left, const double right);
+Polynomial operator +(const Monomial& left, const Monomial& right);
+// Monomial operator +(const double left, const Monomial& right);
+
+// Monomial operator -(const Monomial& left, const double right);
+Polynomial operator -(const Monomial& left, const Monomial& right);
+// Monomial operator -(const double left, const Monomial& right);
+
+
 
 } // namespace vath
 

@@ -220,30 +220,32 @@ struct PolynomialFraction
 
 // Operators for this class
 
-Polynomial operator +(const Polynomial& left, const Monomial& right);
-Polynomial operator +(const Polynomial& left, const double right);
-Polynomial operator +(const Polynomial& left, const Polynomial& right);
-Polynomial operator +(const Monomial& left, const Polynomial& right);
-Polynomial operator +(const double left, const Polynomial& right);
+Polynomial operator +(const Polynomial& left, const Monomial& right);       // tested -------------------
+Polynomial operator +(const Polynomial& left, const double right);          // tested -------------------
+Polynomial operator +(const Polynomial& left, const Polynomial& right);     // tested -------------------
+Polynomial operator +(const Monomial& left, const Polynomial& right);       // tested -------------------
+Polynomial operator +(const double left, const Polynomial& right);          // tested -------------------
 
-Polynomial operator -(const Polynomial& left, const Monomial& right);
-Polynomial operator -(const Polynomial& left, const double right);
-Polynomial operator -(const Polynomial& left, const Polynomial& right);
-Polynomial operator -(const Monomial& left, const Polynomial& right);
-Polynomial operator -(const double left, const Polynomial& right);
+Polynomial operator -(const Polynomial& left, const Monomial& right);       // tested -------------------
+Polynomial operator -(const Polynomial& left, const double right);          // tested -------------------
+Polynomial operator -(const Polynomial& left, const Polynomial& right);     // tested -------------------
+Polynomial operator -(const Monomial& left, const Polynomial& right);       // tested ------------------- FAILED
+Polynomial operator -(const double left, const Polynomial& right);          // tested ------------------- FAILED
 
-Polynomial operator *(const Polynomial& left, const Monomial& right);
-Polynomial operator *(const Polynomial& left, const double right);
-Polynomial operator *(const Polynomial& left, const Polynomial& right);
-Polynomial operator *(const Monomial& left, const Polynomial& right);
-Polynomial operator *(const double left, const Polynomial& right);
+// TODO: Test these
+Polynomial operator *(const Polynomial& left, const Monomial& right);       
+Polynomial operator *(const Polynomial& left, const double right);          
+Polynomial operator *(const Polynomial& left, const Polynomial& right);     
+Polynomial operator *(const Monomial& left, const Polynomial& right);       
+Polynomial operator *(const double left, const Polynomial& right);          
 
+
+// TODO: Implement these, test these
 Polynomial operator /(const Polynomial& left, const Monomial& right);
 Polynomial operator /(const Polynomial& left, const double right);
 Polynomial operator /(const Polynomial& left, const Polynomial& right);
 Polynomial operator /(const Monomial& left, const Polynomial& right);
 Polynomial operator /(const double left, const Polynomial& right);
-
 
 } // namespace vath
 

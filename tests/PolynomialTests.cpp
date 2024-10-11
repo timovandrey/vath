@@ -296,7 +296,7 @@ TEST(PolynomialTests, Operator_Unequals_OnePolynomialsRestIsDifferent_ReturnsTru
     EXPECT_TRUE(false);
 }
 
-TEST(PolymonalTests, Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue)
+TEST(PolymonalTests, Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
     double constant = 5.5;
@@ -308,7 +308,7 @@ TEST(PolymonalTests, Operator_Plus_ConstantIsAddedToPolynomial_ReturnsTrue)
     EXPECT_TRUE(result2 == correctPolynomial);
 }
 
-TEST(PolymonalTests, Operator_Plus_MononomialIsAddedToPolynomial_ReturnsTrue)
+TEST(PolymonalTests, Operator_Addition_MononomialIsAddedToPolynomial_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
     Monomial m0(1.3,8);
@@ -320,7 +320,7 @@ TEST(PolymonalTests, Operator_Plus_MononomialIsAddedToPolynomial_ReturnsTrue)
     EXPECT_TRUE(result2 == correctPolynomial);
 }
 
-TEST(PolymonalTests, Operator_Plus_PolynomialIsAddedToPolynomial_ReturnsTrue)
+TEST(PolymonalTests, Operator_Addition_PolynomialIsAddedToPolynomial_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{              5,  2,  1});
     Polynomial p1(CoefficientList{  4.5,    0,  1,  2,  0});
@@ -330,4 +330,56 @@ TEST(PolymonalTests, Operator_Plus_PolynomialIsAddedToPolynomial_ReturnsTrue)
 
     EXPECT_TRUE(result == correctPolynomial);
     EXPECT_TRUE(result2 == correctPolynomial);
+}
+
+
+TEST(PolymonalTests, Operator_Subtraction_ConstantIsSubtractedFromPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    double constant = 5.5;
+    Polynomial correctPolynomial(CoefficientList{5,2,-4.5});
+    auto result = p0 - constant;
+
+    EXPECT_TRUE(result == correctPolynomial);
+}
+
+TEST(PolymonalTests, Operator_Subtraction_MononomialIsSubtractedFromPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    Monomial m0(1.3,8);
+    Polynomial correctPolynomial(CoefficientList{-1.3, 0, 0, 0, 0, 0, 5, 2, 1});
+    auto result = p0 - m0;
+
+    EXPECT_TRUE(result == correctPolynomial);
+}
+
+TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{              5,  2,  1});
+    Polynomial p1(CoefficientList{  4.5,    0,  1,  2,  0});
+    Polynomial correctPolynomial(CoefficientList{-4.5, 0, 4, 0, 1});
+    auto result = p0 - p1;
+
+    EXPECT_TRUE(result == correctPolynomial);
+}
+
+
+TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromConstant_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    double constant = 5.5;
+    Polynomial correctPolynomial(CoefficientList{-5,-2,4.5});
+    auto result = constant - p0;
+
+    EXPECT_TRUE(result == correctPolynomial);
+}
+
+TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromMonomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    Monomial m0(1.3,8);
+    Polynomial correctPolynomial(CoefficientList{1.3, 0, 0, 0, 0, 0, -5, -2, -1});
+    auto result = m0 - p0;
+
+    EXPECT_TRUE(result == correctPolynomial);
 }

@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "../application/headers/monomial.hpp"
+#include "../application/headers/polynomial.hpp"
 
 using namespace Vath;
 
@@ -64,22 +65,6 @@ TEST(MonomialTests, CopyConstructor_TermIsProvided_TermIsTheSame)
     EXPECT_TRUE(m1 == copy);
 }
 
-TEST(MonomialTests, Operator_SingleMultiplication_ResultIsCorrect)
-{
-    Monomial term0(2, 2);
-    Monomial term1(3, 4);
-    Monomial correctResult(6, 6);
-    EXPECT_TRUE(correctResult == (term0 * term1));
-}
-
-TEST(MonomialTests, Operator_SingleDivision_ResultIsCorrect)
-{
-    Monomial term0(2, 2);
-    Monomial term1(3, 4);
-    Monomial correctResult(1.5, 2);
-    EXPECT_TRUE(correctResult == (term1 / term0));
-}
-
 TEST(MonomialTests, Method_Integrate_TermIsIntegrated_ResultIsCorrect)
 {
     Monomial test(8, 3);
@@ -110,4 +95,61 @@ TEST(MonomialTests, Method_DifferentiateStatic_TermIsDifferentiated_ResultIsCorr
     Monomial correctResult(24, 2);
     term = Monomial::Differentiate(term);
     EXPECT_TRUE(correctResult == term);
+}
+
+TEST(MonomialTests, Operator_Division_MonomialIsMultipliedWithMonomial_ResultIsCorrect)
+{
+    Monomial term0(2, 2);
+    Monomial term1(3, 4);
+    Monomial correctResult(6, 6);
+    EXPECT_TRUE(correctResult == (term0 * term1));
+}
+
+TEST(MonomialTests, Operator_Division_MonomialIsDividedByMonomial_ResultIsCorrect)
+{
+    Monomial term0(2, 2);
+    Monomial term1(3, 4);
+    Monomial correctResult(1.5, 2);
+    EXPECT_TRUE(correctResult == (term1 / term0));
+}
+
+TEST(MonomialTests, Operator_Multiplication_MonomialIsMultipliedWithConstant_ResultIsCorrect)
+{
+    Monomial term0(2, 2);
+    double x = 3.5;
+    Monomial correctResult(7, 2);
+    EXPECT_TRUE(correctResult == (term0 * x));
+    EXPECT_TRUE(correctResult == (x * term0));  // Check the other way around
+}
+
+TEST(MonomialTests, Operator_Multiplication_MonomialIsDividedByConstant_ResultIsCorrect)
+{
+    Monomial term0(7, 2);
+    double x = 3.5;
+    Monomial correctResult(2, 2);
+    EXPECT_TRUE(correctResult == (term0 / x));
+}
+
+TEST(MonomialTests, Operator_Multiplication_ConstantIsDividedByMonomial_ResultIsCorrect)
+{
+    Monomial term0(3.5, 2);
+    double x = 7;
+    Monomial correctResult(2, -2);
+    EXPECT_TRUE(correctResult == (x / term0));
+}
+
+TEST(MonomialTests, Operator_Addition_MonomialIsAddedToMonomial_ResultIsCorrect)
+{
+    Monomial term0(3.5, 2);
+    Monomial term1(4, 3);
+    Polynomial correctResult(CoefficientList{4, 3.5, 0, 0});
+    EXPECT_TRUE(correctResult == (term0 + term1));
+}
+
+TEST(MonomialTests, Operator_Subtraction_MonomialIsSubtractedFromMonomial_ResultIsCorrect)
+{
+    Monomial term0(3.5, 2);
+    Monomial term1(4, 3);
+    Polynomial correctResult(CoefficientList{4, -3.5, 0, 0});
+    EXPECT_TRUE(correctResult == (term1 - term0));
 }
