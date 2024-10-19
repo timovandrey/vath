@@ -120,6 +120,7 @@ auto end() const { return this->Monomials.end(); }
 // Operators
 bool operator ==(const Polynomial& other) const;
 bool operator !=(const Polynomial& other) const;
+Polynomial& operator =(const Polynomial& right);
 
 // Methods
 
@@ -232,7 +233,6 @@ Polynomial operator -(const Polynomial& left, const Polynomial& right);     // t
 Polynomial operator -(const Monomial& left, const Polynomial& right);       // tested ------------------- FAILED
 Polynomial operator -(const double left, const Polynomial& right);          // tested ------------------- FAILED
 
-// TODO: Test these
 Polynomial operator *(const Polynomial& left, const Monomial& right);       
 Polynomial operator *(const Polynomial& left, const double right);          
 Polynomial operator *(const Polynomial& left, const Polynomial& right);     

@@ -1,5 +1,7 @@
 #include "../headers/monomial.hpp"
 #include "../headers/polynomial.hpp"
+#include <stdio.h>
+#include <cmath>
 
 namespace Vath 
 {
@@ -98,6 +100,14 @@ bool Polynomial::operator !=(const Polynomial& other) const
     return !this->IsEqual(other);
 }
 
+Polynomial& Polynomial::operator =(const Polynomial& right)
+{
+    this->SetMonomials(right.GetMonomials());
+    this->SetRest(right.GetRest());
+    return *this;
+}
+
+
 // Methods
 
 int Polynomial::GetHighestOrderOfPolynomialCoefficients(const CoefficientList coefficients)
@@ -173,13 +183,21 @@ Terms Polynomial::InterpolateTerms(const Terms& terms)
     auto compareFn = [](const Monomial& a, const Monomial& b){return a.Exponent > b.Exponent;};
     std::sort(newTerms.begin(), newTerms.end(), compareFn);
     
+    // Remove terms with zero coefficients from the front
     while(newTerms[0].Coefficient == 0 && newTerms.size() > 1)
     {
         newTerms.pop_front();
     }
 
-    return newTerms;
+    // Remove negative exponents from the back of the polynomial
+    while(  newTerms[newTerms.size()-1].Coefficient == 0 && 
+            newTerms[newTerms.size()-1].Exponent < 0 && 
+            newTerms.size() > 1)
+    {
+        newTerms.pop_back();
+    }
 
+    return newTerms;
 }
 
 Terms Polynomial::CombineTerms(const Terms& terms)
@@ -224,6 +242,27 @@ Terms Polynomial::CombineTerms(const Terms& terms)
     // Order by descending exponent, just for safety
     auto compareFn = [](const Monomial& a, const Monomial& b){return a.Exponent > b.Exponent;};
     std::sort(termsCombined.begin(), termsCombined.end(), compareFn);
+
+    // Apparently, CPP distinguishes between (+)0 and -0, and it cant be checked for 
+    // -0 just by `== -0`.
+    for(Monomial& m : termsCombined)
+    {
+        if(std::signbit(m.Coefficient) && m.Coefficient == 0)
+        {
+            m.Coefficient = 0;
+            std::cout << m.Coefficient << "\n";
+        }
+    }
+
+    // for(int i = 0; i < termsCombined.size(); i++)
+    // {
+    //     if(termsCombined[i].Coefficient == -0)
+    //     {
+    //         termsCombined[i].Coefficient = 0;
+    //         std::cout << termsCombined[i].Coefficient << "\n";
+    //         std::cout << termsCombined[i].Coefficient << "\n";
+    //     }
+    // }
 
     return termsCombined;
 }
@@ -429,7 +468,7 @@ Polynomial operator +(const double left, const Polynomial& right)
 
 Polynomial operator -(const Polynomial& left, const Monomial& right)
 {
-    return left + (right * (-1));
+    return (left + (right * (-1)));
 }
 
 Polynomial operator -(const Polynomial& left, const double right)
@@ -446,7 +485,7 @@ Polynomial operator -(const Monomial& left, const Polynomial& right)
 {
     Polynomial p(right);
     p = p * -1;
-    return right + left;
+    return (p + left);
 }
 
 Polynomial operator -(const double left, const Polynomial& right)

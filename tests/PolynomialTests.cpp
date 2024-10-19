@@ -272,8 +272,18 @@ TEST(PolynomialTests, Operator_Equals_DifferentPolynomialsAreProvided_ReturnsFal
 
 TEST(PolynomialTests, Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue)
 {
-    // TODO: Do after you implemented polynomial division
-    EXPECT_TRUE(false);
+    Polynomial p0(CoefficientList{9, 8, 7, 6, 5, 4, 3, 2, 1, 0});
+    Polynomial p1 = p0;
+
+    Terms t{
+        Monomial(1, 2),
+        Monomial(1, 1),
+        Monomial(1, 0),
+        Monomial(1, -1),
+    };
+    p1.SetRest(t);    
+
+    EXPECT_FALSE(p0 == p1);
 }
 
 TEST(PolynomialTests, Operator_Unequals_SamePolynomialsAreProvided_ReturnsFalse)
@@ -292,8 +302,18 @@ TEST(PolynomialTests, Operator_Unequals_DifferentPolynomialsAreProvided_ReturnsT
 
 TEST(PolynomialTests, Operator_Unequals_OnePolynomialsRestIsDifferent_ReturnsTrue)
 {
-    // TODO: Do after you implemented polynomial division
-    EXPECT_TRUE(false);
+    Polynomial p0(CoefficientList{9, 8, 7, 6, 5, 4, 3, 2, 1, 0});
+    Polynomial p1 = p0;
+
+    Terms t{
+        Monomial(1, 2),
+        Monomial(1, 1),
+        Monomial(1, 0),
+        Monomial(1, -1),
+    };
+    p1.SetRest(t);    
+
+    EXPECT_TRUE(p0 != p1);
 }
 
 TEST(PolymonalTests, Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue)
@@ -308,15 +328,34 @@ TEST(PolymonalTests, Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue)
     EXPECT_TRUE(result2 == correctPolynomial);
 }
 
+
+TEST(PolymonalTests, Operator_Addition_PolynomialIsAddedToConstant_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    double constant = 5.5;
+    Polynomial correctPolynomial(CoefficientList{5,2,6.5});
+    auto result2 = constant + p0;
+
+    EXPECT_TRUE(result2 == correctPolynomial);
+}
+
 TEST(PolymonalTests, Operator_Addition_MononomialIsAddedToPolynomial_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
     Monomial m0(1.3,8);
     Polynomial correctPolynomial(CoefficientList{1.3, 0, 0, 0, 0, 0, 5, 2, 1});
     auto result = p0 + m0;
-    auto result2 = m0 + p0;
 
     EXPECT_TRUE(result == correctPolynomial);
+}
+
+TEST(PolymonalTests, Operator_Addition_PolynomialIsAddedToMonomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{5, 2, 1});
+    Monomial m0(1.3, 8);
+    Polynomial correctPolynomial(CoefficientList{1.3, 0, 0, 0, 0, 0, 5, 2, 1});
+    auto result2 = m0 + p0;
+
     EXPECT_TRUE(result2 == correctPolynomial);
 }
 
@@ -331,7 +370,6 @@ TEST(PolymonalTests, Operator_Addition_PolynomialIsAddedToPolynomial_ReturnsTrue
     EXPECT_TRUE(result == correctPolynomial);
     EXPECT_TRUE(result2 == correctPolynomial);
 }
-
 
 TEST(PolymonalTests, Operator_Subtraction_ConstantIsSubtractedFromPolynomial_ReturnsTrue)
 {
@@ -363,12 +401,11 @@ TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_R
     EXPECT_TRUE(result == correctPolynomial);
 }
 
-
 TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromConstant_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
     double constant = 5.5;
-    Polynomial correctPolynomial(CoefficientList{-5,-2,4.5});
+    Polynomial correctPolynomial(CoefficientList{-5, -2, 4.5});
     auto result = constant - p0;
 
     EXPECT_TRUE(result == correctPolynomial);
@@ -377,9 +414,113 @@ TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromConstant_Ret
 TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromMonomial_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
-    Monomial m0(1.3,8);
+    Monomial m0(1.3, 8);
     Polynomial correctPolynomial(CoefficientList{1.3, 0, 0, 0, 0, 0, -5, -2, -1});
     auto result = m0 - p0;
 
     EXPECT_TRUE(result == correctPolynomial);
+}
+
+TEST(PolynomialTests, Operator_Multiplication_PolynomialIsMultipliedWithConstant_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{12,14,15,0});
+    Polynomial p1(CoefficientList{12.22222222222225,14436.5,125.4,1});
+
+    constexpr double constant0 = 163.4;
+    constexpr double constant1 = -3;
+
+    Polynomial correctResult0(CoefficientList{12 * constant0 , 14 * constant0, 15 * constant0, 0});
+    Polynomial correctResult1(CoefficientList{12.22222222222225 * constant1, 14436.5  * constant1 , 125.4  * constant1, 1  * constant1});
+
+    auto result0 = p0 * constant0;
+    auto result1 = p1 * constant1;
+
+    EXPECT_TRUE(result0 == correctResult0);
+    EXPECT_TRUE(result1 == correctResult1);
+}
+
+TEST(PolynomialTests, Operator_Multiplication_PolynomialIsMultipliedWithMonomial_ReturnsTrue)
+{
+    Polynomial p0(Terms{
+        Monomial(12, 5),
+        Monomial(12, 3),
+        Monomial(12, 1),
+    });
+
+    Polynomial p1(Terms{
+        Monomial(136, 35),
+        Monomial(-1347.6236, 34),
+        Monomial(-2, 12),
+    });
+
+    Monomial m0(163.4, 3);
+    Monomial m1(-3, -4);
+
+    Polynomial correctResult0(Terms{
+            Monomial(12 * m0.Coefficient, 5 + m0.Exponent),
+            Monomial(12 * m0.Coefficient, 3 + m0.Exponent),
+            Monomial(12 * m0.Coefficient, 1 + m0.Exponent),
+        });
+    Polynomial correctResult1(Terms{
+            Monomial(136            * m1.Coefficient, 35 + m1.Exponent ),
+            Monomial(-1347.6236     * m1.Coefficient, 34 + m1.Exponent ),
+            Monomial(-2             * m1.Coefficient, 12 + m1.Exponent ),
+        });
+
+    auto result0 = p0 * m0;
+    auto result1 = p1 * m1;
+    auto result2 = m0 * p0;
+    auto result3 = m1 * p1;
+
+    EXPECT_TRUE(result0 == correctResult0);
+    EXPECT_TRUE(result1 == correctResult1);
+    EXPECT_TRUE(result2 == correctResult0);
+    EXPECT_TRUE(result3 == correctResult1);
+    EXPECT_TRUE(result0 == result2);
+    EXPECT_TRUE(result1 == result3);
+}
+
+TEST(PolynomialTests, Operator_Multiplication_PolynomialIsMultipliedWithZeroPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{3, 2, 1, 0});
+    Polynomial nullPolynomial;
+    Polynomial correctResult = nullPolynomial;
+
+    auto result = p0 * nullPolynomial;
+    EXPECT_TRUE(result == correctResult);
+}
+
+TEST(PolynomialTests, Operator_Multiplication_PolynomialIsMultipliedWithOtherPolynomial_ReturnsTrue)
+{
+    Polynomial p0(CoefficientList{1, 6});
+    Polynomial p1(CoefficientList{1, 8});
+
+    Polynomial p2(CoefficientList{      4,  3, 0});
+    Polynomial p3(CoefficientList{  1, -5,  2, 0});
+
+    Polynomial correctResult0(CoefficientList{
+        1, 14, 48
+    });
+
+    // https://mathority.org/de/multiplikation-von-polynomen-beispiele-ubungen-gelostes-produkt-multiplizieren/
+    Polynomial correctResult1(CoefficientList{
+        4, -17, -7, 6, 0, 0
+    });
+
+    auto result0 = p0 * p1;
+    auto result1 = p2 * p3;
+
+    EXPECT_TRUE(result0 == correctResult0);
+    EXPECT_TRUE(result1 == correctResult1);
+}
+
+TEST(PolynomialTests, Operator_Multiplication_MultiplicationReversability_ReturnsTrue)
+{
+    Polynomial origin(CoefficientList{2, 15, 4237, 3478, 64, 236, 2438, 4568, 235, 236, 6, 0});
+    Polynomial p0 = origin;
+
+    p0 = p0 * -1;   // invert
+    p0 = p0 * -1;   // invert again to get origin
+
+    EXPECT_TRUE(p0 == origin);
 }
