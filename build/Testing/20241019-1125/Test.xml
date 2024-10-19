@@ -21,22 +21,28 @@
 	TotalVirtualMemory="15106"
 	TotalPhysicalMemory="14210"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="2295"
+	ProcessorClockFrequency="3402"
 	>
 	<Testing>
-		<StartDateTime>Oct 19 16:43 ?????????</StartDateTime>
-		<StartTestTime>1729349015</StartTestTime>
+		<StartDateTime>Oct 19 18:11 ?????????</StartDateTime>
+		<StartTestTime>1729354262</StartTestTime>
 		<TestList>
-			<Test>./tests/PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue</Test>
+			<Test>./tests/PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect</Test>
 		</TestList>
-		<Test Status="passed">
-			<Name>PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue</Name>
+		<Test Status="failed">
+			<Name>PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect</Name>
 			<Path>./tests</Path>
-			<FullName>./tests/PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue</FullName>
-			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue" "--gtest_also_run_disabled_tests"</FullCommandLine>
+			<FullName>./tests/PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect</FullName>
+			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" "--gtest_also_run_disabled_tests"</FullCommandLine>
 			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>SEGFAULT</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>3221225477</Value>
+				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.048976</Value>
+					<Value>0.0394796</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Processors">
 					<Value>1</Value>
@@ -45,18 +51,18 @@
 					<Value>Completed</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="text/string" name="Command Line">
-					<Value>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue" "--gtest_also_run_disabled_tests"</Value>
+					<Value>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" "--gtest_also_run_disabled_tests"</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="text/string" name="Environment">
 					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
 				</NamedMeasurement>
 				<Measurement>
-					<Value encoding="base64" compression="gzip">eJytUU1rwkAQvedXzNEcEtqr4KFUkVIwIdpTEsLWTtJtN7N2dtbSf998iFWh4ME5PXbevnlvJvNEmhpolaZJCDXbFh6nRcr2Az8Fi72S96KxtjEo6OQUOt4WTY+q/nO83QYrKziF5UCBTdeBWhtBhhmk1vyQbbUy/buLkx2yEsvV4ssr46qE8I/iso7z5Oa6rpGRpMpQPJPbsMcgnx2rhOxg/x5kGNfbP2DntWAc5NGxSlga+6rM2Efaa7bUdvrgUCK/uyCfal7YD3LIXlYwVHnLbKMkJM+3lIXJHbQuvDrdyAexokwYXLdBQcXRm/2m8/v8dxdgRfH5nC57+rBeL+b9SkduHPwC/Szmjw==</Value>
+					<Value encoding="base64" compression="gzip">eJy1j7FuwlAMRfd8hUc6EIkViaECiY1GoZ2SKHqNTGp4sZGfE4m/Jwk0IHbudG0f27ppy0xcQ+OIZx9wUGlgvcwTlSOeDPPO2V9ei9QeDYM926BVXg+uHJbjqop2YriE7YjAdz+BA3lDhRUk4i8sDTk/9EP8dUZ1JlpuqKNAwuWD+G/tseuhqQxliqH1Fj4V16KKlUXZalIB6T3LAmz8PWS5+9CSYRxl80kFbL38On+bI3ekwg1yz6LN2/ML/HzzJUuUQfqzg1HFu4JeAV7hmTE=</Value>
 				</Measurement>
 			</Results>
 		</Test>
-		<EndDateTime>Oct 19 16:43 ?????????</EndDateTime>
-		<EndTestTime>1729349015</EndTestTime>
+		<EndDateTime>Oct 19 18:11 ?????????</EndDateTime>
+		<EndTestTime>1729354262</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

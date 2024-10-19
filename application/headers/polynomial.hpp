@@ -165,8 +165,8 @@ double GetAreaNumerically(double lowerLimit, double upperLimit);
 /*inline*/ static int GetHighestOrderOfPolynomialTerms(const Polynomial& polynomial);
 /*inline*/ static int GetHighestOrderOfPolynomialTerms(const Terms monomials);
 /*inline*/ static int GetHighestOrderOfPolynomialCoefficients(const CoefficientList coefficients);
-// static inline int GetLowestOrderOfPolynomialTerms(const Polynomial& polynomial);
-// static inline int GetLowestOrderOfPolynomialTerms(const Terms monomials);
+static int GetLowestOrderOfPolynomialTerms(const Polynomial& polynomial);
+static int GetLowestOrderOfPolynomialTerms(const Terms monomials);
 
 static Terms CoefficientList2Terms(const CoefficientList coefficients);
 static CoefficientList Terms2CoefficientList(const Terms terms);
@@ -241,11 +241,11 @@ Polynomial operator *(const double left, const Polynomial& right);
 
 
 // TODO: Implement these, test these
-Polynomial operator /(const Polynomial& left, const Monomial& right);
-Polynomial operator /(const Polynomial& left, const double right);
-Polynomial operator /(const Polynomial& left, const Polynomial& right);
-Polynomial operator /(const Monomial& left, const Polynomial& right);
-Polynomial operator /(const double left, const Polynomial& right);
+Polynomial operator /(const Polynomial& numerator, const Monomial& denominator);
+Polynomial operator /(const Polynomial& numerator, const double denominator);
+Polynomial operator /(const Polynomial& numerator, const Polynomial& denominator);
+// Polynomial operator /(const Monomial& nominator, const Polynomial& denominator);
+// Polynomial operator /(const double nominator, const Polynomial& denominator);
 
 } // namespace vath
 

@@ -2,6 +2,7 @@
 #include "../headers/polynomial.hpp"
 #include <stdio.h>
 #include <cmath>
+#include <exception>
 
 namespace Vath 
 {
@@ -136,6 +137,16 @@ int Polynomial::GetHighestOrderOfPolynomialTerms(const Polynomial& polynomial)
     return Polynomial::GetHighestOrderOfPolynomialTerms(polynomial.GetMonomials());
 }
 
+int Polynomial::GetLowestOrderOfPolynomialTerms(const Terms monomials)
+{
+    return monomials[monomials.size()-1].Exponent;
+}
+
+int Polynomial::GetLowestOrderOfPolynomialTerms(const Polynomial& polynomial)
+{
+    return Polynomial::GetLowestOrderOfPolynomialTerms(polynomial.GetMonomials());
+}
+
 Terms Polynomial::CoefficientList2Terms(const CoefficientList coefficients)
 {
     Terms terms;
@@ -250,19 +261,8 @@ Terms Polynomial::CombineTerms(const Terms& terms)
         if(std::signbit(m.Coefficient) && m.Coefficient == 0)
         {
             m.Coefficient = 0;
-            std::cout << m.Coefficient << "\n";
         }
     }
-
-    // for(int i = 0; i < termsCombined.size(); i++)
-    // {
-    //     if(termsCombined[i].Coefficient == -0)
-    //     {
-    //         termsCombined[i].Coefficient = 0;
-    //         std::cout << termsCombined[i].Coefficient << "\n";
-    //         std::cout << termsCombined[i].Coefficient << "\n";
-    //     }
-    // }
 
     return termsCombined;
 }
@@ -492,6 +492,139 @@ Polynomial operator -(const double left, const Polynomial& right)
 {
     return (Monomial(left, 0) - right);
 }
+
+Polynomial operator /(const Polynomial& nominator, const Monomial& denominator)
+{
+    Polynomial newPoly(nominator);
+    Terms t = newPoly.GetMonomials();
+    for(Monomial& m : t)
+    {
+        m = m / denominator;
+    }
+    newPoly.SetMonomials(t);
+    return newPoly;
+}
+
+Polynomial operator /(const Polynomial& numerator, const double denominator)
+{
+    return (numerator / Monomial(denominator, 0));
+}
+
+Polynomial operator /(const Polynomial& numerator, const Polynomial& denominator)
+{
+    if(denominator == Polynomial())
+    {
+        throw std::runtime_error("You can't divide a polynomial by 0!");
+    }
+    
+    if(denominator.GetOrder() > numerator.GetOrder())
+    {
+        throw std::runtime_error("Division of the two polynomials would yield an irrational polynomial.");
+    }
+
+    bool foundPolynomial = false;
+    Terms workingNumerator = numerator.GetMonomials();
+    Terms result;
+    Terms interMediateAfterMultiplication;
+    Terms interMediateAfterSubtraction;
+    Polynomial endResult;
+    while(!foundPolynomial)
+    {
+        result.push_back(workingNumerator[0] / denominator[0]);
+        if(Polynomial::GetHighestOrderOfPolynomialTerms(result) == 0)
+        {
+            foundPolynomial = true;
+        }
+
+        for(int i = 0; i < denominator.GetOrder() - 1; i++)
+        {
+            interMediateAfterMultiplication.push_back(result[result.size() - 1] * denominator[i]);
+        }
+
+        // B
+        if(workingNumerator.size() > interMediateAfterMultiplication.size())
+        {
+            // Pad with zeros so we can take the next term from the numerator
+            interMediateAfterMultiplication.push_back(Monomial(0, 0));
+        }
+
+        // A
+        // If we the polynom below the working polynom (numerator) after multiplication is longer than the working polynomial (numerator), 
+        // we have a problem and need to pull down the next coefficient(s) of the original numerator polynom
+        if( Polynomial::GetLowestOrderOfPolynomialTerms(workingNumerator) >
+            Polynomial::GetLowestOrderOfPolynomialTerms(interMediateAfterMultiplication) 
+            )
+        {
+            for(Monomial& m : numerator.GetMonomials())
+            {
+                if(m.Exponent == workingNumerator[workingNumerator.size()-1].Exponent - 1)
+                {
+                    workingNumerator.push_back(m);
+                    break;
+                }
+            }
+        }
+
+        // Go through terms and subtract from another
+        for(int i = 0; i < interMediateAfterMultiplication.size(); i++)
+        {
+            Monomial subtracted(
+                workingNumerator[i].Coefficient - interMediateAfterMultiplication[i].Coefficient,
+                workingNumerator[i].Exponent
+            );
+            interMediateAfterSubtraction.push_back(subtracted);
+        }
+        workingNumerator = Terms(interMediateAfterSubtraction);
+        workingNumerator.pop_front();
+
+        // If the result of the subtraction is 0, 
+        // we need to take the next term of the input numerator ("pull down")
+        if( workingNumerator.size()         == 1    &&
+            workingNumerator[0].Exponent    != 0    &&
+            workingNumerator[0].Coefficient == 0    
+        )
+        {
+            for(Monomial& m : numerator.GetMonomials())
+            {
+                if(m.Exponent == workingNumerator[workingNumerator.size()-1].Exponent - 1)
+                {
+                    workingNumerator.push_back(m);
+                    break;
+                }
+            }
+        }
+
+        if( workingNumerator[0].Coefficient == 0 &&
+            workingNumerator[0].Exponent == 0
+        )
+        {
+            foundPolynomial = true;
+        }
+
+        if( Polynomial::GetHighestOrderOfPolynomialTerms(workingNumerator) < 
+            Polynomial::GetHighestOrderOfPolynomialTerms(denominator)    
+        )
+        {
+            foundPolynomial = true;
+            if (workingNumerator[0].Coefficient == 0 && workingNumerator[0].Exponent == 0)
+            {
+                endResult.SetRest(Terms{Monomial(0,0)});
+            }
+            else
+            {
+                endResult.SetRest(workingNumerator);
+            }            
+        }
+
+        interMediateAfterMultiplication = Terms();
+        interMediateAfterSubtraction = Terms();
+
+        endResult.SetMonomials(result);
+    }
+
+    return endResult;
+}
+
 
 
 

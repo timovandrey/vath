@@ -1,30 +1,24 @@
-Start testing: Oct 19 16:43 ?????????
+Start testing: Oct 19 18:11 ?????????
 ----------------------------------------------------------
-19/54 Testing: PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue
-19/54 Test: PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue
-Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue" "--gtest_also_run_disabled_tests"
+30/57 Testing: PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
+30/57 Test: PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
+Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" "--gtest_also_run_disabled_tests"
 Directory: C:/Projekte/vath/build/tests
-"PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue" start time: Oct 19 16:43 ?????????
+"PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" start time: Oct 19 18:11 ?????????
 Output:
 ----------------------------------------------------------
 Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
-Note: Google Test filter = PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue
+Note: Google Test filter = PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
 [----------] 1 test from PolynomialTests
-[ RUN      ] PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue
-[       OK ] PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue (0 ms)
-[----------] 1 test from PolynomialTests (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
+[ RUN      ] PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
 <end of output>
-Test time =   0.05 sec
+Test time =   0.04 sec
 ----------------------------------------------------------
-Test Passed.
-"PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue" end time: Oct 19 16:43 ?????????
-"PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue" time elapsed: 00:00:00
+Test Failed.
+"PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" end time: Oct 19 18:11 ?????????
+"PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 19 16:43 ?????????
+End testing: Oct 19 18:11 ?????????
