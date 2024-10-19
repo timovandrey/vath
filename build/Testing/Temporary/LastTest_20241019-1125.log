@@ -1,10 +1,10 @@
-Start testing: Oct 19 18:11 ?????????
+Start testing: Oct 19 19:50 ?????????
 ----------------------------------------------------------
 30/57 Testing: PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
 30/57 Test: PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
 Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" "--gtest_also_run_disabled_tests"
 Directory: C:/Projekte/vath/build/tests
-"PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" start time: Oct 19 18:11 ?????????
+"PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" start time: Oct 19 19:50 ?????????
 Output:
 ----------------------------------------------------------
 Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
@@ -13,12 +13,19 @@ Note: Google Test filter = PolynomialTests.Operator_Division_PolynomialDivisionS
 [----------] Global test environment set-up.
 [----------] 1 test from PolynomialTests
 [ RUN      ] PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
+Pisse: 5
+Pisse: 5
+Pisse: 2
+Pisse: 2
+Pisse: 4
+Pisse: 4
+Pisse: 0
 <end of output>
-Test time =   0.04 sec
+Test time =   0.07 sec
 ----------------------------------------------------------
 Test Failed.
-"PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" end time: Oct 19 18:11 ?????????
+"PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" end time: Oct 19 19:50 ?????????
 "PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 19 18:11 ?????????
+End testing: Oct 19 19:50 ?????????

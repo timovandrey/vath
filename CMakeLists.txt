@@ -12,6 +12,12 @@ enable_testing()
 
 add_subdirectory(googletest)
 
+# set(CMAKE_INCLUDE_DIR
+#     /spdlog/
+# )
+
+# include_directories(${CMAKE_INCLUDE_DIR})
+
 set(Headers
     ./application/headers/monomial.hpp
     ./application/headers/polynomial.hpp
@@ -26,4 +32,6 @@ set(Sources
 add_library(${This} STATIC ${Sources} ${Headers})
 
 add_subdirectory(tests)
+
+# target_include_directories(${This} PRIVATE ${CMAKE_SOURCE_DIR})
 

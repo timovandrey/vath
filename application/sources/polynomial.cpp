@@ -169,7 +169,17 @@ CoefficientList Polynomial::Terms2CoefficientList(const Terms terms)
 
 Terms Polynomial::InterpolateTerms(const Terms& terms)
 {
-    Terms newTerms = terms;
+    if(terms.size() == 1)
+    {
+        if(terms[0].Exponent == 0 && terms[0].Coefficient == 0)
+        {
+            return terms;
+        }
+    }
+
+
+    Terms newTerms(terms);
+    std::cout << "Pisse: " << newTerms.size() << std::endl;
     int highestOrder = Polynomial::GetHighestOrderOfPolynomialTerms(newTerms);
 
     for(int order = highestOrder; order >= 0; order--)
@@ -194,8 +204,9 @@ Terms Polynomial::InterpolateTerms(const Terms& terms)
     auto compareFn = [](const Monomial& a, const Monomial& b){return a.Exponent > b.Exponent;};
     std::sort(newTerms.begin(), newTerms.end(), compareFn);
     
+    
     // Remove terms with zero coefficients from the front
-    while(newTerms[0].Coefficient == 0 && newTerms.size() > 1)
+    while(newTerms[0].Coefficient == 0 && newTerms.size() > 2)
     {
         newTerms.pop_front();
     }
@@ -203,9 +214,11 @@ Terms Polynomial::InterpolateTerms(const Terms& terms)
     // Remove negative exponents from the back of the polynomial
     while(  newTerms[newTerms.size()-1].Coefficient == 0 && 
             newTerms[newTerms.size()-1].Exponent < 0 && 
-            newTerms.size() > 1)
+            (newTerms.size() > 2)
+        )
     {
         newTerms.pop_back();
+        
     }
 
     return newTerms;
@@ -523,7 +536,7 @@ Polynomial operator /(const Polynomial& numerator, const Polynomial& denominator
     }
 
     bool foundPolynomial = false;
-    Terms workingNumerator = numerator.GetMonomials();
+    Terms workingNumerator(numerator.GetMonomials());
     Terms result;
     Terms interMediateAfterMultiplication;
     Terms interMediateAfterSubtraction;

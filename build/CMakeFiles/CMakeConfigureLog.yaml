@@ -645,3 +645,44 @@ events:
       Running the CXX compiler's linker: "C:/msys64/mingw64/x86_64-w64-mingw32/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.41
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "spdlog/spdlog/CMakeLists.txt:146 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Projekte/vath/build/CMakeFiles/CMakeScratch/TryCompile-jgusco"
+      binary: "C:/Projekte/vath/build/CMakeFiles/CMakeScratch/TryCompile-jgusco"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Projekte/vath/build/CMakeFiles/CMakeScratch/TryCompile-jgusco'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_473fe/fast
+        C:/msys64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_473fe.dir\\build.make CMakeFiles/cmTC_473fe.dir/build
+        mingw32-make[1]: Entering directory 'C:/Projekte/vath/build/CMakeFiles/CMakeScratch/TryCompile-jgusco'
+        Building C object CMakeFiles/cmTC_473fe.dir/src.c.obj
+        C:\\msys64\\mingw64\\bin\\gcc.exe -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu99 -o CMakeFiles\\cmTC_473fe.dir\\src.c.obj -c C:\\Projekte\\vath\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgusco\\src.c
+        Linking C executable cmTC_473fe.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_473fe.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_473fe.dir/objects.a
+        C:\\msys64\\mingw64\\bin\\ar.exe qc CMakeFiles\\cmTC_473fe.dir/objects.a @CMakeFiles\\cmTC_473fe.dir\\objects1.rsp
+        C:\\msys64\\mingw64\\bin\\gcc.exe -Wl,--whole-archive CMakeFiles\\cmTC_473fe.dir/objects.a -Wl,--no-whole-archive -o cmTC_473fe.exe -Wl,--out-implib,libcmTC_473fe.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_473fe.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'C:/Projekte/vath/build/CMakeFiles/CMakeScratch/TryCompile-jgusco'
+        
+      exitCode: 0
+...

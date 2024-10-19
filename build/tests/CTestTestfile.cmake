@@ -6,4 +6,4 @@
 # testing this directory and lists subdirectories to be tested as well.
 include("C:/Projekte/vath/build/tests/VathTests[1]_include.cmake")
 add_test(VathTests "C:/Projekte/vath/build/tests/VathTests.exe")
-set_tests_properties(VathTests PROPERTIES  _BACKTRACE_TRIPLES "C:/Projekte/vath/tests/CMakeLists.txt;20;add_test;C:/Projekte/vath/tests/CMakeLists.txt;0;")
+set_tests_properties(VathTests PROPERTIES  _BACKTRACE_TRIPLES "C:/Projekte/vath/tests/CMakeLists.txt;26;add_test;C:/Projekte/vath/tests/CMakeLists.txt;0;")

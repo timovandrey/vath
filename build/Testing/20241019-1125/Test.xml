@@ -21,11 +21,11 @@
 	TotalVirtualMemory="15106"
 	TotalPhysicalMemory="14210"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="3402"
+	ProcessorClockFrequency="2295"
 	>
 	<Testing>
-		<StartDateTime>Oct 19 18:11 ?????????</StartDateTime>
-		<StartTestTime>1729354262</StartTestTime>
+		<StartDateTime>Oct 19 19:50 ?????????</StartDateTime>
+		<StartTestTime>1729360205</StartTestTime>
 		<TestList>
 			<Test>./tests/PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect</Test>
 		</TestList>
@@ -42,7 +42,7 @@
 					<Value>3221225477</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.0394796</Value>
+					<Value>0.0700248</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Processors">
 					<Value>1</Value>
@@ -57,12 +57,12 @@
 					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
 				</NamedMeasurement>
 				<Measurement>
-					<Value encoding="base64" compression="gzip">eJy1j7FuwlAMRfd8hUc6EIkViaECiY1GoZ2SKHqNTGp4sZGfE4m/Jwk0IHbudG0f27ppy0xcQ+OIZx9wUGlgvcwTlSOeDPPO2V9ei9QeDYM926BVXg+uHJbjqop2YriE7YjAdz+BA3lDhRUk4i8sDTk/9EP8dUZ1JlpuqKNAwuWD+G/tseuhqQxliqH1Fj4V16KKlUXZalIB6T3LAmz8PWS5+9CSYRxl80kFbL38On+bI3ekwg1yz6LN2/ML/HzzJUuUQfqzg1HFu4JeAV7hmTE=</Value>
+					<Value encoding="base64" compression="gzip">eJy1kDFPw0AMhff8Co8wNIIKlkodUCt1a6MAUxJFR+QGw+Vc2U4k/j1JKKFqZt702X726V3ahkChhsZRuLmFo3ADm1WeCH/gp2HeOXvPa+bao6HaJapUeT1QOSzHVRXt2XAFu9ECL/0EjuQNBdaQsP8K3JDzQ1/jwwnFGUu5pY6UOJR/jt/WM3a9aSq1TFFbb/okuGERrCzK1pMKSM9Z7sHGt4csZ9aWDOMoW0wqYOf5zfmfOYaOhEODofeiLdrTlfny5lWWKIP0dQ+jiv8KmpBq/7ePM1jO4GEGd9E3brurbw==</Value>
 				</Measurement>
 			</Results>
 		</Test>
-		<EndDateTime>Oct 19 18:11 ?????????</EndDateTime>
-		<EndTestTime>1729354262</EndTestTime>
+		<EndDateTime>Oct 19 19:50 ?????????</EndDateTime>
+		<EndTestTime>1729360205</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

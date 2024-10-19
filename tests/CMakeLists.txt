@@ -7,6 +7,12 @@ set(TestSources
     PolynomialTests.cpp
 )
 
+# set(CMAKE_INCLUDE_DIR
+#     ../spdlog/
+# )
+
+#include_directories(${CMAKE_INCLUDE_DIR})
+
 add_executable(${This} ${TestSources})
 
 target_link_libraries(${This} PUBLIC
@@ -21,4 +27,6 @@ add_test(
     NAME ${This}
     COMMAND ${This}
 )
+
+# target_include_directories(${This} PRIVATE ${CMAKE_SOURCE_DIR})
 
