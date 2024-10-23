@@ -570,73 +570,72 @@ TEST(PolynomialTests, Operator_Division_PolynomialDivisionSeveralDivisions_Resul
 {
     std::vector<Polynomial> numerators {
         Polynomial(CoefficientList{ 1, -1, -12, -4, +16 }),
-        // Polynomial(CoefficientList{ -6, -28, -16, 0 }),
-        // Polynomial(CoefficientList{ -3, +9, 0, 0, 0 }),
-        // Polynomial(CoefficientList{ -7, -18, -8, 0, 0 }),
-        // Polynomial(CoefficientList{ 3, -4, -15, -4, 12 }),
-        // Polynomial(CoefficientList{ 7, -21, -6, 16, 6 }),
-        // Polynomial(CoefficientList{ 3, 12, 0 }),
-        // Polynomial(CoefficientList{ -7, -37, -10, 0, 0 }),
-        // Polynomial(CoefficientList{ 1, -4, -5, 6, -30 }),
-        // Polynomial(CoefficientList{ -6, -6, 1, -5, -6 }),
-        // Polynomial(CoefficientList{ -2, 12, -18 }),
-        // Polynomial(CoefficientList{ 4, 2, -1, 1 }),
-        // Polynomial(CoefficientList{ 1, 5, -3, 1 }),
-        // Polynomial(CoefficientList{ 2, -3, 4, 5 }),
-        // Polynomial(CoefficientList{ 2, 3, 0, 0, -1 }),
-        // Polynomial(CoefficientList{ 1, 0, 2, 0, 0, -4 }),
-        // Polynomial(CoefficientList{ 3, 0, -2, 0, 0, 1, 0, 0}),
+        Polynomial(CoefficientList{ -6, -28, -16, 0 }),
+        Polynomial(CoefficientList{ -3, +9, 0, 0, 0 }),
+        Polynomial(CoefficientList{ -7, -18, -8, 0, 0 }),
+        Polynomial(CoefficientList{ 3, -4, -15, -4, 12 }),
+        Polynomial(CoefficientList{ 7, -21, -6, 16, 6 }),
+        Polynomial(CoefficientList{ 3, 12, 0 }),
+        Polynomial(CoefficientList{ -7, -37, -10, 0, 0 }),
+        Polynomial(CoefficientList{ 1, -4, -5, 6, -30 }),
+        Polynomial(CoefficientList{ -6, -6, 1, -5, -6 }),
+        Polynomial(CoefficientList{ -2, 12, -18 }),
+        Polynomial(CoefficientList{ 4, 2, -1, 1 }),
+        Polynomial(CoefficientList{ 1, 5, -3, 1 }),
+        Polynomial(CoefficientList{ 2, -3, 4, 5 }),
+        Polynomial(CoefficientList{ 2, 3, 0, 0, -1 }),
+        Polynomial(CoefficientList{ 1, 0, 2, 0, 0, -4 }),
+        Polynomial(CoefficientList{ 3, 0, -2, 0, 0, 1, 0, 0}),
     };
     std::vector<Polynomial> denominators {
         Polynomial(CoefficientList{ 1, -1 }),
-        // Polynomial(CoefficientList{ 1, 4 }),
-        // Polynomial(CoefficientList{ 1, -3 }),
-        // Polynomial(CoefficientList{ 1, 2 }),
-        // Polynomial(CoefficientList{ 1, -3 }),
-        // Polynomial(CoefficientList{ 1, -3 }),
-        // Polynomial(CoefficientList{ 1, 4 }),
-        // Polynomial(CoefficientList{ 1, 5 }),
-        // Polynomial(CoefficientList{ 1, -5 }),
-        // Polynomial(CoefficientList{ 1, 1 }),
-        // Polynomial(CoefficientList{ 1, -3 }),
-        // Polynomial(CoefficientList{ 2, -2, 1 }),
-        // Polynomial(CoefficientList{ 2, 1, -3 }),
-        // Polynomial(CoefficientList{ 1, 2 }),
-        // Polynomial(CoefficientList{ 1, 2, -1, 1 }),
-        // Polynomial(CoefficientList{ 1, 0, 1, 0, 1 }),
-        // Polynomial(CoefficientList{ 1, 1, -2, 1 }),
+        Polynomial(CoefficientList{ 1, 4 }),
+        Polynomial(CoefficientList{ 1, -3 }),
+        Polynomial(CoefficientList{ 1, 2 }),
+        Polynomial(CoefficientList{ 1, -3 }),
+        Polynomial(CoefficientList{ 1, -3 }),
+        Polynomial(CoefficientList{ 1, 4 }),
+        Polynomial(CoefficientList{ 1, 5 }),
+        Polynomial(CoefficientList{ 1, -5 }),
+        Polynomial(CoefficientList{ 1, 1 }),
+        Polynomial(CoefficientList{ 1, -3 }),
+        Polynomial(CoefficientList{ 2, -2, 1 }),
+        Polynomial(CoefficientList{ 2, 1, -3 }),
+        Polynomial(CoefficientList{ 1, 2 }),
+        Polynomial(CoefficientList{ 1, 2, -1, 1 }),
+        Polynomial(CoefficientList{ 1, 0, 1, 0, 1 }),
+        Polynomial(CoefficientList{ 1, 1, -2, 1 }),
     };
     std::vector<Polynomial> correctResults {
         Polynomial(CoefficientList{ 1, 0, -12, -16 }),
-        // Polynomial(CoefficientList{ -6, -4, 0 }),
-        // Polynomial(CoefficientList{ -3, 0, 0, 0 }),
-        // Polynomial(CoefficientList{ -7, -4, 0, 0 }),
-        // Polynomial(CoefficientList{ 3, 5, 0, -4 }),
-        // Polynomial(CoefficientList{ 7, 0, -6, -2 }),
-        // Polynomial(CoefficientList{ 3, 0 }),
-        // Polynomial(CoefficientList{ -7, -2, 0, 0 }),
-        // Polynomial(CoefficientList{ 1, 1, 0, 6 }),
-        // Polynomial(CoefficientList{ -6, 0, 1, -6 }),
-        // Polynomial(CoefficientList{ -2, 6 }),
-        // Polynomial(CoefficientList{ 2, 3 }),
-        // Polynomial(CoefficientList{ (1.0/2.0), (9.0/4.0) }),
-        // Polynomial(CoefficientList{ 2, -7, 18 }),
-        // Polynomial(CoefficientList{ 2, -1 }),
-        // Polynomial(CoefficientList{ 1, 0 }),
-        // Polynomial(CoefficientList{ 3, -3, 7, -16, 33 }),        
+        Polynomial(CoefficientList{ -6, -4, 0 }),
+        Polynomial(CoefficientList{ -3, 0, 0, 0 }),
+        Polynomial(CoefficientList{ -7, -4, 0, 0 }),
+        Polynomial(CoefficientList{ 3, 5, 0, -4 }),
+        Polynomial(CoefficientList{ 7, 0, -6, -2 }),
+        Polynomial(CoefficientList{ 3, 0 }),
+        Polynomial(CoefficientList{ -7, -2, 0, 0 }),
+        Polynomial(CoefficientList{ 1, 1, 0, 6 }),
+        Polynomial(CoefficientList{ -6, 0, 1, -6 }),
+        Polynomial(CoefficientList{ -2, 6 }),
+        Polynomial(CoefficientList{ 2, 3 }),
+        Polynomial(CoefficientList{ (1.0/2.0), (9.0/4.0) }),
+        Polynomial(CoefficientList{ 2, -7, 18 }),
+        Polynomial(CoefficientList{ 2, -1 }),
+        Polynomial(CoefficientList{ 1, 0 }),
+        Polynomial(CoefficientList{ 3, -3, 7, -16, 33 }),        
     };
 
     // Special case for polynomials with residuals
-    // correctResults[11].SetRest(Terms{Monomial(3, 1), Monomial(-2, 0) });
-    // correctResults[12].SetRest(Terms{Monomial((-15.0 / 4.0), 1), Monomial((31.0 / 4.0), 0) });
-    // correctResults[13].SetRest(Terms{Monomial(-31, 0) });
-    // correctResults[14].SetRest(Terms{Monomial(4, 2), Monomial(-3, 1) });
-    // correctResults[15].SetRest(Terms{Monomial(1, 3), Monomial(-1, 1), Monomial(-4, 0) });
-    // correctResults[16].SetRest(Terms{Monomial(-71, 2), Monomial(82, 1), Monomial(-33, 0) });
+    correctResults[11].SetRest(Terms{Monomial(3, 1), Monomial(-2, 0) });
+    correctResults[12].SetRest(Terms{Monomial((-15.0 / 4.0), 1), Monomial((31.0 / 4.0), 0) });
+    correctResults[13].SetRest(Terms{Monomial(-31, 0) });
+    correctResults[14].SetRest(Terms{Monomial(4, 2), Monomial(-3, 1) });
+    correctResults[15].SetRest(Terms{Monomial(1, 3), Monomial(-1, 1), Monomial(-4, 0) });
+    correctResults[16].SetRest(Terms{Monomial(-71, 2), Monomial(82, 1), Monomial(-33, 0) });
 
     for(int i = 0; i < correctResults.size(); i++)
     {
-        // HIER IRGENDWIE ERROR
         Polynomial tmp = numerators[i]/denominators[i];
         EXPECT_TRUE(tmp == correctResults[i]);
     }

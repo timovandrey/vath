@@ -26,6 +26,18 @@ Monomial::Monomial(const Monomial& other)
 
 /* Public Methods ************************************************************/
 
+// For toString() method
+std::ostream& operator <<(std::ostream& os, const Monomial& monomial) 
+{
+    os  << std::fixed 
+        << std::setprecision(4) 
+        << std::setw(4) 
+        << monomial.Coefficient 
+        << "x" 
+        << monomial.Exponent;
+    return os;
+}
+
 // Operators
 
 bool Monomial::operator ==(const Monomial& other) const

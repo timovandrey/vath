@@ -218,7 +218,6 @@ Terms Polynomial::InterpolateTerms(const Terms& terms)
         )
     {
         newTerms.pop_back();
-        
     }
 
     return newTerms;
@@ -543,13 +542,14 @@ Polynomial operator /(const Polynomial& numerator, const Polynomial& denominator
     Polynomial endResult;
     while(!foundPolynomial)
     {
+        auto den = denominator.GetMonomials();
         result.push_back(workingNumerator[0] / denominator[0]);
         if(Polynomial::GetHighestOrderOfPolynomialTerms(result) == 0)
         {
             foundPolynomial = true;
         }
 
-        for(int i = 0; i < denominator.GetOrder() - 1; i++)
+        for(int i = 0; i < denominator.GetMonomials().size(); i++)
         {
             interMediateAfterMultiplication.push_back(result[result.size() - 1] * denominator[i]);
         }

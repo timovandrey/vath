@@ -62,6 +62,17 @@ Monomial(const Monomial& other);
 
 /* Public Methods ************************************************************/
 
+/* Enabling toString() *******************************************************/
+
+std::string toString() const {
+    std::stringstream ss;
+    ss << *this;
+    return ss.str();
+}
+
+// Friend declaration for operator<<
+friend std::ostream& operator<<(std::ostream& os, const Monomial& monomial);
+
 // Operators
 bool operator ==(const Monomial& other) const;          
 bool operator !=(const Monomial& other) const;

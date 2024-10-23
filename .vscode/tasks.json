@@ -8,8 +8,10 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "${workspaceFolder}/application/sources/*.cpp",
+                "-I${workspaceFolder}/application/header/*.hpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
             ],
             "options": {
                 "cwd": "${fileDirname}"

@@ -83,31 +83,38 @@ Terms GetRest() const;
 int GetOrder() const;
 int GetRestOrder() const;
 
-/* Enabling accessing ********************************************************/
 
+/* Enabling toString() *******************************************************/
+
+std::string toString() const {
+    std::stringstream ss;
+    ss << "POLYNOMIALDIGGA";
+    return ss.str();
+}
+
+// Friend declaration for operator<<
+friend std::ostream& operator<<(std::ostream& os, const Polynomial& polynomial);
+
+
+/* Enabling accessing ********************************************************/
 /*
     This section enables the class to be indexed like
     ```
     Polynomial p;
     p[0] = Monomial(2,0);
     ```
-    When accessing, the index is the exponent, so that
-    p[0] = Monomial(2,0);
-    will access the x^0 monomial.
-    When assigning, the polynomial will be reordered and interpolated.
 */
 
-
 // Write access
-Monomial& operator[](size_t exponent) 
+Monomial& operator[](size_t index) 
 {
-    return this->Monomials[this->Monomials.size() - 1 - exponent];
+    return this->Monomials[index];
 }
 
 // Read-only access
-const Monomial& operator[](size_t exponent) const 
+const Monomial& operator[](size_t index) const 
 {
-    return this->Monomials[this->Monomials.size() - 1 - exponent];
+    return this->Monomials[index];
 }
 
 auto begin() { return this->Monomials.begin(); }
