@@ -1,16 +1,16 @@
-Start testing: Oct 27 16:56 ?????????
+Start testing: Oct 27 19:29 ?????????
 ----------------------------------------------------------
-57/57 Testing: VathTests
-57/57 Test: VathTests
+66/66 Testing: VathTests
+66/66 Test: VathTests
 Command: "C:/Projekte/vath/build/tests/VathTests.exe"
 Directory: C:/Projekte/vath/build/tests
-"VathTests" start time: Oct 27 16:56 ?????????
+"VathTests" start time: Oct 27 19:29 ?????????
 Output:
 ----------------------------------------------------------
 Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
-[==========] Running 56 tests from 3 test suites.
+[==========] Running 65 tests from 3 test suites.
 [----------] Global test environment set-up.
-[----------] 30 tests from PolynomialTests
+[----------] 39 tests from PolynomialTests
 [ RUN      ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsDifferent_ReturnsFalse
 [       OK ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsDifferent_ReturnsFalse (0 ms)
 [ RUN      ] PolynomialTests.Method_CoefficientList2Terms_CoefficientsAreProvided_ReturnsTrue
@@ -70,8 +70,27 @@ Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
 [ RUN      ] PolynomialTests.Operator_Multiplication_MultiplicationReversability_ReturnsTrue
 [       OK ] PolynomialTests.Operator_Multiplication_MultiplicationReversability_ReturnsTrue (0 ms)
 [ RUN      ] PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
-[       OK ] PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect (3 ms)
-[----------] 30 tests from PolynomialTests (8 ms total)
+[       OK ] PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect (2 ms)
+[ RUN      ] PolynomialTests.Method_EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect
+[       OK ] PolynomialTests.Method_EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect (0 ms)
+[ RUN      ] PolynomialTests.Method_EvaluateAtStatic_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect
+[       OK ] PolynomialTests.Method_EvaluateAtStatic_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect (0 ms)
+[ RUN      ] PolynomialTests.Method_FindZeroOfLinearTerm_TermIsProvided_ResultIsCorrect
+[       OK ] PolynomialTests.Method_FindZeroOfLinearTerm_TermIsProvided_ResultIsCorrect (0 ms)
+[ RUN      ] PolynomialTests.Method_FindZeroOfLinearTerm_TermOfOrder2IsProvided_ExceptionIsThrown
+[       OK ] PolynomialTests.Method_FindZeroOfLinearTerm_TermOfOrder2IsProvided_ExceptionIsThrown (0 ms)
+[ RUN      ] PolynomialTests.Method_FindZeroOfLinearTerm_TermOfOrder0IsProvided_ExceptionIsThrown
+[       OK ] PolynomialTests.Method_FindZeroOfLinearTerm_TermOfOrder0IsProvided_ExceptionIsThrown (0 ms)
+[ RUN      ] PolynomialTests.Method_FindZerosOfQuadraticTerms_TermOfOrder2IsProvided_ResultIsCorrect
+TEST!
+[       OK ] PolynomialTests.Method_FindZerosOfQuadraticTerms_TermOfOrder2IsProvided_ResultIsCorrect (0 ms)
+[ RUN      ] PolynomialTests.Method_FindZerosOfQuadraticTerms_TermOfOrder0IsProvided_ExceptionIsThrown
+[       OK ] PolynomialTests.Method_FindZerosOfQuadraticTerms_TermOfOrder0IsProvided_ExceptionIsThrown (0 ms)
+[ RUN      ] PolynomialTests.Method_FindZerosOfQuadraticTerms_TermOfOrder5IsProvided_ExceptionIsThrown
+[       OK ] PolynomialTests.Method_FindZerosOfQuadraticTerms_TermOfOrder5IsProvided_ExceptionIsThrown (0 ms)
+[ RUN      ] PolynomialTests.Method_FindZerosOfQuadraticTerms_ComplexTermIsProvided_ExceptionIsThrown
+[       OK ] PolynomialTests.Method_FindZerosOfQuadraticTerms_ComplexTermIsProvided_ExceptionIsThrown (0 ms)
+[----------] 39 tests from PolynomialTests (7 ms total)
 
 [----------] 10 tests from PolymonalTests
 [ RUN      ] PolymonalTests.Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue
@@ -94,7 +113,7 @@ Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
 [       OK ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromConstant_ReturnsTrue (0 ms)
 [ RUN      ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromMonomial_ReturnsTrue
 [       OK ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromMonomial_ReturnsTrue (0 ms)
-[----------] 10 tests from PolymonalTests (1 ms total)
+[----------] 10 tests from PolymonalTests (0 ms total)
 
 [----------] 16 tests from MonomialTests
 [ RUN      ] MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue
@@ -132,14 +151,14 @@ Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
 [----------] 16 tests from MonomialTests (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 56 tests from 3 test suites ran. (10 ms total)
-[  PASSED  ] 56 tests.
+[==========] 65 tests from 3 test suites ran. (9 ms total)
+[  PASSED  ] 65 tests.
 <end of output>
 Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"VathTests" end time: Oct 27 16:56 ?????????
+"VathTests" end time: Oct 27 19:29 ?????????
 "VathTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 27 16:56 ?????????
+End testing: Oct 27 19:29 ?????????

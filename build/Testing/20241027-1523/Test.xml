@@ -24,8 +24,8 @@
 	ProcessorClockFrequency="2295"
 	>
 	<Testing>
-		<StartDateTime>Oct 27 16:56 ?????????</StartDateTime>
-		<StartTestTime>1730044577</StartTestTime>
+		<StartDateTime>Oct 27 19:29 ?????????</StartDateTime>
+		<StartTestTime>1730053788</StartTestTime>
 		<TestList>
 			<Test>./tests/VathTests</Test>
 		</TestList>
@@ -36,7 +36,7 @@
 			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe</FullCommandLine>
 			<Results>
 				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.05498</Value>
+					<Value>0.0541299</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Processors">
 					<Value>1</Value>
@@ -51,12 +51,12 @@
 					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
 				</NamedMeasurement>
 				<Measurement>
-					<Value encoding="base64" compression="gzip">eJytk01PwzAMhu/9FT5uh1X7AA5IHNCAMQHbVJXTWlVd67SBNhlxMti/J21hVDvtA1+SOK8f24nsGSG4yKCMueh0gSlZwvg6WCj5hu8ag02s8yCTMitQI+n2llQSZNUuqoLdJHGWNzsLwfshX15BJaKGPaoPQIbb1XWWvZ2FMCnkKi4aAYoNV1KUKKwYdc+s98Sjfhu7kMVWyJLHhV85nSV4rzOoLdy/dF9Q5zKNpnT/YeIimqsU1VzNTLmyK/NRlTSlO84YKps+8lAbJeghLggtuLH50/+CodOHkroHFT6WyBhPuGU8c9LDGtz20q1C+4MbnmL6m8VX5rDqT6Yf00INHe6larzn1H489piiJ6gfeZZbV/OzrK2rHunvPKWTezg7C3QGh7fkunau/JwTrGOlQTLQOTYjKI1eGw2fMYHCUm4wBeIiQeB2PL8SxJQaca6QclmkVfSgP7yA1bYa7tD5BiDFjLQ=</Value>
+					<Value encoding="base64" compression="gzip">eJytk01PwzAMhu/9FT5uh1VsAySQOKABYwK2qSqntaqy1m0DbTLipLB/T7rCqHbaB74kcV4/thPZM0JwkUHJuOh0IVWyhNF1MFfyDd81BhXTeZBJmRWokXR7SyoOsnoX1cFuHDuLm62F4P2QLy+gFlHDHm4OQIbb1XUWva2FMC7kkhWNAEXFlRQlCitG3TOrHfHwqo2dy2ItZMlZ4ddOZwHe6xQ2Fu5eui+oc5lEE7r/MKyIZipBNVNTUy7tmvqoSprQHU9TVDZ95KE2StADKwgtuLHZ0/+CoXMGJXX3KnwkMU15zC3jmZMebMBtL90qtD9Y8QST3yy+MvtVfzT9kBY20MFOqsZ7Su2HYw8peoz6kWe5dTU/m7Z19SP9nSd0dA8nZ4FOf/+WXNfOlZ9zghVTGmQKOsdmBKXRK6PhkxEoLGWFCRAXMQK34/kVIybUiHOFlMsiqaP7Z4NzWK7r4Q6db0GBjL0=</Value>
 				</Measurement>
 			</Results>
 		</Test>
-		<EndDateTime>Oct 27 16:56 ?????????</EndDateTime>
-		<EndTestTime>1730044577</EndTestTime>
+		<EndDateTime>Oct 27 19:29 ?????????</EndDateTime>
+		<EndTestTime>1730053788</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

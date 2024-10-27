@@ -157,16 +157,38 @@ void Differentiate();
  */
 static Polynomial Differentiate(const Polynomial& p);
 
+double EvaluateAt(double x) const;       
+std::vector<double> Zeros() const;
+std::vector<double> Decompose() const;
+double GetArea(double lowerLimit, double upperLimit) const;
+double GetAreaNumerically(double lowerLimit, double upperLimit) const;
 
-void EvaluateAt(double x);       
-std::vector<double> Zeros();
-std::vector<double> Decompose();
-double GetArea(double lowerLimit, double upperLimit);
-double GetAreaNumerically(double lowerLimit, double upperLimit);
-
-
+/**
+ * \brief Returns the number of monomials in the polynomial (without the rest!)
+ * 
+ * \return int Number of monomials in the polynomial.
+ */
+int Count() const;
 
 // Static Methods
+
+static double EvaluateAt(Polynomial function, double x);       
+static std::vector<double> Zeros(Polynomial function);
+static std::vector<double> Decompose(Polynomial function);
+static double GetArea(Polynomial function, double lowerLimit, double upperLimit);
+static double GetAreaNumerically(Polynomial function, double lowerLimit, double upperLimit);
+static std::vector<double> FindZerosOfQuadraticTerms(Polynomial polynomialOfOrder2);
+static double FindZeroOfLinearTerm(Polynomial linearPolynomial);
+
+/**
+ * \brief Approximates a zero from a starting point (supposedZero) by utilizing the Halleys Method (third order Newton method).
+ * 
+ * \param function The polynomial function which' zero shall be approximated.
+ * \param supposedZero The starting point from where the method shall approximate the zero.
+ * \return double The approximated zero.
+ * \remarks https://en.wikipedia.org/wiki/Halley%27s_method
+ */
+static double ApproximateZeroByHalleysMethod(Polynomial function, double supposedZero);
 
 // TODO: Somehow inline doesnt work. Why?
 /*inline*/ static int GetHighestOrderOfPolynomialTerms(const Polynomial& polynomial);
@@ -217,7 +239,8 @@ int RestOrder;     //< This is the order/degree of the rest of the polynomial.
 };
 
 /**
- * \brief TODO
+ * \brief This represents a fraction of two polynomials. 
+ * \remarks Maybe software-engineering wise it is not such a good idea, but lets roll with it for the time being.
  * 
  */
 struct PolynomialFraction

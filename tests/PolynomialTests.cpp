@@ -641,3 +641,252 @@ TEST(PolynomialTests, Operator_Division_PolynomialDivisionSeveralDivisions_Resul
     }
 
 }
+
+TEST(PolynomialTests, Method_EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect)
+{
+    const double errorMarginInPercent = 0.001;
+    Polynomial polynomial(CoefficientList{-0.05, -0.075, 0.1, 2.0});
+    std::vector<double> pointsToEvaluateAt
+    {
+        -100,
+        -50,
+        -20,
+        -10,
+        -5,
+        -2,
+        -1,
+        -0.5,
+        -0.2,
+        -0.1,
+        -0.05,
+        -0.02,
+        -0.01,
+        0,
+        0.01,
+        0.02,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1,
+        2,
+        5,
+        10,
+        20,
+        50,
+        100,
+    };
+    std::vector<double> correctResults 
+    {
+        49242,
+        6059.5,
+        370,
+        43.5,
+        5.875,
+        1.9,
+        1.875,
+        1.9375,
+        1.9774,
+        1.9893,
+        1.99481875,
+        1.9979704,
+        1.99899255,
+        2,
+        2.00099245,
+        2.0019696,
+        2.00480625,
+        2.0092,
+        2.0166,
+        2.025,
+        1.975,
+        1.5,
+        -5.625,
+        -54.5,
+        -426,
+        -6430.5,
+        -50738        
+    };
+    for (size_t i = 0; i < pointsToEvaluateAt.size(); i++)
+    {
+        double error = std::abs(correctResults[i] - polynomial.EvaluateAt(pointsToEvaluateAt[i]));
+        double errorMargin = std::abs(correctResults[i] * (errorMarginInPercent / 100.0));
+        EXPECT_TRUE(error < errorMargin);
+    }
+}
+
+TEST(PolynomialTests, Method_EvaluateAtStatic_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect)
+{
+    const double errorMarginInPercent = 0.001;
+    Polynomial polynomial(CoefficientList{-0.05, -0.075, 0.1, 2.0});
+    std::vector<double> pointsToEvaluateAt
+    {
+        -100,
+        -50,
+        -20,
+        -10,
+        -5,
+        -2,
+        -1,
+        -0.5,
+        -0.2,
+        -0.1,
+        -0.05,
+        -0.02,
+        -0.01,
+        0,
+        0.01,
+        0.02,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1,
+        2,
+        5,
+        10,
+        20,
+        50,
+        100,
+    };
+    std::vector<double> correctResults 
+    {
+        49242,
+        6059.5,
+        370,
+        43.5,
+        5.875,
+        1.9,
+        1.875,
+        1.9375,
+        1.9774,
+        1.9893,
+        1.99481875,
+        1.9979704,
+        1.99899255,
+        2,
+        2.00099245,
+        2.0019696,
+        2.00480625,
+        2.0092,
+        2.0166,
+        2.025,
+        1.975,
+        1.5,
+        -5.625,
+        -54.5,
+        -426,
+        -6430.5,
+        -50738        
+    };
+    for (size_t i = 0; i < pointsToEvaluateAt.size(); i++)
+    {
+        double error = std::abs(correctResults[i] - Polynomial::EvaluateAt(polynomial, pointsToEvaluateAt[i]));
+        double errorMargin = std::abs(correctResults[i] * (errorMarginInPercent / 100.0));
+        EXPECT_TRUE(error < errorMargin);
+    }
+}
+
+TEST(PolynomialTests, Method_FindZeroOfLinearTerm_TermIsProvided_ResultIsCorrect)
+{
+    Polynomial p(CoefficientList{4, -3});
+    double correctResult = 3.0/4.0;
+
+    double zero = Polynomial::FindZeroOfLinearTerm(p);
+    EXPECT_EQ(zero, correctResult);
+}
+
+TEST(PolynomialTests, Method_FindZeroOfLinearTerm_TermOfOrder2IsProvided_ExceptionIsThrown)
+{
+    // Checks whether polynomials with an order greater than 1 are ignored correctly.
+    Polynomial p(CoefficientList{4, 4, -3});
+    bool exceptionWasThrown = false;
+    try
+    {
+        double zero = Polynomial::FindZeroOfLinearTerm(p);
+    } 
+    catch(...)
+    {
+        exceptionWasThrown = true;
+    }
+
+    EXPECT_TRUE(exceptionWasThrown);
+}
+
+TEST(PolynomialTests, Method_FindZeroOfLinearTerm_TermOfOrder0IsProvided_ExceptionIsThrown)
+{
+    // Checks whether polynomials with an order smaller than 1 are ignored correctly.
+    Polynomial p(CoefficientList{-3});
+    bool exceptionWasThrown = false;
+    try
+    {
+        double zero = Polynomial::FindZeroOfLinearTerm(p);
+    } 
+    catch(...)
+    {
+        exceptionWasThrown = true;
+    }
+
+    EXPECT_TRUE(exceptionWasThrown);
+}
+
+TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder2IsProvided_ResultIsCorrect)
+{
+    Polynomial p(CoefficientList{3, 21, -24});
+    std::vector<double> zeros = Polynomial::FindZerosOfQuadraticTerms(p);
+    double z0 = 1;
+    double z1 = -8;
+
+    std::cout << "TEST!" << std::endl;
+
+    EXPECT_EQ(zeros[0], z0);
+    EXPECT_EQ(zeros[1], z1);
+}
+
+TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder0IsProvided_ExceptionIsThrown)
+{
+    Polynomial p(CoefficientList{-3});
+    std::vector<double> zeros;
+    bool exceptionWasThrown = false;
+    try
+    {
+        zeros = Polynomial::FindZerosOfQuadraticTerms(p);
+    }
+    catch(...)
+    {
+        exceptionWasThrown = true;
+    }
+    EXPECT_TRUE(exceptionWasThrown);
+}
+
+TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder5IsProvided_ExceptionIsThrown)
+{
+    Polynomial p(CoefficientList{5, 4, 3, 2, 1, 0});
+    std::vector<double> zeros;
+    bool exceptionWasThrown = false;
+    try
+    {
+        zeros = Polynomial::FindZerosOfQuadraticTerms(p);
+    }
+    catch(...)
+    {
+        exceptionWasThrown = true;
+    }
+    EXPECT_TRUE(exceptionWasThrown);
+}
+
+TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_ComplexTermIsProvided_ExceptionIsThrown)
+{
+    // Search for complex zeros
+    Polynomial p(CoefficientList{1, 0, 0, 0, -1});
+    std::vector<double> zeros;
+    bool exceptionWasThrown = false;
+    try
+    {
+        zeros = Polynomial::FindZerosOfQuadraticTerms(p);
+    }
+    catch(...)
+    {
+        exceptionWasThrown = true;
+    }
+    EXPECT_TRUE(exceptionWasThrown);
+}

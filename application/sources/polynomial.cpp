@@ -89,6 +89,11 @@ int Polynomial::GetRestOrder() const
 
 /* Public Methods ************************************************************/
 
+int Polynomial::Count() const
+{
+    return this->GetMonomials().size();
+}
+
 std::ostream& operator <<(std::ostream& os, const Polynomial& polynomial)
 {
     for(Monomial m : polynomial.GetMonomials()) 
@@ -342,6 +347,234 @@ Polynomial Polynomial::Integrate(const Polynomial& p)
     return Polynomial(outTerms);
 }
 
+double Polynomial::EvaluateAt(double x) const
+{
+    return Polynomial::EvaluateAt(*this, x);
+}
+
+double Polynomial::EvaluateAt(Polynomial function, double x)
+{
+    double below = 0, middle = 0;
+    for (Monomial term : function)
+    {
+        below = term.Coefficient + middle;
+        middle = below * x;
+    }
+    return below;
+}
+
+std::vector<double> Polynomial::Zeros(Polynomial function)
+{
+    // TODO: Make this multithreaded for faster zero finding. :D
+
+    Polynomial wfunc(function);
+    std::vector<double> zeros;
+
+    // 1. Go through function with coarse values, check for change in signedness
+    // 2. Use the value after the signedness change as origin
+    // 3. Approximate 0 with Newton-Method
+    // 4. Reduce polynomial and do the same but while reducing the polynomial to use the Horner Schema
+    // 5. Once the polynomial is of order 2, use pq-formula
+
+    // 1-3 is "guessing" the zero, instead of going through the values always increasing resolution, use 
+    // Newton-Method.
+
+    while(wfunc.GetOrder() >= 3)
+    {
+        double currentFuncVal = 0, previousFuncVal = 0, currentDerivVal = 0, previousDerivVal = 0;
+        bool firstRun = true, zeroFound = false;
+        bool zeroApproxValFound = false;
+        Polynomial derivative = Polynomial::Differentiate(wfunc);
+
+        // Find an approximation origin for zero finding a zero
+        for (
+            double i = Polynomial::GUESS_ZERO_INTERVAL_LOWER_BOUNDARY;
+            ((i <= Polynomial::GUESS_ZERO_INTERVAL_UPPER_BOUNDARY) || (!zeroApproxValFound) || !zeroFound);
+            i += Polynomial::GUESS_ZERO_INTERVAL_INTERATION_STEP
+        )
+        {
+            previousFuncVal = currentFuncVal;
+            currentFuncVal = Polynomial::EvaluateAt(wfunc, i);
+            previousDerivVal = currentDerivVal;
+            currentDerivVal = Polynomial::EvaluateAt(derivative, i);            
+
+            // Check if signedness changed during testing
+            if (    !firstRun &&
+                    (
+                        ((previousFuncVal < 0 && currentFuncVal >= 0) || (previousFuncVal >= 0 && currentFuncVal < 0)) ||
+                        ((previousDerivVal < 0 && currentDerivVal > 0) || (previousDerivVal > 0 && currentDerivVal < 0))
+                    )
+                    )
+            {
+                currentFuncVal = i;
+                zeroApproxValFound = true;
+                break;
+            }
+            else if (currentFuncVal == 0)
+            {
+                // TODO: Error: Somehow the iteration is not perfectly 0.x parts, but the last few digits are like 0.0.....3949
+                //       That way, the evaluate-function does not yield 0 -> 0 cant be found...
+                zeroFound = true;
+            }
+            if (firstRun)
+            {
+                firstRun = false;
+            }
+
+            if (!zeroApproxValFound && !zeroFound)
+            {
+                std::stringstream errorMsg;
+                errorMsg    << "Cant find a zero between " 
+                            << Polynomial::GUESS_ZERO_INTERVAL_LOWER_BOUNDARY
+                            << " and "
+                            << Polynomial::GUESS_ZERO_INTERVAL_UPPER_BOUNDARY
+                            << ".";
+                throw std::runtime_error(errorMsg.str());
+            }
+
+            // Approximate zero by Halleys method
+            if(!zeroFound)
+            {
+                currentFuncVal = Polynomial::ApproximateZeroByHalleysMethod(wfunc, currentFuncVal);
+            }
+
+            // Use Horner Schema to get the next polynomial to be examined for a zero. 
+            // Also, check whether the supposed zero is actually a zero.
+            double supposedZero = currentFuncVal;
+            double below = 0, middle = 0;
+            CoefficientList belowRow;
+            for(Monomial term : wfunc)
+            {
+                belowRow.push_back(below);
+                below = term.Coefficient + middle;
+                middle = below * supposedZero;
+            }
+            if(below == 0)
+            {
+                zeros.push_back(supposedZero);
+            }
+
+            wfunc = Polynomial(belowRow);
+        }
+
+        if(wfunc.GetOrder() == 2)
+        {
+            auto z12 = Polynomial::FindZerosOfQuadraticTerms(wfunc);
+            zeros.push_back(z12[0]);
+            zeros.push_back(z12[1]);
+        }
+        else if(wfunc.GetOrder() == 1)
+        {
+            auto z = Polynomial::FindZeroOfLinearTerm(wfunc);
+            zeros.push_back(z);
+        }
+    }
+
+    return zeros;
+}
+
+std::vector<double> Polynomial::FindZerosOfQuadraticTerms(Polynomial polynomialOfOrder2)
+{
+    Polynomial workingPolynomial(polynomialOfOrder2);
+    std::vector<double> zeros;
+    bool zerosFound = false;
+    if  (
+            workingPolynomial[0].Exponent != 2                              ||
+            workingPolynomial[workingPolynomial.Count()-1].Exponent != 0    ||
+            workingPolynomial.Count() != 3
+        )
+    {
+        throw std::runtime_error("The given polynomial is not of order 2.");
+    }
+    if(workingPolynomial[0].Coefficient == 0)
+    {
+        // TODO: Nullstelle ermitteln
+        // Polynomial is actually not of order 3 and just weird
+        // TODO: Make it so that when a polynomials highest order has the coefficient 0, the term shall be removed.
+        //zeros.Add(Polynomial.FindZeroOfLinearTerm(workingPolynomial)); // TODO: Test
+        //zerosFound = true;
+        // This should never be reached due to the implementation of Polynomial and the above if-statement.
+        throw std::runtime_error("The given polynomial is linear. Cant solve with pq-formula.");        
+    }
+    else if(workingPolynomial[0].Coefficient != 1)
+    {
+        double normalizationFactor = workingPolynomial[0].Coefficient;
+        for (size_t i = 0; i < workingPolynomial.Count(); i++)
+        {
+            // Normalize coefficients
+            workingPolynomial[i].Coefficient = workingPolynomial[i].Coefficient / normalizationFactor;
+        }
+    }
+    if(!zerosFound)
+    {
+        double p = workingPolynomial[1].Coefficient;
+        double q = workingPolynomial[2].Coefficient;
+        double belowRootTerm = ((p * p) / 4.0) - q;
+        if(belowRootTerm < 0)
+        {
+            throw std::runtime_error("The term below the root is negative. Complex terms are not supported.");
+        }
+        double rootTerm = std::sqrt(belowRootTerm);
+        double firstTerm = -p / 2;
+        zeros.push_back(firstTerm + rootTerm);
+        zeros.push_back(firstTerm - rootTerm);
+    }
+    return zeros;
+}
+
+double Polynomial::FindZeroOfLinearTerm(Polynomial linearPolynomial)
+{
+    if( linearPolynomial[0].Exponent != 1                             ||
+        linearPolynomial[linearPolynomial.Count() - 1].Exponent != 0  ||
+        linearPolynomial.Count() != 2                                 ) 
+        {
+            throw std::runtime_error("The given polynomial is not linear.");
+        }
+    return ((linearPolynomial[1].Coefficient / linearPolynomial[0].Coefficient) * (-1));
+}
+
+double Polynomial::ApproximateZeroByHalleysMethod(Polynomial function, double supposedZero)
+{
+    Polynomial fPrime       = Polynomial::Differentiate(function);
+    Polynomial fPrimePrime  = Polynomial::Differentiate(function);
+    int iteration           = 1;                
+    double hn               = 0;                //< Factor "hn" from the formula, (derivative divided by original function), evaluated at the previous value
+    double fpByfpp          = 0;                //< Shortcut factor for the second derivative divided by the first derivative, evaluated at the previous value
+    double numerator        = 0;                //< Computed numerator of the formula
+    double denominator      = 0;                //< Computed denominator of the formula
+    double currentFuncVal   = supposedZero;     //< Current value in the iteration ("xn+1")
+    double previousFuncVal  = 0;                //< Value from the preceeding iteration ("xn")
+    
+    while(  std::abs(Polynomial::EvaluateAt(function, currentFuncVal)) > Polynomial::GUESS_ZERO_ERROR_MARGIN &&
+            iteration < Polynomial::GUESS_ZERO_MAX_ITERATIONS
+            )
+    {
+        previousFuncVal = currentFuncVal;
+        // function / derivative
+        hn =
+        ( 
+            Polynomial::EvaluateAt(function, previousFuncVal) / 
+            Polynomial::EvaluateAt(fPrime, previousFuncVal)
+        ) * (-1);
+        // derivative^2 / derivative
+        fpByfpp = 
+        (
+            Polynomial::EvaluateAt(fPrimePrime, previousFuncVal) /
+            Polynomial::EvaluateAt(fPrime, previousFuncVal)
+        );
+        numerator       = 1 + 0.5 * fpByfpp * hn;
+        denominator     = 1 +       fpByfpp * hn + (1/6) * fpByfpp * hn * hn;
+        currentFuncVal  = previousFuncVal + hn * numerator / denominator;
+        iteration++;
+
+        if(std::abs(previousFuncVal - currentFuncVal) == 0)
+        {
+            break;
+        }
+    }
+    return currentFuncVal;
+}
+
 // Overriden methods
 
 bool Polynomial::IsEqual(const Polynomial& other) const
@@ -556,7 +789,7 @@ Polynomial operator /(const Polynomial& numerator, const Polynomial& denominator
             foundPolynomial = true;
         }
 
-        for(int i = 0; i < denominator.GetMonomials().size(); i++)
+        for(int i = 0; i < denominator.Count(); i++)
         {
             interMediateAfterMultiplication.push_back(result[result.size() - 1] * denominator[i]);
         }
