@@ -248,29 +248,29 @@ VathTests/fast:
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\VathTests.dir\build.make tests/CMakeFiles/VathTests.dir/build
 .PHONY : VathTests/fast
 
-application/sources/main.obj: application/sources/main.cpp.obj
-.PHONY : application/sources/main.obj
+application/main.obj: application/main.cpp.obj
+.PHONY : application/main.obj
 
 # target to build an object file
-application/sources/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/main.cpp.obj
-.PHONY : application/sources/main.cpp.obj
+application/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/main.cpp.obj
+.PHONY : application/main.cpp.obj
 
-application/sources/main.i: application/sources/main.cpp.i
-.PHONY : application/sources/main.i
+application/main.i: application/main.cpp.i
+.PHONY : application/main.i
 
 # target to preprocess a source file
-application/sources/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/main.cpp.i
-.PHONY : application/sources/main.cpp.i
+application/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/main.cpp.i
+.PHONY : application/main.cpp.i
 
-application/sources/main.s: application/sources/main.cpp.s
-.PHONY : application/sources/main.s
+application/main.s: application/main.cpp.s
+.PHONY : application/main.s
 
 # target to generate assembly for a file
-application/sources/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/sources/main.cpp.s
-.PHONY : application/sources/main.cpp.s
+application/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vath.dir\build.make CMakeFiles/Vath.dir/application/main.cpp.s
+.PHONY : application/main.cpp.s
 
 application/sources/monomial.obj: application/sources/monomial.cpp.obj
 .PHONY : application/sources/monomial.obj
@@ -339,9 +339,9 @@ help:
 	@echo ... gmock_main
 	@echo ... gtest
 	@echo ... gtest_main
-	@echo ... application/sources/main.obj
-	@echo ... application/sources/main.i
-	@echo ... application/sources/main.s
+	@echo ... application/main.obj
+	@echo ... application/main.i
+	@echo ... application/main.s
 	@echo ... application/sources/monomial.obj
 	@echo ... application/sources/monomial.i
 	@echo ... application/sources/monomial.s

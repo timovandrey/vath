@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Projekte/vath/application/sources/main.cpp" "CMakeFiles/Vath.dir/application/sources/main.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/main.cpp.obj.d"
+  "C:/Projekte/vath/application/main.cpp" "CMakeFiles/Vath.dir/application/main.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/main.cpp.obj.d"
   "C:/Projekte/vath/application/sources/monomial.cpp" "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj.d"
   "C:/Projekte/vath/application/sources/polynomial.cpp" "CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj" "gcc" "CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj.d"
   )

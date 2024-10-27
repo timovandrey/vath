@@ -1,0 +1,145 @@
+Start testing: Oct 27 16:56 ?????????
+----------------------------------------------------------
+57/57 Testing: VathTests
+57/57 Test: VathTests
+Command: "C:/Projekte/vath/build/tests/VathTests.exe"
+Directory: C:/Projekte/vath/build/tests
+"VathTests" start time: Oct 27 16:56 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+[==========] Running 56 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 30 tests from PolynomialTests
+[ RUN      ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsDifferent_ReturnsFalse
+[       OK ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] PolynomialTests.Method_CoefficientList2Terms_CoefficientsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_CoefficientList2Terms_CoefficientsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_Terms2CoefficientList_TermsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_Terms2CoefficientList_TermsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_PolynomialIsProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_PolynomialIsProvided_ReturnsTrue (1 ms)
+[ RUN      ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_TermsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_GetHighestOrderOfPolynomialTerms_TermsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_GetLowestOrderOfPolynomialTerms_PolynomialIsProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_GetLowestOrderOfPolynomialTerms_PolynomialIsProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_GetLowestOrderOfPolynomialTerms_TermsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Method_GetLowestOrderOfPolynomialTerms_TermsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms
+[       OK ] PolynomialTests.Method_InterpolateTerms_TermsAreProvided_ReturnsCorrectInterpolatedTerms (0 ms)
+[ RUN      ] PolynomialTests.Method_CombineTerms_TermsAreProvided_ReturnsCorrectCombinationOfTerms
+[       OK ] PolynomialTests.Method_CombineTerms_TermsAreProvided_ReturnsCorrectCombinationOfTerms (0 ms)
+[ RUN      ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsTheSame_ReturnsTrue
+[       OK ] PolynomialTests.Method_IsEqual_OrderOrNumberOfTermsIsTheSame_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_Differentiate_PolynomialIsDifferentiated_ReturnsTrue
+[       OK ] PolynomialTests.Method_Differentiate_PolynomialIsDifferentiated_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_DifferentiateStatic_PolynomialIsDifferentiated_ReturnsTrue
+[       OK ] PolynomialTests.Method_DifferentiateStatic_PolynomialIsDifferentiated_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_Integrate_PolynomialIsIntegrated_ReturnsTrue
+[       OK ] PolynomialTests.Method_Integrate_PolynomialIsIntegrated_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Method_IntegrateStatic_PolynomialIsIntegrated_ReturnsTrue
+[       OK ] PolynomialTests.Method_IntegrateStatic_PolynomialIsIntegrated_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks
+[       OK ] PolynomialTests.Constructor_DefaultConstructorIsInvoked_DefaultConstructorWorks (0 ms)
+[ RUN      ] PolynomialTests.Constructor_ConstructorTakesCoefficientList_ConstructorWorks
+[       OK ] PolynomialTests.Constructor_ConstructorTakesCoefficientList_ConstructorWorks (0 ms)
+[ RUN      ] PolynomialTests.Constructor_ConstructorTakesMonomialList_ConstructorWorks
+[       OK ] PolynomialTests.Constructor_ConstructorTakesMonomialList_ConstructorWorks (0 ms)
+[ RUN      ] PolynomialTests.CopyConstructor_ConstructorIsInvoked_ConstructorWorks
+[       OK ] PolynomialTests.CopyConstructor_ConstructorIsInvoked_ConstructorWorks (0 ms)
+[ RUN      ] PolynomialTests.Operator_Equals_SamePolynomialsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Equals_SamePolynomialsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Equals_DifferentPolynomialsAreProvided_ReturnsFalse
+[       OK ] PolynomialTests.Operator_Equals_DifferentPolynomialsAreProvided_ReturnsFalse (0 ms)
+[ RUN      ] PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Equals_OnePolynomialsRestIsDifferent_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Unequals_SamePolynomialsAreProvided_ReturnsFalse
+[       OK ] PolynomialTests.Operator_Unequals_SamePolynomialsAreProvided_ReturnsFalse (0 ms)
+[ RUN      ] PolynomialTests.Operator_Unequals_DifferentPolynomialsAreProvided_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Unequals_DifferentPolynomialsAreProvided_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Unequals_OnePolynomialsRestIsDifferent_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Unequals_OnePolynomialsRestIsDifferent_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithConstant_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithConstant_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithMonomial_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithMonomial_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithZeroPolynomial_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithZeroPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithOtherPolynomial_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Multiplication_PolynomialIsMultipliedWithOtherPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Multiplication_MultiplicationReversability_ReturnsTrue
+[       OK ] PolynomialTests.Operator_Multiplication_MultiplicationReversability_ReturnsTrue (0 ms)
+[ RUN      ] PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect
+[       OK ] PolynomialTests.Operator_Division_PolynomialDivisionSeveralDivisions_ResultsAreCorrect (3 ms)
+[----------] 30 tests from PolynomialTests (8 ms total)
+
+[----------] 10 tests from PolymonalTests
+[ RUN      ] PolymonalTests.Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Addition_PolynomialIsAddedToConstant_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Addition_PolynomialIsAddedToConstant_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Addition_MononomialIsAddedToPolynomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Addition_MononomialIsAddedToPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Addition_PolynomialIsAddedToMonomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Addition_PolynomialIsAddedToMonomial_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Addition_PolynomialIsAddedToPolynomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Addition_PolynomialIsAddedToPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Subtraction_ConstantIsSubtractedFromPolynomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Subtraction_ConstantIsSubtractedFromPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Subtraction_MononomialIsSubtractedFromPolynomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Subtraction_MononomialIsSubtractedFromPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromConstant_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromConstant_ReturnsTrue (0 ms)
+[ RUN      ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromMonomial_ReturnsTrue
+[       OK ] PolymonalTests.Operator_Subtraction_PolynomialIsSubtractedFromMonomial_ReturnsTrue (0 ms)
+[----------] 10 tests from PolymonalTests (1 ms total)
+
+[----------] 16 tests from MonomialTests
+[ RUN      ] MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue
+[       OK ] MonomialTests.Method_IsEqual_MonomialValuesAreTheSame_ReturnsTrue (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_MonomialValuesAreNotTheSame_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_MonomialValuesAreNotTheSame_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_TermCoefficientIsDifferent_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_TermCoefficientIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.Method_IsEqual_TermExponentIsDifferent_ReturnsFalse
+[       OK ] MonomialTests.Method_IsEqual_TermExponentIsDifferent_ReturnsFalse (0 ms)
+[ RUN      ] MonomialTests.CopyConstructor_TermIsProvided_TermIsTheSame
+[       OK ] MonomialTests.CopyConstructor_TermIsProvided_TermIsTheSame (0 ms)
+[ RUN      ] MonomialTests.Method_Integrate_TermIsIntegrated_ResultIsCorrect
+[       OK ] MonomialTests.Method_Integrate_TermIsIntegrated_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Method_IntegrateStatic_TermIsIntegrated_ResultIsCorrect
+[       OK ] MonomialTests.Method_IntegrateStatic_TermIsIntegrated_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Method_Differentiate_TermIsDifferentiated_ResultIsCorrect
+[       OK ] MonomialTests.Method_Differentiate_TermIsDifferentiated_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Method_DifferentiateStatic_TermIsDifferentiated_ResultIsCorrect
+[       OK ] MonomialTests.Method_DifferentiateStatic_TermIsDifferentiated_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_Division_MonomialIsMultipliedWithMonomial_ResultIsCorrect
+[       OK ] MonomialTests.Operator_Division_MonomialIsMultipliedWithMonomial_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_Division_MonomialIsDividedByMonomial_ResultIsCorrect
+[       OK ] MonomialTests.Operator_Division_MonomialIsDividedByMonomial_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_Multiplication_MonomialIsMultipliedWithConstant_ResultIsCorrect
+[       OK ] MonomialTests.Operator_Multiplication_MonomialIsMultipliedWithConstant_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_Multiplication_MonomialIsDividedByConstant_ResultIsCorrect
+[       OK ] MonomialTests.Operator_Multiplication_MonomialIsDividedByConstant_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_Multiplication_ConstantIsDividedByMonomial_ResultIsCorrect
+[       OK ] MonomialTests.Operator_Multiplication_ConstantIsDividedByMonomial_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_Addition_MonomialIsAddedToMonomial_ResultIsCorrect
+[       OK ] MonomialTests.Operator_Addition_MonomialIsAddedToMonomial_ResultIsCorrect (0 ms)
+[ RUN      ] MonomialTests.Operator_Subtraction_MonomialIsSubtractedFromMonomial_ResultIsCorrect
+[       OK ] MonomialTests.Operator_Subtraction_MonomialIsSubtractedFromMonomial_ResultIsCorrect (0 ms)
+[----------] 16 tests from MonomialTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 56 tests from 3 test suites ran. (10 ms total)
+[  PASSED  ] 56 tests.
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"VathTests" end time: Oct 27 16:56 ?????????
+"VathTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 27 16:56 ?????????

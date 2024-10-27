@@ -89,6 +89,15 @@ int Polynomial::GetRestOrder() const
 
 /* Public Methods ************************************************************/
 
+std::ostream& operator <<(std::ostream& os, const Polynomial& polynomial)
+{
+    for(Monomial m : polynomial.GetMonomials()) 
+    {
+        os << m << " ";
+    }
+    return os;
+}
+
 // Operators
 
 bool Polynomial::operator ==(const Polynomial& other) const
@@ -177,9 +186,7 @@ Terms Polynomial::InterpolateTerms(const Terms& terms)
         }
     }
 
-
     Terms newTerms(terms);
-    std::cout << "Pisse: " << newTerms.size() << std::endl;
     int highestOrder = Polynomial::GetHighestOrderOfPolynomialTerms(newTerms);
 
     for(int order = highestOrder; order >= 0; order--)
@@ -206,7 +213,7 @@ Terms Polynomial::InterpolateTerms(const Terms& terms)
     
     
     // Remove terms with zero coefficients from the front
-    while(newTerms[0].Coefficient == 0 && newTerms.size() > 2)
+    while(newTerms[0].Coefficient == 0 && newTerms.size() > 1)
     {
         newTerms.pop_front();
     }
@@ -214,7 +221,7 @@ Terms Polynomial::InterpolateTerms(const Terms& terms)
     // Remove negative exponents from the back of the polynomial
     while(  newTerms[newTerms.size()-1].Coefficient == 0 && 
             newTerms[newTerms.size()-1].Exponent < 0 && 
-            (newTerms.size() > 2)
+            (newTerms.size() > 1)
         )
     {
         newTerms.pop_back();

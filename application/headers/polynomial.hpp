@@ -88,7 +88,7 @@ int GetRestOrder() const;
 
 std::string toString() const {
     std::stringstream ss;
-    ss << "POLYNOMIALDIGGA";
+    ss << *this;
     return ss.str();
 }
 

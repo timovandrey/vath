@@ -24,7 +24,7 @@ set(Headers
 )
 
 set(Sources
-    ./application/sources/main.cpp    
+    ./application/main.cpp    
     ./application/sources/monomial.cpp
     ./application/sources/polynomial.cpp
 )

@@ -1,9 +1,9 @@
 [
 {
   "directory": "C:/Projekte/vath/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\Vath.dir\\application\\sources\\main.cpp.obj -c C:\\Projekte\\vath\\application\\sources\\main.cpp",
-  "file": "C:/Projekte/vath/application/sources/main.cpp",
-  "output": "CMakeFiles/Vath.dir/application/sources/main.cpp.obj"
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\Vath.dir\\application\\main.cpp.obj -c C:\\Projekte\\vath\\application\\main.cpp",
+  "file": "C:/Projekte/vath/application/main.cpp",
+  "output": "CMakeFiles/Vath.dir/application/main.cpp.obj"
 },
 {
   "directory": "C:/Projekte/vath/build",

@@ -8,18 +8,15 @@ using namespace Vath;
 int main(int argc, char *argv[])
 {
 
-    Polynomial A(CoefficientList{3, 4, 5, 7});
-    Polynomial B(CoefficientList{3, 4, 5, 7});
+    Polynomial A(CoefficientList{2, 0, -2, 3, -1});
+    Polynomial B(CoefficientList{2, 0, 1});
     Polynomial result = A/B;
 
     Monomial m(3, 5);
     Monomial n(-4.34, -8);
 
-    // std::cout << m;
-    // std::cout << std::endl;
-    // std::cout << n << std::endl;
-
-
-
+    std::cout << "Numerator:\t" << A << std::endl;
+    std::cout << "Denominator:\t" << B << std::endl;
+    std::cout << "Result:\t\t" << result << std::endl;
     return 0;
 }

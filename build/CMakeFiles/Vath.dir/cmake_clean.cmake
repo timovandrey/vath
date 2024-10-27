@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Vath.dir/application/sources/main.cpp.obj"
-  "CMakeFiles/Vath.dir/application/sources/main.cpp.obj.d"
+  "CMakeFiles/Vath.dir/application/main.cpp.obj"
+  "CMakeFiles/Vath.dir/application/main.cpp.obj.d"
   "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj"
   "CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj.d"
   "CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj"

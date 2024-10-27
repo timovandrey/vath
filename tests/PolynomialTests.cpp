@@ -217,14 +217,14 @@ TEST(PolynomialTests, Constructor_ConstructorTakesCoefficientList_ConstructorWor
 
     Polynomial p(cl); // Create polynomial
     EXPECT_TRUE(p.GetOrder() == 3);
-    EXPECT_TRUE(p[0].Coefficient == 4);
-    EXPECT_TRUE(p[0].Exponent == 0);
-    EXPECT_TRUE(p[1].Coefficient == 3);
-    EXPECT_TRUE(p[1].Exponent == 1);
-    EXPECT_TRUE(p[2].Coefficient == 2);
-    EXPECT_TRUE(p[2].Exponent == 2);
-    EXPECT_TRUE(p[3].Coefficient == 1);
-    EXPECT_TRUE(p[3].Exponent == 3);
+    EXPECT_TRUE(p[3].Coefficient == 4);
+    EXPECT_TRUE(p[3].Exponent == 0);
+    EXPECT_TRUE(p[2].Coefficient == 3);
+    EXPECT_TRUE(p[2].Exponent == 1);
+    EXPECT_TRUE(p[1].Coefficient == 2);
+    EXPECT_TRUE(p[1].Exponent == 2);
+    EXPECT_TRUE(p[0].Coefficient == 1);
+    EXPECT_TRUE(p[0].Exponent == 3);
         
     Monomial nullTerm(0,0);
     int restOrder = p.GetRestOrder();
@@ -254,32 +254,32 @@ TEST(PolynomialTests, Constructor_ConstructorTakesMonomialList_ConstructorWorks)
     EXPECT_EQ(p.GetRest().size(), 1);
     EXPECT_TRUE(nullTerm == p.GetRest()[0]);
 
-    EXPECT_EQ(p[0].Exponent, 0);
-    EXPECT_EQ(p[0].Coefficient, 0);
+    EXPECT_EQ(p[8].Exponent, 0);
+    EXPECT_EQ(p[8].Coefficient, 0);
 
-    EXPECT_EQ(p[1].Exponent, 1);
-    EXPECT_EQ(p[1].Coefficient, 0);
+    EXPECT_EQ(p[7].Exponent, 1);
+    EXPECT_EQ(p[7].Coefficient, 0);
 
-    EXPECT_EQ(p[2].Exponent, 2);
-    EXPECT_EQ(p[2].Coefficient, 1);
+    EXPECT_EQ(p[6].Exponent, 2);
+    EXPECT_EQ(p[6].Coefficient, 1);
 
-    EXPECT_EQ(p[3].Exponent, 3);
-    EXPECT_EQ(p[3].Coefficient, 0);
+    EXPECT_EQ(p[5].Exponent, 3);
+    EXPECT_EQ(p[5].Coefficient, 0);
 
     EXPECT_EQ(p[4].Exponent, 4);
     EXPECT_EQ(p[4].Coefficient, 3);
 
-    EXPECT_EQ(p[5].Exponent, 5);
-    EXPECT_EQ(p[5].Coefficient, 0);
+    EXPECT_EQ(p[3].Exponent, 5);
+    EXPECT_EQ(p[3].Coefficient, 0);
 
-    EXPECT_EQ(p[6].Exponent, 6);
-    EXPECT_EQ(p[6].Coefficient, 5);
+    EXPECT_EQ(p[2].Exponent, 6);
+    EXPECT_EQ(p[2].Coefficient, 5);
 
-    EXPECT_EQ(p[7].Exponent, 7);
-    EXPECT_EQ(p[7].Coefficient, 0);
+    EXPECT_EQ(p[1].Exponent, 7);
+    EXPECT_EQ(p[1].Coefficient, 0);
 
-    EXPECT_EQ(p[8].Exponent, 8);
-    EXPECT_EQ(p[8].Coefficient, 7);
+    EXPECT_EQ(p[0].Exponent, 8);
+    EXPECT_EQ(p[0].Coefficient, 7);
 }
 
 TEST(PolynomialTests, CopyConstructor_ConstructorIsInvoked_ConstructorWorks)

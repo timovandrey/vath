@@ -1,2 +1,2 @@
-C:\msys64\mingw64\bin\ar.exe qc libVath.a CMakeFiles/Vath.dir/application/sources/main.cpp.obj CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj
+C:\msys64\mingw64\bin\ar.exe qc libVath.a CMakeFiles/Vath.dir/application/main.cpp.obj CMakeFiles/Vath.dir/application/sources/monomial.cpp.obj CMakeFiles/Vath.dir/application/sources/polynomial.cpp.obj
 C:\msys64\mingw64\bin\ranlib.exe libVath.a

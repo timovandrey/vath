@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241027-1523-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.30.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="Timo-PC"
+	OSRelease=" Personal"
+	OSVersion=" (Build 22631)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="15106"
+	TotalPhysicalMemory="14210"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2295"
+	>
+	<Testing>
+		<StartDateTime>Oct 27 16:56 ?????????</StartDateTime>
+		<StartTestTime>1730044577</StartTestTime>
+		<TestList>
+			<Test>./tests/VathTests</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>VathTests</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/VathTests</FullName>
+			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.05498</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Projekte\vath\build\tests\VathTests.exe</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJytk01PwzAMhu/9FT5uh1X7AA5IHNCAMQHbVJXTWlVd67SBNhlxMti/J21hVDvtA1+SOK8f24nsGSG4yKCMueh0gSlZwvg6WCj5hu8ag02s8yCTMitQI+n2llQSZNUuqoLdJHGWNzsLwfshX15BJaKGPaoPQIbb1XWWvZ2FMCnkKi4aAYoNV1KUKKwYdc+s98Sjfhu7kMVWyJLHhV85nSV4rzOoLdy/dF9Q5zKNpnT/YeIimqsU1VzNTLmyK/NRlTSlO84YKps+8lAbJeghLggtuLH50/+CodOHkroHFT6WyBhPuGU8c9LDGtz20q1C+4MbnmL6m8VX5rDqT6Yf00INHe6larzn1H489piiJ6gfeZZbV/OzrK2rHunvPKWTezg7C3QGh7fkunau/JwTrGOlQTLQOTYjKI1eGw2fMYHCUm4wBeIiQeB2PL8SxJQaca6QclmkVfSgP7yA1bYa7tD5BiDFjLQ=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Oct 27 16:56 ?????????</EndDateTime>
+		<EndTestTime>1730044577</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

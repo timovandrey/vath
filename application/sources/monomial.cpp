@@ -31,10 +31,19 @@ std::ostream& operator <<(std::ostream& os, const Monomial& monomial)
 {
     os  << std::fixed 
         << std::setprecision(4) 
+        << std::showpos
         << std::setw(4) 
-        << monomial.Coefficient 
-        << "x" 
-        << monomial.Exponent;
+        << monomial.Coefficient
+        << "x";
+        if(monomial.Exponent < 0)
+        {
+            os << std::showpos;
+        }
+        else
+        {
+            os << std::noshowpos;
+        }
+        os << monomial.Exponent;
     return os;
 }
 
