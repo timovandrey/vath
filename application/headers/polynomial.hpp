@@ -18,6 +18,7 @@ namespace Vath
 {
 
 class Monomial; 
+struct PolynomialFraction;
 
 using Terms = std::deque<Monomial>;
 using CoefficientList = std::deque<double>;
@@ -173,7 +174,7 @@ int Count() const;
 // Static Methods
 
 static double EvaluateAt(Polynomial function, double x);       
-static std::vector<double> Zeros(Polynomial function);
+static std::vector<double> FindZeros(Polynomial function);
 static std::vector<double> Decompose(Polynomial function);
 static double GetArea(Polynomial function, double lowerLimit, double upperLimit);
 static double GetAreaNumerically(Polynomial function, double lowerLimit, double upperLimit);
@@ -218,6 +219,9 @@ static Terms CombineTerms(const Terms& terms);
  */
 static Terms InterpolateTerms(const Terms& terms);
 
+static PolynomialFraction DifferentiateRationalPolynomial(PolynomialFraction& rationalFunction);
+static PolynomialFraction Simplify(PolynomialFraction& rationalFunction);
+
 // Overloaded standard methods
 std::string to_string() const;
 
@@ -243,11 +247,11 @@ int RestOrder;     //< This is the order/degree of the rest of the polynomial.
  * \remarks Maybe software-engineering wise it is not such a good idea, but lets roll with it for the time being.
  * 
  */
-struct PolynomialFraction
+typedef struct PolynomialFraction
 {
     Polynomial numerator;
-    std::optional<Polynomial> denominator;
-};
+    Polynomial denominator;
+} PolynomialFraction;
 
 // Operators for this class
 

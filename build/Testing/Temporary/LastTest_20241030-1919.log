@@ -1,0 +1,37 @@
+Start testing: Oct 30 21:39 ?????????
+----------------------------------------------------------
+40/68 Testing: PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+40/68 Test: PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" "--gtest_also_run_disabled_tests"
+Directory: C:/Projekte/vath/build/tests
+"PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" start time: Oct 30 21:39 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+Note: Google Test filter = PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTests
+[ RUN      ] PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+unknown file: Failure
+C++ exception with description "Cant find a zero between -40 and 40." thrown in the test body.
+
+[  FAILED  ] PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect (1 ms)
+[----------] 1 test from PolynomialTests (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (2 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" end time: Oct 30 21:39 ?????????
+"PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 30 21:39 ?????????

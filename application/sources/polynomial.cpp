@@ -363,7 +363,7 @@ double Polynomial::EvaluateAt(Polynomial function, double x)
     return below;
 }
 
-std::vector<double> Polynomial::Zeros(Polynomial function)
+std::vector<double> Polynomial::FindZeros(Polynomial function)
 {
     // TODO: Make this multithreaded for faster zero finding. :D
 
@@ -573,6 +573,79 @@ double Polynomial::ApproximateZeroByHalleysMethod(Polynomial function, double su
         }
     }
     return currentFuncVal;
+}
+
+PolynomialFraction Polynomial::DifferentiateRationalPolynomial(PolynomialFraction& rationalFunction)
+{
+    Polynomial u = rationalFunction.numerator;
+    Polynomial v = rationalFunction.denominator;
+    Polynomial vPrime = Polynomial::Differentiate(v);
+    Polynomial uPrime = Polynomial::Differentiate(u);
+    Polynomial left = uPrime * v;
+    Polynomial right = vPrime * u;
+    // TODO: Possibly implement simplification method, like search for poles and zeros which are the same 
+    // and then do polynomial division on both numerator and denominator?
+    return PolynomialFraction
+    {
+        .numerator = left - right,
+        .denominator = v * v
+    };
+}
+
+PolynomialFraction Polynomial::Simplify(PolynomialFraction& rationalFunction)
+{
+    PolynomialFraction outFrac = rationalFunction;
+    std::vector<double> zeros = rationalFunction.numerator.Zeros();
+    std::vector<double> poles = rationalFunction.denominator.Zeros();
+    
+    std::optional<float> possibleMatch = std::nullopt;
+    do
+    {
+        possibleMatch = std::nullopt;
+        for(double zero : zeros)
+        {
+            // Check if item is present in vector
+            // TODO: Do I also have to check the other way around? like zeros.Contains(poles)? 
+            if(std::find(zeros.begin(), zeros.end(), zero) != zeros.end())
+            {
+                possibleMatch = zero;
+                break;
+            }
+        }
+        if(possibleMatch.has_value())
+        {
+            Polynomial commonTerm(CoefficientList{ 1, (-1 * (double)(possibleMatch.value())) }); // Construct zero/pole
+            outFrac.numerator = outFrac.numerator / commonTerm;
+            outFrac.denominator = outFrac.denominator / commonTerm;
+
+            auto it_poles = std::find(poles.begin(), poles.end(), possibleMatch.value());
+            if (it_poles != poles.end()) 
+            {
+                poles.erase(it_poles);
+            } 
+            else 
+            {
+                throw std::runtime_error("Somehow I found a common factor but now I wont find it anymore. Strange...");
+            }
+            auto it_zeros = std::find(zeros.begin(), zeros.end(), possibleMatch.value());
+            if (it_zeros != zeros.end()) 
+            {
+                zeros.erase(it_zeros);
+            } 
+            else 
+            {
+                throw std::runtime_error("Somehow I found a common factor but now I wont find it anymore. Strange...");
+            }
+        }
+
+    } while (!possibleMatch.has_value());
+
+    return outFrac;
+}
+
+std::vector<double> Polynomial::Zeros() const
+{
+    return (Polynomial::FindZeros(*this));
 }
 
 // Overriden methods

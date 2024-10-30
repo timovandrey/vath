@@ -890,3 +890,82 @@ TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_ComplexTermIsProvided_Exc
     }
     EXPECT_TRUE(exceptionWasThrown);
 }
+
+TEST(PolynomialTests, Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect)
+{
+    // TODO: Schlägt fehl
+    // PolynomialFraction testFrac
+    // {
+    //     .numerator      = Polynomial(CoefficientList{8}),
+    //     .denominator    = Polynomial(CoefficientList{1, 9, 27, 27})
+    // };
+    // Polynomial correctionTerm(CoefficientList{1, 3});
+    // testFrac.numerator = testFrac.numerator * correctionTerm;
+    // testFrac.denominator = testFrac.denominator * correctionTerm;
+    // PolynomialFraction testFracCorrect
+    // {
+    //     .numerator = Polynomial(CoefficientList{8}),
+    //     .denominator = Polynomial(CoefficientList{1, 9, 27, 27})
+    // };
+    // PolynomialFraction simplifiedFrac = Polynomial::Simplify(testFrac);
+    
+    // EXPECT_TRUE(simplifiedFrac.numerator == testFracCorrect.numerator);
+    // EXPECT_TRUE(simplifiedFrac.denominator == testFracCorrect.denominator);
+
+        PolynomialFraction testFrac
+    {
+        .numerator      = Polynomial(CoefficientList{1, 16, -5, 300}),
+        .denominator    = Polynomial(CoefficientList{1, 8, 15})
+    };
+    // Polynomial correctionTerm(CoefficientList{1, 3});
+    // testFrac.numerator = testFrac.numerator * correctionTerm;
+    // testFrac.denominator = testFrac.denominator * correctionTerm;
+    PolynomialFraction testFracCorrect
+    {
+        .numerator = Polynomial(CoefficientList{1, 11, -60}),
+        .denominator = Polynomial(CoefficientList{1, 3})
+    };
+    PolynomialFraction simplifiedFrac = Polynomial::Simplify(testFrac);
+    
+    EXPECT_TRUE(simplifiedFrac.numerator == testFracCorrect.numerator);
+    EXPECT_TRUE(simplifiedFrac.denominator == testFracCorrect.denominator);
+}
+
+TEST(PolynomialTests, Method_DifferentiateRationalPolynomial_RationalFunctionsAreProvidedAndDifferentiated_ResultsAreCorrect)
+{
+    PolynomialFraction testFrac
+    {
+        .numerator = Polynomial(CoefficientList{1, 2, 1}),
+        .denominator = Polynomial(CoefficientList{1, 3}),
+    };
+    PolynomialFraction testFracCorrectPrime
+    {
+        .numerator = Polynomial(CoefficientList{1, 6, 5}),
+        .denominator = Polynomial(CoefficientList{1, 6, 9}),
+    };
+    PolynomialFraction testFracCorrectPrimePrime
+    {
+        .numerator = Polynomial(CoefficientList{8}),
+        .denominator = Polynomial(CoefficientList{1, 9, 27, 27}),
+    };
+
+    // Due to current limitation in the differentiation algorithm / simplifying algorithm, we have the following problem:
+    // The differentiation works fine, however, it cant annihilate poles/zeros which are the same, which
+    // results in bigger polynomials with possible simplifications not done. Thats why we multiply this 
+    // testFracCorrectPrimePrime with (x+3), since the algorithm works, but it cant cancel out the pole/zero
+    // which is (x+3) in both the numerator and the denominator.
+    Polynomial correctionTerm(CoefficientList{1, 3});
+    testFracCorrectPrimePrime.numerator = testFracCorrectPrimePrime.numerator * correctionTerm;
+    testFracCorrectPrimePrime.denominator = testFracCorrectPrimePrime.denominator * correctionTerm;
+
+    PolynomialFraction testFracPrime = Polynomial::DifferentiateRationalPolynomial(testFrac);
+    PolynomialFraction testFracPrimePrime = Polynomial::DifferentiateRationalPolynomial(testFracPrime);
+
+    // https://www.wolframalpha.com/input?i=differentiate+%28x%5E2%2B6x%2B5%29%2F%28x%5E2%2B6x%2B9%29
+    // Vielleicht Faktorisieren durch herausfinden der Nullstellen und dann innere vs. äußere Ableitung
+
+    EXPECT_TRUE(testFracPrime.numerator == testFracCorrectPrime.numerator);
+    EXPECT_TRUE(testFracPrime.denominator == testFracCorrectPrime.denominator);
+    EXPECT_TRUE(testFracPrimePrime.numerator == testFracCorrectPrimePrime.numerator);
+    EXPECT_TRUE(testFracPrimePrime.denominator == testFracCorrectPrimePrime.denominator);
+}

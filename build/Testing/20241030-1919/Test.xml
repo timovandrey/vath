@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241030-1919-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.30.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="Timo-PC"
+	OSRelease=" Personal"
+	OSVersion=" (Build 22631)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="15106"
+	TotalPhysicalMemory="14210"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2295"
+	>
+	<Testing>
+		<StartDateTime>Oct 30 21:39 ?????????</StartDateTime>
+		<StartTestTime>1730320773</StartTestTime>
+		<TestList>
+			<Test>./tests/PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect</Test>
+		</TestList>
+		<Test Status="failed">
+			<Name>PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect</FullName>
+			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" "--gtest_also_run_disabled_tests"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.046202</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" "--gtest_also_run_disabled_tests"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJy9UsFOAkEMvc9XNJ4gygaNJxIPBMWYqCELnoCQYafA6GxLZrogfr0zLCFoYuJFe3pp37TzXptXRJaWUGpLjSYsPJfQ60wGnl/xTXCy0bKaLJmXDgWDnMLgi8kyoVl6nBWFembBDtzvKTCKFVhYJ+jhBgbsdsSl1S7lQ/aEsmIzG9py7exiN8u1WCbt+hUVCT2E+IWNNWi6ZA4si2aWY6ichK7HHnuPhajxzTGmkB/kXILsxyc5BxwqK5ipcesYU7h3PNeuriNtrGcqkSIXpVWtv5FPe36To8aQvzzDPqZ/qLWiN+ItJVuj0X1tXeVR9c7PAd8LXKdmsLWyAoOh8LZOnPU0pU2QAQ0f6BnmKFtEgtZ1G3RMX7ezM5CVT60tRYS11DmbXaaiOOh3Hx7vbv9UHDQuoQzNX3te80FYtGuq3+1VUPuWiTK/Xs1P1wJeUwaNq5M50YtBdzisvWjvuSH76lDd4QKcDYImmu142/knE5WK4w9zRnfDkfoEjMlWnA==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Oct 30 21:39 ?????????</EndDateTime>
+		<EndTestTime>1730320773</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
