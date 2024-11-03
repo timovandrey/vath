@@ -360,7 +360,7 @@ TEST(PolynomialTests, Operator_Unequals_OnePolynomialsRestIsDifferent_ReturnsTru
 TEST(PolymonalTests, Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
-    double constant = 5.5;
+    highprecision constant = 5.5;
     Polynomial correctPolynomial(CoefficientList{5,2,6.5});
     auto result = p0 + constant;
     auto result2 = constant + p0;
@@ -373,7 +373,7 @@ TEST(PolymonalTests, Operator_Addition_ConstantIsAddedToPolynomial_ReturnsTrue)
 TEST(PolymonalTests, Operator_Addition_PolynomialIsAddedToConstant_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
-    double constant = 5.5;
+    highprecision constant = 5.5;
     Polynomial correctPolynomial(CoefficientList{5,2,6.5});
     auto result2 = constant + p0;
 
@@ -415,7 +415,7 @@ TEST(PolymonalTests, Operator_Addition_PolynomialIsAddedToPolynomial_ReturnsTrue
 TEST(PolymonalTests, Operator_Subtraction_ConstantIsSubtractedFromPolynomial_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
-    double constant = 5.5;
+    highprecision constant = 5.5;
     Polynomial correctPolynomial(CoefficientList{5,2,-4.5});
     auto result = p0 - constant;
 
@@ -445,7 +445,7 @@ TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromPolynomial_R
 TEST(PolymonalTests, Operator_Subtraction_PolynomialIsSubtractedFromConstant_ReturnsTrue)
 {
     Polynomial p0(CoefficientList{5, 2, 1});
-    double constant = 5.5;
+    highprecision constant = 5.5;
     Polynomial correctPolynomial(CoefficientList{-5, -2, 4.5});
     auto result = constant - p0;
 
@@ -467,8 +467,8 @@ TEST(PolynomialTests, Operator_Multiplication_PolynomialIsMultipliedWithConstant
     Polynomial p0(CoefficientList{12,14,15,0});
     Polynomial p1(CoefficientList{12.22222222222225,14436.5,125.4,1});
 
-    constexpr double constant0 = 163.4;
-    constexpr double constant1 = -3;
+    constexpr highprecision constant0 = 163.4;
+    constexpr highprecision constant1 = -3;
 
     Polynomial correctResult0(CoefficientList{12 * constant0 , 14 * constant0, 15 * constant0, 0});
     Polynomial correctResult1(CoefficientList{12.22222222222225 * constant1, 14436.5  * constant1 , 125.4  * constant1, 1  * constant1});
@@ -644,9 +644,9 @@ TEST(PolynomialTests, Operator_Division_PolynomialDivisionSeveralDivisions_Resul
 
 TEST(PolynomialTests, Method_EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect)
 {
-    const double errorMarginInPercent = 0.001;
+    const highprecision errorMarginInPercent = 0.001;
     Polynomial polynomial(CoefficientList{-0.05, -0.075, 0.1, 2.0});
-    std::vector<double> pointsToEvaluateAt
+    std::vector<highprecision> pointsToEvaluateAt
     {
         -100,
         -50,
@@ -676,7 +676,7 @@ TEST(PolynomialTests, Method_EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultsAreC
         50,
         100,
     };
-    std::vector<double> correctResults 
+    std::vector<highprecision> correctResults 
     {
         49242,
         6059.5,
@@ -708,17 +708,17 @@ TEST(PolynomialTests, Method_EvaluateAt_PolynomialIsEvaluatedAtPoint_ResultsAreC
     };
     for (size_t i = 0; i < pointsToEvaluateAt.size(); i++)
     {
-        double error = std::abs(correctResults[i] - polynomial.EvaluateAt(pointsToEvaluateAt[i]));
-        double errorMargin = std::abs(correctResults[i] * (errorMarginInPercent / 100.0));
+        highprecision error = std::abs(correctResults[i] - polynomial.EvaluateAt(pointsToEvaluateAt[i]));
+        highprecision errorMargin = std::abs(correctResults[i] * (errorMarginInPercent / 100.0));
         EXPECT_TRUE(error < errorMargin);
     }
 }
 
 TEST(PolynomialTests, Method_EvaluateAtStatic_PolynomialIsEvaluatedAtPoint_ResultsAreCorrect)
 {
-    const double errorMarginInPercent = 0.001;
+    const highprecision errorMarginInPercent = 0.001;
     Polynomial polynomial(CoefficientList{-0.05, -0.075, 0.1, 2.0});
-    std::vector<double> pointsToEvaluateAt
+    std::vector<highprecision> pointsToEvaluateAt
     {
         -100,
         -50,
@@ -748,7 +748,7 @@ TEST(PolynomialTests, Method_EvaluateAtStatic_PolynomialIsEvaluatedAtPoint_Resul
         50,
         100,
     };
-    std::vector<double> correctResults 
+    std::vector<highprecision> correctResults 
     {
         49242,
         6059.5,
@@ -780,8 +780,8 @@ TEST(PolynomialTests, Method_EvaluateAtStatic_PolynomialIsEvaluatedAtPoint_Resul
     };
     for (size_t i = 0; i < pointsToEvaluateAt.size(); i++)
     {
-        double error = std::abs(correctResults[i] - Polynomial::EvaluateAt(polynomial, pointsToEvaluateAt[i]));
-        double errorMargin = std::abs(correctResults[i] * (errorMarginInPercent / 100.0));
+        highprecision error = std::abs(correctResults[i] - Polynomial::EvaluateAt(polynomial, pointsToEvaluateAt[i]));
+        highprecision errorMargin = std::abs(correctResults[i] * (errorMarginInPercent / 100.0));
         EXPECT_TRUE(error < errorMargin);
     }
 }
@@ -789,9 +789,9 @@ TEST(PolynomialTests, Method_EvaluateAtStatic_PolynomialIsEvaluatedAtPoint_Resul
 TEST(PolynomialTests, Method_FindZeroOfLinearTerm_TermIsProvided_ResultIsCorrect)
 {
     Polynomial p(CoefficientList{4, -3});
-    double correctResult = 3.0/4.0;
+    highprecision correctResult = 3.0/4.0;
 
-    double zero = Polynomial::FindZeroOfLinearTerm(p);
+    highprecision zero = Polynomial::FindZeroOfLinearTerm(p);
     EXPECT_EQ(zero, correctResult);
 }
 
@@ -802,7 +802,7 @@ TEST(PolynomialTests, Method_FindZeroOfLinearTerm_TermOfOrder2IsProvided_Excepti
     bool exceptionWasThrown = false;
     try
     {
-        double zero = Polynomial::FindZeroOfLinearTerm(p);
+        highprecision zero = Polynomial::FindZeroOfLinearTerm(p);
     } 
     catch(...)
     {
@@ -819,7 +819,7 @@ TEST(PolynomialTests, Method_FindZeroOfLinearTerm_TermOfOrder0IsProvided_Excepti
     bool exceptionWasThrown = false;
     try
     {
-        double zero = Polynomial::FindZeroOfLinearTerm(p);
+        highprecision zero = Polynomial::FindZeroOfLinearTerm(p);
     } 
     catch(...)
     {
@@ -832,9 +832,9 @@ TEST(PolynomialTests, Method_FindZeroOfLinearTerm_TermOfOrder0IsProvided_Excepti
 TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder2IsProvided_ResultIsCorrect)
 {
     Polynomial p(CoefficientList{3, 21, -24});
-    std::vector<double> zeros = Polynomial::FindZerosOfQuadraticTerms(p);
-    double z0 = 1;
-    double z1 = -8;
+    std::vector<highprecision> zeros = Polynomial::FindZerosOfQuadraticTerms(p);
+    highprecision z0 = 1;
+    highprecision z1 = -8;
 
     std::cout << "TEST!" << std::endl;
 
@@ -845,7 +845,7 @@ TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder2IsProvided_Re
 TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder0IsProvided_ExceptionIsThrown)
 {
     Polynomial p(CoefficientList{-3});
-    std::vector<double> zeros;
+    std::vector<highprecision> zeros;
     bool exceptionWasThrown = false;
     try
     {
@@ -861,7 +861,7 @@ TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder0IsProvided_Ex
 TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_TermOfOrder5IsProvided_ExceptionIsThrown)
 {
     Polynomial p(CoefficientList{5, 4, 3, 2, 1, 0});
-    std::vector<double> zeros;
+    std::vector<highprecision> zeros;
     bool exceptionWasThrown = false;
     try
     {
@@ -878,7 +878,7 @@ TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_ComplexTermIsProvided_Exc
 {
     // Search for complex zeros
     Polynomial p(CoefficientList{1, 0, 0, 0, -1});
-    std::vector<double> zeros;
+    std::vector<highprecision> zeros;
     bool exceptionWasThrown = false;
     try
     {
@@ -890,6 +890,39 @@ TEST(PolynomialTests, Method_FindZerosOfQuadraticTerms_ComplexTermIsProvided_Exc
     }
     EXPECT_TRUE(exceptionWasThrown);
 }
+
+TEST(PolynomialTests, Method_FindZeros_ZerosAreProvided_ResultsAreCorrect)
+{
+    std::vector<Polynomial> testPolynomials
+    {
+        Polynomial(CoefficientList{ 1, 6, 11, 6 }),
+        Polynomial(CoefficientList{ 1, -3.53389, 0.494281, 6.53589, -4.49629 }), // x^4 - 3.53389 x^3 + 0.494281 x^2 + 6.53589 x - 4.49629
+        Polynomial(CoefficientList{ 1, -6, 9}),   // Touches only abscissa        
+    };
+    std::vector<std::vector<highprecision>> correctZeros
+    {
+        std::vector<highprecision>{ -1, -2, -3 },
+        // Calculated with Scilab:
+        // p = [1, -3.53389, 0.494281, 6.53589, -4.49629];
+        // msprintf("%.15f", roots(p)(1)) // -> Then print every zero with the index (1, 2, etc.)
+        std::vector<highprecision>{ 2.666405704642979657, 1.233986505601812222, 1.000009753539556900, -1.366511963784348360 },
+        std::vector<highprecision>{ 3, 3 },
+    };
+    for (int polyIdx = 0; polyIdx < testPolynomials.size(); polyIdx++)
+    {
+        std::vector<highprecision> calculatedZeros = Polynomial::FindZeros(testPolynomials[polyIdx]);
+        std::sort(calculatedZeros.rbegin(), calculatedZeros.rend());
+        std::sort(correctZeros[polyIdx].rbegin(), correctZeros[polyIdx].rend());
+        for (size_t zeroIdx = 0; zeroIdx < calculatedZeros.size(); zeroIdx++)
+        {
+            highprecision blub = std::abs(calculatedZeros[zeroIdx] - correctZeros[polyIdx][zeroIdx]);
+            EXPECT_TRUE(blub <= Polynomial::GUESS_ZERO_ERROR_MARGIN);
+        }
+        
+    }
+}
+
+
 
 TEST(PolynomialTests, Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect)
 {
@@ -912,9 +945,9 @@ TEST(PolynomialTests, Method_Simplify_RationalFunctionIsProvidedAndSimplified_Re
     // EXPECT_TRUE(simplifiedFrac.numerator == testFracCorrect.numerator);
     // EXPECT_TRUE(simplifiedFrac.denominator == testFracCorrect.denominator);
 
-        PolynomialFraction testFrac
+    PolynomialFraction testFrac
     {
-        .numerator      = Polynomial(CoefficientList{1, 16, -5, 300}),
+        .numerator      = Polynomial(CoefficientList{1, 16, -5, -300}),
         .denominator    = Polynomial(CoefficientList{1, 8, 15})
     };
     // Polynomial correctionTerm(CoefficientList{1, 3});

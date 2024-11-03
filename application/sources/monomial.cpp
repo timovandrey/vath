@@ -12,7 +12,7 @@ Monomial::Monomial()
     this->Exponent = 0;
 }
 
-Monomial::Monomial(double coefficient, int exponent)
+Monomial::Monomial(highprecision coefficient, int exponent)
 {
     this->Coefficient = coefficient;
     this->Exponent = exponent;
@@ -152,7 +152,7 @@ bool Monomial::IsEqual(const Monomial& other) const
 
 // Operators for the class
 
-Monomial operator *(const Monomial& left, const double right)
+Monomial operator *(const Monomial& left, const highprecision right)
 {
     return (Monomial(left.Coefficient * right, left.Exponent));
 }
@@ -162,12 +162,12 @@ Monomial operator *(const Monomial& left, const Monomial& right)
     return (Monomial(left.Coefficient * right.Coefficient, left.Exponent + right.Exponent));
 }
 
-Monomial operator *(const double left, const Monomial& right)
+Monomial operator *(const highprecision left, const Monomial& right)
 {
     return right * left;
 }
 
-Monomial operator /(const Monomial& left, const double right)
+Monomial operator /(const Monomial& left, const highprecision right)
 {
     return (Monomial(left.Coefficient / right, left.Exponent));
 }
@@ -177,7 +177,7 @@ Monomial operator /(const Monomial& left, const Monomial& right)
     return (Monomial(left.Coefficient / right.Coefficient, left.Exponent - right.Exponent));
 }
 
-Monomial operator /(const double left, const Monomial& right)
+Monomial operator /(const highprecision left, const Monomial& right)
 {
     Monomial m(left, 0);
     return m / right;

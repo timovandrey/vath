@@ -50,7 +50,7 @@ Polynomial::Polynomial(const Polynomial& original) :
     Polynomial(original.Monomials)
 {
     // Just take the terms of the original and put it into another ctor.
-    this->SetRest(Terms{Monomial(0,0)});
+    // this->SetRest(Terms{Monomial(0,0)});
 }
 
 /* Accessors/Mutators ********************************************************/
@@ -347,14 +347,14 @@ Polynomial Polynomial::Integrate(const Polynomial& p)
     return Polynomial(outTerms);
 }
 
-double Polynomial::EvaluateAt(double x) const
+highprecision Polynomial::EvaluateAt(highprecision x) const
 {
     return Polynomial::EvaluateAt(*this, x);
 }
 
-double Polynomial::EvaluateAt(Polynomial function, double x)
+highprecision Polynomial::EvaluateAt(Polynomial function, highprecision x)
 {
-    double below = 0, middle = 0;
+    highprecision below = 0, middle = 0;
     for (Monomial term : function)
     {
         below = term.Coefficient + middle;
@@ -363,12 +363,14 @@ double Polynomial::EvaluateAt(Polynomial function, double x)
     return below;
 }
 
-std::vector<double> Polynomial::FindZeros(Polynomial function)
+std::vector<highprecision> Polynomial::FindZeros(Polynomial function)
 {
     // TODO: Make this multithreaded for faster zero finding. :D
+    // TODO: Make it more numerically robust
+    // TODO: Make it find zeros better and faster
 
     Polynomial wfunc(function);
-    std::vector<double> zeros;
+    std::vector<highprecision> zeros;
 
     // 1. Go through function with coarse values, check for change in signedness
     // 2. Use the value after the signedness change as origin
@@ -381,14 +383,15 @@ std::vector<double> Polynomial::FindZeros(Polynomial function)
 
     while(wfunc.GetOrder() >= 3)
     {
-        double currentFuncVal = 0, previousFuncVal = 0, currentDerivVal = 0, previousDerivVal = 0;
+        auto orderitis = wfunc.GetOrder();
+        highprecision currentFuncVal = 0, previousFuncVal = 0, currentDerivVal = 0, previousDerivVal = 0;
         bool firstRun = true, zeroFound = false;
         bool zeroApproxValFound = false;
         Polynomial derivative = Polynomial::Differentiate(wfunc);
 
         // Find an approximation origin for zero finding a zero
         for (
-            double i = Polynomial::GUESS_ZERO_INTERVAL_LOWER_BOUNDARY;
+            highprecision i = Polynomial::GUESS_ZERO_INTERVAL_LOWER_BOUNDARY;
             ((i <= Polynomial::GUESS_ZERO_INTERVAL_UPPER_BOUNDARY) || (!zeroApproxValFound) || !zeroFound);
             i += Polynomial::GUESS_ZERO_INTERVAL_INTERATION_STEP
         )
@@ -420,63 +423,62 @@ std::vector<double> Polynomial::FindZeros(Polynomial function)
             {
                 firstRun = false;
             }
-
-            if (!zeroApproxValFound && !zeroFound)
-            {
-                std::stringstream errorMsg;
-                errorMsg    << "Cant find a zero between " 
-                            << Polynomial::GUESS_ZERO_INTERVAL_LOWER_BOUNDARY
-                            << " and "
-                            << Polynomial::GUESS_ZERO_INTERVAL_UPPER_BOUNDARY
-                            << ".";
-                throw std::runtime_error(errorMsg.str());
-            }
-
-            // Approximate zero by Halleys method
-            if(!zeroFound)
-            {
-                currentFuncVal = Polynomial::ApproximateZeroByHalleysMethod(wfunc, currentFuncVal);
-            }
-
-            // Use Horner Schema to get the next polynomial to be examined for a zero. 
-            // Also, check whether the supposed zero is actually a zero.
-            double supposedZero = currentFuncVal;
-            double below = 0, middle = 0;
-            CoefficientList belowRow;
-            for(Monomial term : wfunc)
-            {
-                belowRow.push_back(below);
-                below = term.Coefficient + middle;
-                middle = below * supposedZero;
-            }
-            if(below == 0)
-            {
-                zeros.push_back(supposedZero);
-            }
-
-            wfunc = Polynomial(belowRow);
         }
 
-        if(wfunc.GetOrder() == 2)
+        if (!zeroApproxValFound && !zeroFound)
         {
-            auto z12 = Polynomial::FindZerosOfQuadraticTerms(wfunc);
-            zeros.push_back(z12[0]);
-            zeros.push_back(z12[1]);
+            std::stringstream errorMsg;
+            errorMsg    << "Cant find a zero between " 
+                        << Polynomial::GUESS_ZERO_INTERVAL_LOWER_BOUNDARY
+                        << " and "
+                        << Polynomial::GUESS_ZERO_INTERVAL_UPPER_BOUNDARY
+                        << ".";
+            throw std::runtime_error(errorMsg.str());
         }
-        else if(wfunc.GetOrder() == 1)
+
+        // Approximate zero by Halleys method
+        if(!zeroFound)
         {
-            auto z = Polynomial::FindZeroOfLinearTerm(wfunc);
-            zeros.push_back(z);
+            currentFuncVal = Polynomial::ApproximateZeroByHalleysMethod(wfunc, currentFuncVal);
         }
+
+        // Use Horner Schema to get the next polynomial to be examined for a zero. 
+        // Also, check whether the supposed zero is actually a zero.
+        highprecision supposedZero = currentFuncVal;
+        highprecision below = 0, middle = 0;
+        CoefficientList belowRow;
+        for(Monomial term : wfunc)
+        {
+            belowRow.push_back(below);
+            below = term.Coefficient + middle;
+            middle = below * supposedZero;
+        }
+        if(below == 0 || below < Polynomial::GUESS_ZERO_ERROR_MARGIN)
+        {
+            zeros.push_back(supposedZero);
+        }
+
+        wfunc = Polynomial(belowRow);
+    }
+    if(wfunc.GetOrder() == 2)
+    {
+        auto z12 = Polynomial::FindZerosOfQuadraticTerms(wfunc);
+        zeros.push_back(z12[0]);
+        zeros.push_back(z12[1]);
+    }
+    else if(wfunc.GetOrder() == 1)
+    {
+        auto z = Polynomial::FindZeroOfLinearTerm(wfunc);
+        zeros.push_back(z);
     }
 
     return zeros;
 }
 
-std::vector<double> Polynomial::FindZerosOfQuadraticTerms(Polynomial polynomialOfOrder2)
+std::vector<highprecision> Polynomial::FindZerosOfQuadraticTerms(Polynomial polynomialOfOrder2)
 {
     Polynomial workingPolynomial(polynomialOfOrder2);
-    std::vector<double> zeros;
+    std::vector<highprecision> zeros;
     bool zerosFound = false;
     if  (
             workingPolynomial[0].Exponent != 2                              ||
@@ -498,7 +500,7 @@ std::vector<double> Polynomial::FindZerosOfQuadraticTerms(Polynomial polynomialO
     }
     else if(workingPolynomial[0].Coefficient != 1)
     {
-        double normalizationFactor = workingPolynomial[0].Coefficient;
+        highprecision normalizationFactor = workingPolynomial[0].Coefficient;
         for (size_t i = 0; i < workingPolynomial.Count(); i++)
         {
             // Normalize coefficients
@@ -507,22 +509,22 @@ std::vector<double> Polynomial::FindZerosOfQuadraticTerms(Polynomial polynomialO
     }
     if(!zerosFound)
     {
-        double p = workingPolynomial[1].Coefficient;
-        double q = workingPolynomial[2].Coefficient;
-        double belowRootTerm = ((p * p) / 4.0) - q;
+        highprecision p = workingPolynomial[1].Coefficient;
+        highprecision q = workingPolynomial[2].Coefficient;
+        highprecision belowRootTerm = ((p * p) / 4.0) - q;
         if(belowRootTerm < 0)
         {
             throw std::runtime_error("The term below the root is negative. Complex terms are not supported.");
         }
-        double rootTerm = std::sqrt(belowRootTerm);
-        double firstTerm = -p / 2;
+        highprecision rootTerm = std::sqrt(belowRootTerm);
+        highprecision firstTerm = -p / 2;
         zeros.push_back(firstTerm + rootTerm);
         zeros.push_back(firstTerm - rootTerm);
     }
     return zeros;
 }
 
-double Polynomial::FindZeroOfLinearTerm(Polynomial linearPolynomial)
+highprecision Polynomial::FindZeroOfLinearTerm(Polynomial linearPolynomial)
 {
     if( linearPolynomial[0].Exponent != 1                             ||
         linearPolynomial[linearPolynomial.Count() - 1].Exponent != 0  ||
@@ -533,17 +535,17 @@ double Polynomial::FindZeroOfLinearTerm(Polynomial linearPolynomial)
     return ((linearPolynomial[1].Coefficient / linearPolynomial[0].Coefficient) * (-1));
 }
 
-double Polynomial::ApproximateZeroByHalleysMethod(Polynomial function, double supposedZero)
+highprecision Polynomial::ApproximateZeroByHalleysMethod(Polynomial function, highprecision supposedZero)
 {
     Polynomial fPrime       = Polynomial::Differentiate(function);
     Polynomial fPrimePrime  = Polynomial::Differentiate(function);
     int iteration           = 1;                
-    double hn               = 0;                //< Factor "hn" from the formula, (derivative divided by original function), evaluated at the previous value
-    double fpByfpp          = 0;                //< Shortcut factor for the second derivative divided by the first derivative, evaluated at the previous value
-    double numerator        = 0;                //< Computed numerator of the formula
-    double denominator      = 0;                //< Computed denominator of the formula
-    double currentFuncVal   = supposedZero;     //< Current value in the iteration ("xn+1")
-    double previousFuncVal  = 0;                //< Value from the preceeding iteration ("xn")
+    highprecision hn               = 0;                //< Factor "hn" from the formula, (derivative divided by original function), evaluated at the previous value
+    highprecision fpByfpp          = 0;                //< Shortcut factor for the second derivative divided by the first derivative, evaluated at the previous value
+    highprecision numerator        = 0;                //< Computed numerator of the formula
+    highprecision denominator      = 0;                //< Computed denominator of the formula
+    highprecision currentFuncVal   = supposedZero;     //< Current value in the iteration ("xn+1")
+    highprecision previousFuncVal  = 0;                //< Value from the preceeding iteration ("xn")
     
     while(  std::abs(Polynomial::EvaluateAt(function, currentFuncVal)) > Polynomial::GUESS_ZERO_ERROR_MARGIN &&
             iteration < Polynomial::GUESS_ZERO_MAX_ITERATIONS
@@ -595,18 +597,18 @@ PolynomialFraction Polynomial::DifferentiateRationalPolynomial(PolynomialFractio
 PolynomialFraction Polynomial::Simplify(PolynomialFraction& rationalFunction)
 {
     PolynomialFraction outFrac = rationalFunction;
-    std::vector<double> zeros = rationalFunction.numerator.Zeros();
-    std::vector<double> poles = rationalFunction.denominator.Zeros();
+    std::vector<highprecision> zeros = rationalFunction.numerator.Zeros();
+    std::vector<highprecision> poles = rationalFunction.denominator.Zeros();
     
     std::optional<float> possibleMatch = std::nullopt;
     do
     {
         possibleMatch = std::nullopt;
-        for(double zero : zeros)
+        for(highprecision zero : zeros)
         {
             // Check if item is present in vector
             // TODO: Do I also have to check the other way around? like zeros.Contains(poles)? 
-            if(std::find(zeros.begin(), zeros.end(), zero) != zeros.end())
+            if(std::find(poles.begin(), poles.end(), zero) != poles.end())
             {
                 possibleMatch = zero;
                 break;
@@ -614,7 +616,7 @@ PolynomialFraction Polynomial::Simplify(PolynomialFraction& rationalFunction)
         }
         if(possibleMatch.has_value())
         {
-            Polynomial commonTerm(CoefficientList{ 1, (-1 * (double)(possibleMatch.value())) }); // Construct zero/pole
+            Polynomial commonTerm(CoefficientList{ 1, (-1 * (highprecision)(possibleMatch.value())) }); // Construct zero/pole
             outFrac.numerator = outFrac.numerator / commonTerm;
             outFrac.denominator = outFrac.denominator / commonTerm;
 
@@ -643,7 +645,7 @@ PolynomialFraction Polynomial::Simplify(PolynomialFraction& rationalFunction)
     return outFrac;
 }
 
-std::vector<double> Polynomial::Zeros() const
+std::vector<highprecision> Polynomial::Zeros() const
 {
     return (Polynomial::FindZeros(*this));
 }
@@ -703,7 +705,7 @@ Polynomial operator *(const Polynomial& left, const Monomial& right)
     return p;
 }
 
-Polynomial operator *(const Polynomial& left, const double right)
+Polynomial operator *(const Polynomial& left, const highprecision right)
 {
     return (left * Monomial(right, 0));
 }
@@ -744,7 +746,7 @@ Polynomial operator *(const Monomial& left, const Polynomial& right)
     return right * left;
 }
 
-Polynomial operator *(const double left, const Polynomial& right)
+Polynomial operator *(const highprecision left, const Polynomial& right)
 {
     return right * left;
 }
@@ -758,7 +760,7 @@ Polynomial operator +(const Polynomial& left, const Monomial& right)
     return newPoly;
 }
 
-Polynomial operator +(const Polynomial& left, const double right)
+Polynomial operator +(const Polynomial& left, const highprecision right)
 {
     Terms terms = left.GetMonomials();
     Monomial constant(right, 0);
@@ -786,7 +788,7 @@ Polynomial operator +(const Monomial& left, const Polynomial& right)
     return (right + left);
 }
 
-Polynomial operator +(const double left, const Polynomial& right)
+Polynomial operator +(const highprecision left, const Polynomial& right)
 {
     return (right + left);
 }
@@ -796,7 +798,7 @@ Polynomial operator -(const Polynomial& left, const Monomial& right)
     return (left + (right * (-1)));
 }
 
-Polynomial operator -(const Polynomial& left, const double right)
+Polynomial operator -(const Polynomial& left, const highprecision right)
 {
     return (left + (right * (-1)));
 }
@@ -813,7 +815,7 @@ Polynomial operator -(const Monomial& left, const Polynomial& right)
     return (p + left);
 }
 
-Polynomial operator -(const double left, const Polynomial& right)
+Polynomial operator -(const highprecision left, const Polynomial& right)
 {
     return (Monomial(left, 0) - right);
 }
@@ -830,7 +832,7 @@ Polynomial operator /(const Polynomial& nominator, const Monomial& denominator)
     return newPoly;
 }
 
-Polynomial operator /(const Polynomial& numerator, const double denominator)
+Polynomial operator /(const Polynomial& numerator, const highprecision denominator)
 {
     return (numerator / Monomial(denominator, 0));
 }

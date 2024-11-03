@@ -1,0 +1,37 @@
+Start testing: Oct 31 20:08 ?????????
+----------------------------------------------------------
+40/69 Testing: PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect
+40/69 Test: PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect
+Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect" "--gtest_also_run_disabled_tests"
+Directory: C:/Projekte/vath/build/tests
+"PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect" start time: Oct 31 20:08 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+Note: Google Test filter = PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTests
+[ RUN      ] PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect
+unknown file: Failure
+C++ exception with description "Cant find a zero between -500 and 500." thrown in the test body.
+
+[  FAILED  ] PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect (1 ms)
+[----------] 1 test from PolynomialTests (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (2 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Failed.
+"PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect" end time: Oct 31 20:08 ?????????
+"PolynomialTests.Method_FindZeros_ZerosAreProvided_ResultsAreCorrect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 31 20:08 ?????????

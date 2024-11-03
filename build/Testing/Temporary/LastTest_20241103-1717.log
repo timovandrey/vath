@@ -1,0 +1,30 @@
+Start testing: Nov 03 19:51 ?????????
+----------------------------------------------------------
+41/69 Testing: PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+41/69 Test: PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+Command: "C:/Projekte/vath/build/tests/VathTests.exe" "--gtest_filter=PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" "--gtest_also_run_disabled_tests"
+Directory: C:/Projekte/vath/build/tests
+"PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" start time: Nov 03 19:51 ?????????
+Output:
+----------------------------------------------------------
+Running main() from C:\Projekte\vath\googletest\googletest\src\gtest_main.cc
+Note: Google Test filter = PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTests
+[ RUN      ] PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect
+[       OK ] PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect (137 ms)
+[----------] 1 test from PolynomialTests (137 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (137 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" end time: Nov 03 19:51 ?????????
+"PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 03 19:51 ?????????

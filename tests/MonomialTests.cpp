@@ -116,7 +116,7 @@ TEST(MonomialTests, Operator_Division_MonomialIsDividedByMonomial_ResultIsCorrec
 TEST(MonomialTests, Operator_Multiplication_MonomialIsMultipliedWithConstant_ResultIsCorrect)
 {
     Monomial term0(2, 2);
-    double x = 3.5;
+    highprecision x = 3.5;
     Monomial correctResult(7, 2);
     EXPECT_TRUE(correctResult == (term0 * x));
     EXPECT_TRUE(correctResult == (x * term0));  // Check the other way around
@@ -125,7 +125,7 @@ TEST(MonomialTests, Operator_Multiplication_MonomialIsMultipliedWithConstant_Res
 TEST(MonomialTests, Operator_Multiplication_MonomialIsDividedByConstant_ResultIsCorrect)
 {
     Monomial term0(7, 2);
-    double x = 3.5;
+    highprecision x = 3.5;
     Monomial correctResult(2, 2);
     EXPECT_TRUE(correctResult == (term0 / x));
 }
@@ -133,7 +133,7 @@ TEST(MonomialTests, Operator_Multiplication_MonomialIsDividedByConstant_ResultIs
 TEST(MonomialTests, Operator_Multiplication_ConstantIsDividedByMonomial_ResultIsCorrect)
 {
     Monomial term0(3.5, 2);
-    double x = 7;
+    highprecision x = 7;
     Monomial correctResult(2, -2);
     EXPECT_TRUE(correctResult == (x / term0));
 }

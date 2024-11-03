@@ -20,8 +20,9 @@ namespace Vath
 class Monomial; 
 struct PolynomialFraction;
 
+using highprecision = long double;
 using Terms = std::deque<Monomial>;
-using CoefficientList = std::deque<double>;
+using CoefficientList = std::deque<highprecision>;
 
 /**
  * \brief 
@@ -35,11 +36,11 @@ public:
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 /* Public constants **********************************************************/
-static constexpr double GUESS_ZERO_INTERVAL_UPPER_BOUNDARY  = 40;       //< This is the upper boundary of the interval when guessing zeros. 
-static constexpr double GUESS_ZERO_INTERVAL_LOWER_BOUNDARY  = -40;      //< This is the lower boundary of the interval when guessing zeros.
-static constexpr double GUESS_ZERO_INTERVAL_INTERATION_STEP = 0.4;      //< This is the step size when guessing zeros.
-static constexpr double GUESS_ZERO_ERROR_MARGIN             = 1E-14;    //< This is the step size when guessing zeros.
-static constexpr double GUESS_ZERO_MAX_ITERATIONS           = 1000;     //< The maximum number of iterations that shall be performed when approximating a zero.
+static constexpr highprecision GUESS_ZERO_INTERVAL_UPPER_BOUNDARY  = 500;       //< This is the upper boundary of the interval when guessing zeros. 
+static constexpr highprecision GUESS_ZERO_INTERVAL_LOWER_BOUNDARY  = -500;      //< This is the lower boundary of the interval when guessing zeros.
+static constexpr highprecision GUESS_ZERO_INTERVAL_INTERATION_STEP = 0.1;      //< This is the step size when guessing zeros.
+static constexpr highprecision GUESS_ZERO_ERROR_MARGIN             = 1E-13;    //< This is the step size when guessing zeros.
+static constexpr highprecision GUESS_ZERO_MAX_ITERATIONS           = 1000;     //< The maximum number of iterations that shall be performed when approximating a zero.
 
 /* Constructors **************************************************************/
 
@@ -158,11 +159,11 @@ void Differentiate();
  */
 static Polynomial Differentiate(const Polynomial& p);
 
-double EvaluateAt(double x) const;       
-std::vector<double> Zeros() const;
-std::vector<double> Decompose() const;
-double GetArea(double lowerLimit, double upperLimit) const;
-double GetAreaNumerically(double lowerLimit, double upperLimit) const;
+highprecision EvaluateAt(highprecision x) const;       
+std::vector<highprecision> Zeros() const;
+std::vector<highprecision> Decompose() const;
+highprecision GetArea(highprecision lowerLimit, highprecision upperLimit) const;
+highprecision GetAreaNumerically(highprecision lowerLimit, highprecision upperLimit) const;
 
 /**
  * \brief Returns the number of monomials in the polynomial (without the rest!)
@@ -173,23 +174,23 @@ int Count() const;
 
 // Static Methods
 
-static double EvaluateAt(Polynomial function, double x);       
-static std::vector<double> FindZeros(Polynomial function);
-static std::vector<double> Decompose(Polynomial function);
-static double GetArea(Polynomial function, double lowerLimit, double upperLimit);
-static double GetAreaNumerically(Polynomial function, double lowerLimit, double upperLimit);
-static std::vector<double> FindZerosOfQuadraticTerms(Polynomial polynomialOfOrder2);
-static double FindZeroOfLinearTerm(Polynomial linearPolynomial);
+static highprecision EvaluateAt(Polynomial function, highprecision x);       
+static std::vector<highprecision> FindZeros(Polynomial function);
+static std::vector<highprecision> Decompose(Polynomial function);
+static highprecision GetArea(Polynomial function, highprecision lowerLimit, highprecision upperLimit);
+static highprecision GetAreaNumerically(Polynomial function, highprecision lowerLimit, highprecision upperLimit);
+static std::vector<highprecision> FindZerosOfQuadraticTerms(Polynomial polynomialOfOrder2);
+static highprecision FindZeroOfLinearTerm(Polynomial linearPolynomial);
 
 /**
  * \brief Approximates a zero from a starting point (supposedZero) by utilizing the Halleys Method (third order Newton method).
  * 
  * \param function The polynomial function which' zero shall be approximated.
  * \param supposedZero The starting point from where the method shall approximate the zero.
- * \return double The approximated zero.
+ * \return highprecision The approximated zero.
  * \remarks https://en.wikipedia.org/wiki/Halley%27s_method
  */
-static double ApproximateZeroByHalleysMethod(Polynomial function, double supposedZero);
+static highprecision ApproximateZeroByHalleysMethod(Polynomial function, highprecision supposedZero);
 
 // TODO: Somehow inline doesnt work. Why?
 /*inline*/ static int GetHighestOrderOfPolynomialTerms(const Polynomial& polynomial);
@@ -256,30 +257,30 @@ typedef struct PolynomialFraction
 // Operators for this class
 
 Polynomial operator +(const Polynomial& left, const Monomial& right);       // tested -------------------
-Polynomial operator +(const Polynomial& left, const double right);          // tested -------------------
+Polynomial operator +(const Polynomial& left, const highprecision right);          // tested -------------------
 Polynomial operator +(const Polynomial& left, const Polynomial& right);     // tested -------------------
 Polynomial operator +(const Monomial& left, const Polynomial& right);       // tested -------------------
-Polynomial operator +(const double left, const Polynomial& right);          // tested -------------------
+Polynomial operator +(const highprecision left, const Polynomial& right);          // tested -------------------
 
 Polynomial operator -(const Polynomial& left, const Monomial& right);       // tested -------------------
-Polynomial operator -(const Polynomial& left, const double right);          // tested -------------------
+Polynomial operator -(const Polynomial& left, const highprecision right);          // tested -------------------
 Polynomial operator -(const Polynomial& left, const Polynomial& right);     // tested -------------------
 Polynomial operator -(const Monomial& left, const Polynomial& right);       // tested ------------------- FAILED
-Polynomial operator -(const double left, const Polynomial& right);          // tested ------------------- FAILED
+Polynomial operator -(const highprecision left, const Polynomial& right);          // tested ------------------- FAILED
 
 Polynomial operator *(const Polynomial& left, const Monomial& right);       
-Polynomial operator *(const Polynomial& left, const double right);          
+Polynomial operator *(const Polynomial& left, const highprecision right);          
 Polynomial operator *(const Polynomial& left, const Polynomial& right);     
 Polynomial operator *(const Monomial& left, const Polynomial& right);       
-Polynomial operator *(const double left, const Polynomial& right);          
+Polynomial operator *(const highprecision left, const Polynomial& right);          
 
 
 // TODO: Implement these, test these
 Polynomial operator /(const Polynomial& numerator, const Monomial& denominator);
-Polynomial operator /(const Polynomial& numerator, const double denominator);
+Polynomial operator /(const Polynomial& numerator, const highprecision denominator);
 Polynomial operator /(const Polynomial& numerator, const Polynomial& denominator);
 // Polynomial operator /(const Monomial& nominator, const Polynomial& denominator);
-// Polynomial operator /(const double nominator, const Polynomial& denominator);
+// Polynomial operator /(const highprecision nominator, const Polynomial& denominator);
 
 } // namespace vath
 

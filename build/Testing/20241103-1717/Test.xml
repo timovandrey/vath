@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241103-1717-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.30.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="Timo-PC"
+	OSRelease=" Personal"
+	OSVersion=" (Build 22631)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="15106"
+	TotalPhysicalMemory="14210"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2295"
+	>
+	<Testing>
+		<StartDateTime>Nov 03 19:51 ?????????</StartDateTime>
+		<StartTestTime>1730659916</StartTestTime>
+		<TestList>
+			<Test>./tests/PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect</FullName>
+			<FullCommandLine>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" "--gtest_also_run_disabled_tests"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.190945</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Projekte\vath\build\tests\VathTests.exe "--gtest_filter=PolynomialTests.Method_Simplify_RationalFunctionIsProvidedAndSimplified_ResultsAreCorrect" "--gtest_also_run_disabled_tests"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJy1UcFqwkAQvecr5mgOCUgPBcGD2FZKqZWkPSUhbJNJ3HYzI7sTi3/fJFpRoeDFOT123uyb9yZqiTTV0ChNIx8qyw3MJ+nK8hd+C6ZbJeu0Zq4NCjo5hc4Wad2jvB8Oi8JbsuAEFgMF3rsOVNoIWpjCis2OuNHK9O8ufEVZc5nHutkYXe3ySIlmUuappaJHz65bYatLLGdUHlgayzxC1xpxM4tzthYL8ZLpsTKIDnbGIIN8b+eAXasFQy8JjpXBwvCnMvs+0lZbpgap46IE7eaCfPrnhR0vgehjCUNlt/S6l4C3l1vKwGh8dw+N86/2/zcBwqKM712XsqCyQck/dH7D/24HVlF4qdQlsprF8eNDH/yeHXq/TEL6SA==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Nov 03 19:51 ?????????</EndDateTime>
+		<EndTestTime>1730659916</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

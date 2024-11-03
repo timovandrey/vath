@@ -17,8 +17,9 @@ namespace Vath
 class Polynomial;
 class Monomial;
 
+using highprecision = long double;
 using Terms = std::deque<Monomial>;
-using CoefficientList = std::deque<double>;
+using CoefficientList = std::deque<highprecision>;
 
 /**
  * \brief This represents a term or rather a coefficient-exponent-pair. It thus represents something like 3x^4, where 3 is the coefficient and 4 is the exponent.
@@ -33,8 +34,8 @@ public:
 /* ... */
 
 /* Public Member variables ***************************************************/
-double  Coefficient;    //< The coefficient of the monomial.
-int     Exponent;       //< The exponent of the monomial.
+highprecision   Coefficient;    //< The coefficient of the monomial.
+int             Exponent;       //< The exponent of the monomial.
 
 /* Constructors **************************************************************/
 
@@ -51,7 +52,7 @@ Monomial();
  * \param exponent This is the exponent of the monomial. This is the y in A*x^y.
  * \remarks In this version, the "x" of the monomial is assumed as given, so there is no possibility to change the "x variable".
  */
-Monomial(double coefficient, int exponent);
+Monomial(highprecision coefficient, int exponent);
 
 /**
  * \brief Construct a new Monomial object from another. This is the copy constructor.
@@ -113,25 +114,25 @@ bool IsEqual(const Monomial& other) const;
 private:
 
 /* Private Constants *********************************************************/
-static constexpr double COMPARISON_PRECISION = 1e-15;
+static constexpr highprecision COMPARISON_PRECISION = 1e-15;
 
 };
 
-Monomial operator *(const Monomial& left, const double right);
+Monomial operator *(const Monomial& left, const highprecision right);
 Monomial operator *(const Monomial& left, const Monomial& right);
-Monomial operator *(const double left, const Monomial& right);
+Monomial operator *(const highprecision left, const Monomial& right);
 
-Monomial operator /(const Monomial& left, const double right);
+Monomial operator /(const Monomial& left, const highprecision right);
 Monomial operator /(const Monomial& left, const Monomial& right);
-Monomial operator /(const double left, const Monomial& right);
+Monomial operator /(const highprecision left, const Monomial& right);
 
-// Monomial operator +(const Monomial& left, const double right);
+// Monomial operator +(const Monomial& left, const highprecision right);
 Polynomial operator +(const Monomial& left, const Monomial& right);
-// Monomial operator +(const double left, const Monomial& right);
+// Monomial operator +(const highprecision left, const Monomial& right);
 
-// Monomial operator -(const Monomial& left, const double right);
+// Monomial operator -(const Monomial& left, const highprecision right);
 Polynomial operator -(const Monomial& left, const Monomial& right);
-// Monomial operator -(const double left, const Monomial& right);
+// Monomial operator -(const highprecision left, const Monomial& right);
 
 
 
