@@ -1,0 +1,146 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projekte\\Vath\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|C:\\Projekte\\Vath\\Vath\\sources\\polynomial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|solutionrelative:Vath\\sources\\polynomial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|C:\\Projekte\\Vath\\Vath\\headers\\polynomial.hpp||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|solutionrelative:Vath\\headers\\polynomial.hpp||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD022B43-07D5-316B-F054-8CB4757695BA}|VathTests\\VathTests.vcxproj|C:\\Projekte\\Vath\\VathTests\\MonomialTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BD022B43-07D5-316B-F054-8CB4757695BA}|VathTests\\VathTests.vcxproj|solutionrelative:VathTests\\MonomialTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|C:\\Projekte\\Vath\\Vath\\sources\\monomial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|solutionrelative:Vath\\sources\\monomial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD022B43-07D5-316B-F054-8CB4757695BA}|VathTests\\VathTests.vcxproj|C:\\Projekte\\Vath\\VathTests\\PolynomialTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BD022B43-07D5-316B-F054-8CB4757695BA}|VathTests\\VathTests.vcxproj|solutionrelative:VathTests\\PolynomialTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|C:\\Projekte\\Vath\\Vath\\Vath.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|solutionrelative:Vath\\Vath.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|C:\\Projekte\\Vath\\Vath\\headers\\monomial.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DD8F1BBE-3FBE-496A-A4B0-B9DF77C53CEC}|Vath\\Vath.vcxproj|solutionrelative:Vath\\headers\\monomial.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "monomial.hpp",
+              "DocumentMoniker": "C:\\Projekte\\Vath\\Vath\\headers\\monomial.hpp",
+              "RelativeDocumentMoniker": "Vath\\headers\\monomial.hpp",
+              "ToolTip": "C:\\Projekte\\Vath\\Vath\\headers\\monomial.hpp",
+              "RelativeToolTip": "Vath\\headers\\monomial.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-29T22:41:14.567Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "polynomial.hpp",
+              "DocumentMoniker": "C:\\Projekte\\Vath\\Vath\\headers\\polynomial.hpp",
+              "RelativeDocumentMoniker": "Vath\\headers\\polynomial.hpp",
+              "ToolTip": "C:\\Projekte\\Vath\\Vath\\headers\\polynomial.hpp",
+              "RelativeToolTip": "Vath\\headers\\polynomial.hpp",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAwwKoAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-29T22:54:22.275Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "monomial.cpp",
+              "DocumentMoniker": "C:\\Projekte\\Vath\\Vath\\sources\\monomial.cpp",
+              "RelativeDocumentMoniker": "Vath\\sources\\monomial.cpp",
+              "ToolTip": "C:\\Projekte\\Vath\\Vath\\sources\\monomial.cpp",
+              "RelativeToolTip": "Vath\\sources\\monomial.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-29T23:21:54.8Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "polynomial.cpp",
+              "DocumentMoniker": "C:\\Projekte\\Vath\\Vath\\sources\\polynomial.cpp",
+              "RelativeDocumentMoniker": "Vath\\sources\\polynomial.cpp",
+              "ToolTip": "C:\\Projekte\\Vath\\Vath\\sources\\polynomial.cpp",
+              "RelativeToolTip": "Vath\\sources\\polynomial.cpp",
+              "ViewState": "AgIAACMCAAAAAAAAAAAwwDwCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-29T22:24:03.731Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MonomialTests.cpp",
+              "DocumentMoniker": "C:\\Projekte\\Vath\\VathTests\\MonomialTests.cpp",
+              "RelativeDocumentMoniker": "VathTests\\MonomialTests.cpp",
+              "ToolTip": "C:\\Projekte\\Vath\\VathTests\\MonomialTests.cpp",
+              "RelativeToolTip": "VathTests\\MonomialTests.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-29T22:23:00.78Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PolynomialTests.cpp",
+              "DocumentMoniker": "C:\\Projekte\\Vath\\VathTests\\PolynomialTests.cpp",
+              "RelativeDocumentMoniker": "VathTests\\PolynomialTests.cpp",
+              "ToolTip": "C:\\Projekte\\Vath\\VathTests\\PolynomialTests.cpp",
+              "RelativeToolTip": "VathTests\\PolynomialTests.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-29T22:32:39.911Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Vath.cpp",
+              "DocumentMoniker": "C:\\Projekte\\Vath\\Vath\\Vath.cpp",
+              "RelativeDocumentMoniker": "Vath\\Vath.cpp",
+              "ToolTip": "C:\\Projekte\\Vath\\Vath\\Vath.cpp",
+              "RelativeToolTip": "Vath\\Vath.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-29T23:24:26.61Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+﻿  monomial.cpp
+  polynomial.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(166,65): warning C4244: "=": Konvertierung von "Vath::highprecision" in "_Ty", möglicher Datenverlust
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(166,65): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(166,65): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(166,65): warning C4244:             _Ty=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(166,65): warning C4244:         ]
+  (Quelldatei „sources/polynomial.cpp“ wird kompiliert)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(166,65):
+      der Vorlageninstanziierungskontext (der älteste zuerst) ist
+          C:\Projekte\Vath\Vath\sources\polynomial.cpp(613,31):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "std::optional<float> &std::optional<float>::operator =<Vath::highprecision&,0>(_Ty2) noexcept" der Funktions-Vorlage.
+          with
+          [
+              _Ty2=Vath::highprecision &
+          ]
+              C:\Projekte\Vath\Vath\sources\polynomial.cpp(613,31):
+              Ersten Verweis auf "std::optional<float>::operator =" in "Vath::Polynomial::Simplify" anzeigen
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(312,15):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "void std::_Optional_construct_base<_Ty>::_Assign<Vath::highprecision&>(_Ty2) noexcept" der Funktions-Vorlage.
+          with
+          [
+              _Ty=float,
+              _Ty2=Vath::highprecision &
+          ]
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(462,64): warning C4244: "Initialisierung": Konvertierung von "Vath::highprecision" in "_Ty", möglicher Datenverlust
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(462,64): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(462,64): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(462,64): warning C4244:             _Ty=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(462,64): warning C4244:         ]
+  (Quelldatei „sources/polynomial.cpp“ wird kompiliert)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(462,64):
+      der Vorlageninstanziierungskontext (der älteste zuerst) ist
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(312,15):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "void std::_Optional_construct_base<_Ty>::_Assign<Vath::highprecision&>(_Ty2) noexcept" der Funktions-Vorlage.
+          with
+          [
+              _Ty=float,
+              _Ty2=Vath::highprecision &
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(168,13):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "_Ty &std::_Optional_construct_base<_Ty>::_Construct<Vath::highprecision&>(Vath::highprecision &) noexcept" der Funktions-Vorlage.
+          with
+          [
+              _Ty=float
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(156,14):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "void std::_Construct_in_place<float,Vath::highprecision&>(_Ty &,Vath::highprecision &) noexcept" der Funktions-Vorlage.
+          with
+          [
+              _Ty=float
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(472,14):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "_Ty *std::construct_at<_Ty,Vath::highprecision&>(_Ty *const ,Vath::highprecision &) noexcept(<expr>)" der Funktions-Vorlage.
+          with
+          [
+              _Ty=float
+          ]
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(476,61): warning C4244: "Initialisierung": Konvertierung von "Vath::highprecision" in "float", möglicher Datenverlust
+  (Quelldatei „sources/polynomial.cpp“ wird kompiliert)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(463,69): warning C4244: "Initialisierung": Konvertierung von "Vath::highprecision" in "_Ty", möglicher Datenverlust
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(463,69): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(463,69): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(463,69): warning C4244:             _Ty=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(463,69): warning C4244:         ]
+  (Quelldatei „sources/polynomial.cpp“ wird kompiliert)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(463,69):
+      der Vorlageninstanziierungskontext (der älteste zuerst) ist
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(156,14):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "void std::_Construct_in_place<float,Vath::highprecision&>(_Ty &,Vath::highprecision &) noexcept" der Funktions-Vorlage.
+          with
+          [
+              _Ty=float
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(472,14):
+          Siehe Verweis auf die gerade kompilierte Instanziierung "_Ty *std::construct_at<_Ty,Vath::highprecision&>(_Ty *const ,Vath::highprecision &) noexcept" der Funktions-Vorlage.
+          with
+          [
+              _Ty=float
+          ]
+  
+  Vath.cpp
+  Code wird generiert...
+  Vath.vcxproj -> C:\Projekte\Vath\x64\Debug\Vath.lib
